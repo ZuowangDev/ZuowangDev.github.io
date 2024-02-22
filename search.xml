@@ -1,105 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Lisp(1)</title>
-    <url>/2024/02/20/Lisp_1/</url>
-    <content><![CDATA[<h1>chapter 1</h1>
-<blockquote>
-<p>第二种语言<br>
-AI的应用<br>
-common Lisp</p>
-</blockquote>
-<h1>chapter 2</h1>
-<ol>
-<li>选择一个编译器。</li>
-</ol>
-<pre><code class="language-macos">brew install clisp
-</code></pre>
-<blockquote>
-<p>交互式的编程方式<br>
-REPL(top-level)<br>
-<strong>format：打印标准输出</strong></p>
-</blockquote>
-<pre><code class="language-Lisp">(format t &quot;hello,world&quot;)  
-</code></pre>
-<p>第一个参数t表示将第二个字符串参数以标准输出形式输出<br>
-代码会输出一个逻辑空值，即NIL，实际上打印输出是函数的副作用，真正的作用是产生逻辑空值。<br>
-<strong>也可以用以下方法定义一个函数</strong><br>
-（defun hello()(format t “hello”)）<br>
-lisp随后会返回函数名</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>VimTotal</title>
-    <url>/2024/02/20/VimTotal/</url>
-    <content><![CDATA[<h1>Vim:the Best Editer</h1>
-<blockquote>
-<p>可以用来编辑任何文本文件，未保存的文件会保留在缓存区。<br>
-现代计算机中，vi命令链接着vim。<br>
-<strong>文件名最好由字母和_组成</strong><br>
-~表示没有行，甚至没有建立空行。<br>
-三个模式：</p>
-</blockquote>
-<ol>
-<li>命令模式。</li>
-<li>插入模式。</li>
-<li>ex 命令模式。（不常用）</li>
-</ol>
-<p><strong>退出保存方式</strong></p>
-<blockquote>
-<p>:wq<br>
-ZZ</p>
-</blockquote>
-<p><strong>擦除本次打开文件的所有编写</strong></p>
-<blockquote>
-<p>:e!</p>
-</blockquote>
-<p><strong>擦除所有编写并退出</strong></p>
-<blockquote>
-<p>:q!</p>
-</blockquote>
-<p><strong>!表示强制执行</strong></p>
-<p><strong>:w表示将改变后的存入新文件，:w!表示覆盖原文件</strong><br>
-<strong>:w后加上新文件的地址</strong></p>
-<p><strong>缓冲区已满，使用ex命令:pre(:preserve的简写)，用其他软件删除</strong></p>
-<h2 id="以下是Vim基本操作。">以下是Vim基本操作。</h2>
-<p>· 移动光标。<br>
-· 简单编辑操作。<br>
-· 加入新行。<br>
-· 更多进入插入模式的方式。<br>
-· 模式转换。</p>
-<p>进入文档时，默认进入命令模式，按i进入文档模式，ESC即进入命令模式。</p>
-<h3 id="光标移动命令：">光标移动命令：</h3>
-<p><strong>h 左一空格</strong><br>
-<strong>j 下一行</strong><br>
-<strong>k 上一行</strong><br>
-<strong>l 又一空格</strong><br>
-(+/ctrl+P:上一行；-/ctrl+N:下一行)<br>
-在不同的电脑上，箭头发送的信息不同，因此选择字母。<br>
-行数与回车数相关，即使某一行在屏幕上占据了很多行。<br>
-<strong>w:后退一小格，W:后退一大格（以空格为分界）</strong><br>
-<strong>b:向前一小格，B:向前一大格（以空格为分界）</strong><br>
-<strong>数字+G:移动到第“数字”行，G:移动到文末</strong><br>
-<strong>a:add;c:change;d:delete a character;</strong>.<br>
-<strong>x:delete;r:replace;y:yank;p:put</strong><br>
-<strong>cw:删除至本单词结尾；c2b:删除前面两个单词；c$:删除至逻辑行末；c0:删除至逻辑行首。</strong></p>
-<blockquote>
-<p><strong>General Form</strong><br>
-such as c2b,(command)(number)(text object).</p>
-</blockquote>
-<p><strong>cc:replace all of th line</strong><br>
-键入发生在c命令影响不至整行时，空白行发生在影响至少一行时。<br>
-<em>例如，在使用cw之后，会进入a状态，因为在曾经的vi中，需要使用插入命令才能刷新出c命令</em>。<br>
-C = c$<br>
-<strong>替换命令：r+character</strong><br>
-<strong>单个字符版的c命令：s命令：对字符进行操作，之后进入插入模式</strong>。<br>
-<strong>R:进入持续替换模式，直到输入ESC</strong>。</p>
-]]></content>
-      <categories>
-        <category>Vim</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Cadence Skill Language(1)</title>
     <url>/2024/02/20/Cadence_Skill_%20Language_1/</url>
     <content><![CDATA[<h1>Preface &amp; Getting Started</h1>
@@ -172,6 +73,152 @@ C = c$<br>
 ]]></content>
       <categories>
         <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Lisp(1)</title>
+    <url>/2024/02/20/Lisp_1/</url>
+    <content><![CDATA[<h1>chapter 1</h1>
+<blockquote>
+<p>第二种语言<br>
+AI的应用<br>
+common Lisp</p>
+</blockquote>
+<h1>chapter 2</h1>
+<ol>
+<li>选择一个编译器。</li>
+</ol>
+<pre><code class="language-macos">brew install clisp
+</code></pre>
+<blockquote>
+<p>交互式的编程方式<br>
+REPL(top-level)<br>
+<strong>format：打印标准输出</strong></p>
+</blockquote>
+<pre><code class="language-Lisp">(format t &quot;hello,world&quot;)  
+</code></pre>
+<p>第一个参数t表示将第二个字符串参数以标准输出形式输出<br>
+代码会输出一个逻辑空值，即NIL，实际上打印输出是函数的副作用，真正的作用是产生逻辑空值。<br>
+<strong>也可以用以下方法定义一个函数</strong><br>
+（defun hello()(format t “hello”)）<br>
+lisp随后会返回函数名</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>VimTotal</title>
+    <url>/2024/02/22/VimTotal/</url>
+    <content><![CDATA[<h1>Vim:the Best Editer</h1>
+<blockquote>
+<p>可以用来编辑任何文本文件，未保存的文件会保留在缓存区。<br>
+现代计算机中，vi命令链接着vim。<br>
+<strong>文件名最好由字母和_组成</strong><br>
+~表示没有行，甚至没有建立空行。<br>
+三个模式：</p>
+</blockquote>
+<ol>
+<li>命令模式。</li>
+<li>插入模式。</li>
+<li>ex 命令模式。（不常用）</li>
+</ol>
+<p><strong>退出保存方式</strong></p>
+<blockquote>
+<p>:wq<br>
+ZZ</p>
+</blockquote>
+<p><strong>擦除本次打开文件的所有编写</strong></p>
+<blockquote>
+<p>:e!</p>
+</blockquote>
+<p><strong>擦除所有编写并退出</strong></p>
+<blockquote>
+<p>:q!</p>
+</blockquote>
+<p><strong>!表示强制执行</strong></p>
+<p><strong>:w表示将改变后的存入新文件，:w!表示覆盖原文件</strong><br>
+<strong>:w后加上新文件的地址</strong></p>
+<p><strong>缓冲区已满，使用ex命令:pre(:preserve的简写)，用其他软件删除</strong></p>
+<h2 id="以下是Vim基本操作。">以下是Vim基本操作。</h2>
+<p>· 移动光标。<br>
+· 简单编辑操作。<br>
+· 加入新行。<br>
+· 更多进入插入模式的方式。<br>
+· 模式转换。</p>
+<p>进入文档时，默认进入命令模式，按i进入文档模式，ESC即进入命令模式。</p>
+<h3 id="光标移动命令：">光标移动命令：</h3>
+<p><strong>h 左一空格</strong><br>
+<strong>j 下一行</strong><br>
+<strong>k 上一行</strong><br>
+<strong>l 又一空格</strong><br>
+e/E:光标移动到单词结尾。<br>
+(+/ctrl+P:上一行；-/ctrl+N:下一行)<br>
+在不同的电脑上，箭头发送的信息不同，因此选择字母。<br>
+行数与回车数相关，即使某一行在屏幕上占据了很多行。<br>
+<strong>w:后退一小格，W:后退一大格（以空格为分界）</strong><br>
+<strong>b:向前一小格，B:向前一大格（以空格为分界）</strong><br>
+<strong>数字+G:移动到第“数字”行，G:移动到文末</strong><br>
+<strong>a:add,c:change;d:delete a character;x:delete;r:replace;y:yank;p:put</strong><br>
+<strong>cw:删除至本单词结尾；c2b:删除前面两个单词；c$:删除至逻辑行末；c0:删除至逻辑行首。</strong></p>
+<blockquote>
+<p><strong>General Form</strong><br>
+such as c2b,(command)(number)(text object)<br>
+<strong>cc:replace all of th line</strong><br>
+键入发生在c命令影响不至整行时，空白行发生在影响至少一行时。<br>
+<em>例如，在使用cw之后，会进入a状态，因为在曾经的vi中，需要使用插入命令才能刷新出c命令</em>。<br>
+C = c$<br>
+<strong>替换命令：r+character</strong><br>
+<strong>单个字符版的c命令：s命令：对字符进行操作，之后进入插入模式</strong>。<br>
+<strong>R:进入持续替换模式，直到输入ESC</strong>。<br>
+<strong>~进行大小写字母之间的转换</strong><br>
+<strong>dw:删除至下一个单词前的空格（包括）</strong><br>
+<strong>w/W:包不包括标点</strong><br>
+<strong>dd:删除正行，不进入插入模式</strong><br>
+<strong>D:删除至行末，不进入插入模式</strong><br>
+<strong>u:撤回上一条命令</strong><br>
+但是，您仍然可以使用p命令恢复最近的删除，因为vi将最后九个删除保存在九个编号的删除寄存器中。例如，如果您知道第三次删除是您想要恢复的，请键入：33p<br>
+可以通过删除某行之后再粘贴到另一个位置完成文本的移动。<br>
+您可以使用xp（删除字符并放在光标后面）来转置两个字母。例如，在单词mvoe中，字母vo被转置（反转）。要纠正换位，请将光标放在v上，然后按x，然后按p。巧合的是，transpose这个词可以帮助你记住序列xp；x代表trans，p代表pose<br>
+<strong>yy复制本行</strong><br>
+<strong>.:周期命令，重复上一个命令</strong></p>
+</blockquote>
+<p>更多插入文本方式：<br>
+A：在行末附加；I：在行头插入；o：在光标所在下一行打开新行；<br>
+O：在光标所在位置上一行打开新行；s：删除光标所在位置的字符后再替换文本；<br>
+S：删除一整行后再替换文本；R：用新的字符覆盖原有字符。<br>
+输入50i<em>ESC会插入50个星号，输入25a</em>-ESC则会插入50个字符(25对星号与连字符的组合)<br>
+合并两行：J+.<br>
+命令复习：在chapter2的章末。</p>
+<h2 id="chapter-3-快速移动位置">chapter 3 快速移动位置</h2>
+<ul>
+<li>根据屏幕来移动。</li>
+<li>根据文本块移动。</li>
+<li>根据搜索模式的结果来移动。</li>
+<li>根据行号来移动。</li>
+</ul>
+<h3 id="根据屏幕移动">根据屏幕移动</h3>
+<p>：向下滚动一整屏幕；：向上滚动一屏幕；<br>
+^D：向下滚动半屏；^U：向上滚动半屏。<br>
+z enter：光标移动到屏幕顶端并滚动屏幕；<br>
+z.：光标移动到屏幕中间，滚屏；<br>
+z-：光标移动到屏幕底端，滚屏。<br>
+滚屏会重画屏幕；ctrl + L会只重画不滚动。<br>
+H：移动到屏幕顶端的行；<br>
+M：移动到屏幕中间的行；<br>
+L：移动到屏幕底端的行；<br>
+nH/nL：移动到顶端往下/底端往上的第n行。</p>
+<h4 id="行内移动。">行内移动。</h4>
+<ul>
+<li>^ 移动到当前行第一个非空格处。</li>
+<li>n| 移动到当前行的第n列。</li>
+</ul>
+<h3 id="根据文本块移动。">根据文本块移动。</h3>
+<p>||开头|结尾|<br>
+|单词|e|E|<br>
+|句子|(|)|<br>
+|段落|{|}|<br>
+|节|[[|]]|</p>
+]]></content>
+      <categories>
+        <category>Vim</category>
       </categories>
   </entry>
 </search>

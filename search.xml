@@ -110,7 +110,7 @@ lisp随后会返回函数名</p>
     <content><![CDATA[<h1>Vim:the Best Editer</h1>
 <blockquote>
 <p>可以用来编辑任何文本文件，未保存的文件会保留在缓存区。<br>
-现代计算机中，vi命令链接着vim。<br>
+现代计算机中，vi命令链接着?im。<br>
 <strong>文件名最好由字母和_组成</strong><br>
 ~表示没有行，甚至没有建立空行。<br>
 三个模式：</p>
@@ -156,7 +156,7 @@ e/E:光标移动到单词结尾。<br>
 <strong>w:后退一小格，W:后退一大格（以空格为分界）</strong><br>
 <strong>b:向前一小格，B:向前一大格（以空格为分界）</strong><br>
 <strong>数字+G:移动到第“数字”行，G:移动到文末</strong><br>
-<strong>a:add,c:change;d:delete a character;x:delete;r:replace;y:yank;p:put</strong><br>
+<strong>a:add,c:change;d:delete a character;x:delete;r:replace;y:yank;p:put;o:open a new line</strong><br>
 <strong>cw:删除至本单词结尾；c2b:删除前面两个单词；c$:删除至逻辑行末；c0:删除至逻辑行首。</strong></p>
 <blockquote>
 <p><strong>General Form</strong><br>
@@ -211,11 +211,90 @@ nH/nL：移动到顶端往下/底端往上的第n行。</p>
 <li>n| 移动到当前行的第n列。</li>
 </ul>
 <h3 id="根据文本块移动。">根据文本块移动。</h3>
-<p>||开头|结尾|<br>
-|单词|e|E|<br>
-|句子|(|)|<br>
-|段落|{|}|<br>
-|节|[[|]]|</p>
+<table>
+<thead>
+<tr>
+<th>\</th>
+<th>开头</th>
+<th>结尾</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单词</td>
+<td>e</td>
+<td>E</td>
+</tr>
+<tr>
+<td>句子</td>
+<td>(</td>
+<td>)</td>
+</tr>
+<tr>
+<td>段落</td>
+<td>{</td>
+<td>}</td>
+</tr>
+<tr>
+<td>节</td>
+<td>[[</td>
+<td>]]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vim搜索模式。">vim搜索模式。</h3>
+<p><strong>搜索命令：/</strong><br>
+<strong>往回搜索：?</strong><br>
+继续搜素操作：n：同向；N：反向。</p>
+<p>vim同样支持行内搜索：</p>
+<table>
+<thead>
+<tr>
+<th>\</th>
+<th>向前</th>
+<th>向后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>本处</td>
+<td>fx</td>
+<td>Fx</td>
+</tr>
+<tr>
+<td>相差一个c</td>
+<td>tx</td>
+<td>Tx</td>
+</tr>
+</tbody>
+</table>
+<p>重复上一个搜索命令：<br>
+;：同向。  ,： 反向。</p>
+<h3 id="根据行号来移动。">根据行号来移动。</h3>
+<p>xG：光标转至x行第一位置。</p>
+<p><em>输人两个反引号(``)会回到原来的位置(即上一次使用G命令时所在的位置)，除非</em><br>
+你在中间做了编辑操作。如果你做了编辑操作，然后用G以外的命令移动了光标，*<br>
+<em>则: 会将光标移回到你上一次做编辑操作时的地方。如果你使用了搜索命令(/或?)，则</em><br>
+<em>会带你回到上一次使用搜索命令的地方。一对引号(‘’)与两个反引号的功用一样，不 同之处在于，它把光标移到前次位置所在行的开头，而不是确实的位置上。</em></p>
+<h2 id="命令扩展。">命令扩展。</h2>
+<h3 id="更多命令组合。">更多命令组合。</h3>
+<p>P53,表格。<br>
+命令格式：(command)(number)(text object)<br>
+<strong>打开文件后直接跳转到某个单词的位置：vim +/“” text-name</strong><br>
+<strong>只读模式：vim -R file</strong><br>
+<strong>恢复缓冲区：vim -r file</strong><br>
+<strong>最近删除的会进入缓冲区1号，共有9个缓冲区</strong></p>
+<p><strong>26个文本复制缓冲区</strong><br>
+&quot;dyy：将当前行复制到d缓冲区中。<br>
+&quot;a7yy：将后续7行复制到缓冲区a中。<br>
+&quot;zy)：将光标处到句子末的文本删除并放入z缓冲区中。</p>
+<h3 id="标签设置。">标签设置。</h3>
+<p><em>针对vim文本的编辑，可以将某处设为标签,在别处编辑后，可以通过命令回到标签处</em><br>
+<strong>mx：将当前位置标记为x</strong><br>
+<strong>返回书签处：'x：移动到书签所在行的第一个字符；`x：将光标移动到以x为标记的字符；‘’：回到上一个标记所在行的第一个字符；``：回到上一个标记的确切位置</strong></p>
+<p><strong>vim + file：在最后一行打开文件</strong><br>
+<strong>vim -c command file：打开后执行命令，通常是行号或者是搜索命令</strong><br>
+<em>详细见P60</em></p>
 ]]></content>
       <categories>
         <category>Vim</category>

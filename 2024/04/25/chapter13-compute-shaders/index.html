@@ -1,0 +1,207 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>chapter12-tessellation | ZuowangDev's Blog</title><meta name="author" content="ZuowangDev"><meta name="copyright" content="ZuowangDev"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Compute ShadersWelcome back to what’s going to be the last “official” part of this series – I’ll do more GPU-related posts in the future, but this series is long enough already. We’ve been touring all">
+<meta property="og:type" content="article">
+<meta property="og:title" content="chapter12-tessellation">
+<meta property="og:url" content="https://zuowangdev.github.io/2024/04/25/chapter13-compute-shaders/index.html">
+<meta property="og:site_name" content="ZuowangDev&#39;s Blog">
+<meta property="og:description" content="Compute ShadersWelcome back to what’s going to be the last “official” part of this series – I’ll do more GPU-related posts in the future, but this series is long enough already. We’ve been touring all">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zuowangdev.github.io/img/cover3.jpg">
+<meta property="article:published_time" content="2024-04-25T08:25:28.000Z">
+<meta property="article:modified_time" content="2024-04-25T12:12:14.686Z">
+<meta property="article:author" content="ZuowangDev">
+<meta property="article:tag" content="GPU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zuowangdev.github.io/img/cover3.jpg"><link rel="shortcut icon" href="/"><link rel="canonical" href="https://zuowangdev.github.io/2024/04/25/chapter13-compute-shaders/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":20},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'chapter12-tessellation',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-04-25 20:12:14'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/./img/cover3.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="ZuowangDev's Blog"><span class="site-name">ZuowangDev's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">chapter12-tessellation</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-25T08:25:28.000Z" title="发表于 2024-04-25 16:25:28">2024-04-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-25T12:12:14.686Z" title="更新于 2024-04-25 20:12:14">2024-04-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/EE/">EE</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Compute-Shaders"><a href="#Compute-Shaders" class="headerlink" title="Compute Shaders"></a>Compute Shaders</h1><p>Welcome back to what’s going to be the last “official” part of this series – I’ll do more GPU-related posts in the future, but this series is long enough already. We’ve been touring all the regular parts of the graphics pipeline, down to different levels of detail. Which leaves one major new feature introduced in DX11 out: Compute Shaders. So that’s gonna be my topic this time around.</p>
+<h2 id="Execution-Environment"><a href="#Execution-Environment" class="headerlink" title="Execution Environment"></a>Execution Environment</h2><p>For this series, the emphasis has been on overall dataflow at the architectural level, not shader execution (which is explained well elsewhere). For the stages so far, that meant focusing on the input piped into and output produced by each stage; the way the internals work was usually dictated by the shape of the data. Compute shaders are different – they’re running by themselves, not as part of the graphics pipeline, so the surface area of their interface is much smaller.</p>
+<p>In fact, on the input side, there’s not really any buffers for input data at all. The only input Compute Shaders get, aside from API state such as the bound Constant Buffers and resources, is their thread index. There’s a tremendous potential for confusion here, so here’s the most important thing to keep in mind: a “thread” is the atomic unit of dispatch in the CS environment, and it’s a substantially different beast from the threads provided by the OS that you probably associate with the term. CS threads have their own identity and registers, but they don’t have their own Program Counter (Instruction Pointer) or stack, nor are they scheduled individually.</p>
+<p>In fact, “threads” in CS take the place that individual vertices had during <a target="_blank" rel="noopener" href="https://fgiesen.wordpress.com/2011/07/03/a-trip-through-the-graphics-pipeline-2011-part-3/">Vertex Shading</a>, or individual pixels during <a target="_blank" rel="noopener" href="https://fgiesen.wordpress.com/2011/07/10/a-trip-through-the-graphics-pipeline-2011-part-8/">Pixel Shading</a>. And they get treated the same way: assemble a bunch of them (usually, somewhere between 16 and 64) into a “Warp” or “Wavefront” and let them run the same code in lockstep. CS threads don’t get scheduled – Warps and Wavefronts do (I’ll stick with “Warp” for the rest of this article; mentally substitute “Wavefront” for AMD). To hide latency, we don’t switch to a different “thread” (in CS parlance), but to a different Warp, i.e. a different bundle of threads. Single threads inside a Warp can’t take branches individually; if at least one thread in such a bundle wants to execute a certain piece of code, it gets processed by all the threads in the bundle – even if most threads then end up throwing the results away. In short, CS “threads” are more like SIMD lanes than like the threads you see elsewhere in programming; keep that in mind.</p>
+<p>That explains the “thread” and “warp” levels. Above that is the “thread group” level, which deals with – who would’ve thought? – groups of threads. The size of a thread group is specified during shader compilation. In DX11, a thread group can contain anywhere between 1 and 1024 threads, and the thread group size is specified not as a single number but as a 3-tuple giving thread <code>x</code>, <code>y</code>, and <code>z</code> coordinates. This numbering scheme is mostly for the convenience of shader code that addresses 2D or 3D resources, though it also allows for traversal optimizations. At the macro level, CS execution is dispatched in multiples of thread groups; thread group IDs in D3D11 again use 3D group IDs, same as thread IDs, and for pretty much the same reasons.</p>
+<p>Thread IDs – which can be passed in in various forms, depending on what the shader prefers – are the only input to Compute Shaders that’s not the same for all threads; quite different from the other shader types we’ve seen before. This is just the tip of the iceberg, though.</p>
+<h2 id="Thread-Groups"><a href="#Thread-Groups" class="headerlink" title="Thread Groups"></a>Thread Groups</h2><p>The above description makes it sound like thread groups are a fairly arbitrary middle level in this hierarchy. However, there’s one important bit missing that makes thread groups very special indeed: Thread Group Shared Memory (TGSM). On DX11 level hardware, compute shaders have access to 32k of TGSM, which is basically a scratchpad for communication between threads in the same group. This is the primary (and fastest) way by which different CS threads can communicate.</p>
+<p>So how is this implemented in hardware? It’s quite simple: all threads (well, Warps really) within a thread group get executed by the same shader unit. The shader unit then simply has at least 32k (usually a bit more) of local memory. And because all grouped threads share the same shader unit (and hence the same set of ALUs etc.), there’s no need to include complicated arbitration or synchronization mechanisms for shared memory access: only one Warp can access memory in any given cycle, because only one Warp gets to issue instructions in any cycle! Now, of course this process will usually be pipelined, but that doesn’t change the basic invariant: per shader unit, we have exactly one piece of TGSM; accessing TGSM might require multiple pipeline stages, but actual reads from (or writes to) TGSM will only happen inside one pipeline stage, and the memory accesses during that cycle all come from within the same Warp.</p>
+<p>However, this is not yet enough for actual shared-memory communication. The problem is simple: The above invariant guarantees that there’s only one set of accesses to TGSM per cycle even when we don’t add any interlocks to prevent concurrent access. This is nice since it makes the hardware simpler and faster. It does not guarantee that memory accesses happen in any particular order from the perspective of the shader program, however, since Warps can be scheduled more or less randomly; it all depends on who is runnable (not waiting for memory access &#x2F; texture read completion) at certain points in time. Somewhat more subtle, precisely because the whole process is pipelined, it might take some cycles for writes to TGSM to become “visible” to reads; this happens when the actual read and write operations to TGSM occur in different pipeline stages (or different phases of the same stage). So we still need some kind of synchronization mechanism. Enter barriers. There’s different types of barriers, but they’re composed of just three fundamental components:</p>
+<ol>
+<li><em>Group Synchronization</em>. A Group Synchronization Barrier forces all threads inside the current group to reach the barrier before any of them may consume past it. Once a Warp reaches such a barrier, it will be flagged as non-runnable, same as if it was waiting for a memory or texture access to complete. Once the last Warp reaches the barrier, the remaining Warps will be reactivated. This all happens at the Warp scheduling level; it adds additional scheduling constraints, which may cause stalls, but there’s no need for atomic memory transactions or anything like that; other than lost utilization at the micro level, this is a reasonably cheap operation.</li>
+<li><em>Group Memory Barriers</em>. Since all threads within a group run on the same shader unit, this basically amounts to a pipeline flush, to ensure that all pending shared memory operations are completed. There’s no need to synchronize with resources external to the current shader unit, which means it’s again reasonably cheap.</li>
+<li><em>Device Memory Barriers</em>. This blocks all threads within a group until all memory accesses have completed – either direct or indirect (e.g. via texture samples). As explained earlier in this series, memory accesses and texture samples on GPUs have long latencies – think more than 600, and often above 1000 cycles – so this kind of barrier will really hurt.</li>
+</ol>
+<p>DX11 offers different types of barriers that combine several of the above components into one atomic unit; the semantics should be obvious.</p>
+<h2 id="Unordered-Access-Views"><a href="#Unordered-Access-Views" class="headerlink" title="Unordered Access Views"></a>Unordered Access Views</h2><p>We’ve now dealt with CS input and learned a bit about CS execution. But where do we put our output data? The answer has the unwieldy name “unordered access views”, or UAVs for short. An UAV seems somewhat similar to render targets in Pixel Shaders (and UAVs can in fact be used in addition to render targets in Pixel Shaders), but there’s some very important semantic differences:</p>
+<ul>
+<li>Most importantly, as the same suggests, access to UAVs is “unordered”, in the sense that the API does not guarantee accesses to become visible in any particular order. When rendering primitives, quads are guaranteed to be Z-tested, blended and written back in API order (as discussed in detail in <a target="_blank" rel="noopener" href="https://fgiesen.wordpress.com/2011/07/12/a-trip-through-the-graphics-pipeline-2011-part-9/">part 9 of this series</a>), or at least produce the same results as if they were – which takes substantial effort. UAVs make no such effort – UAV accesses happen immediately as they’re encountered in the shader, which may be very different from API order. They’re not <em>completely</em> unordered, though; while there’s no guaranteed order of operations within an API call, the API and driver will still collaborate to make sure that perceived sequential ordering is preserved across API calls. Thus, if you have a complex Compute Shader (or Pixel Shader) writing to an UAV immediately followed by a second (simpler) CS that reads from the same underlying resource, the second CS will see the finished results, never some partially-written output.</li>
+<li>UAVs support random access. A Pixel Shader can only write to one location per render target – its corresponding pixel. The same Pixel Shader can write to arbitrary locations in whatever UAVs it has bound.</li>
+<li>UAVs support atomic operations. In the classic Pixel Pipeline, there’s no need; we guarantee there’s never any collisions anyway. But with the free-form execution provided by UAVs, different threads might be trying to access a piece of memory at the same time, and we need synchronization mechanisms to deal with this.</li>
+</ul>
+<p>So from a “CPU programmer”‘s point of view, UAVs correspond to regular RAM in a shared-memory multiprocessing system; they’re windows into memory. More interesting is the issue of atomic operations; this is one area where current GPUs diverge considerably from CPU designs.</p>
+<h2 id="Atomics"><a href="#Atomics" class="headerlink" title="Atomics"></a>Atomics</h2><p>In current CPUs, most of the magic for shared memory processing is handled by the memory hierarchy (i.e. caches). To write to a piece of memory, the active core must first assert exclusive ownership of the corresponding cache line. This is accomplished using what’s called a “cache coherency protocol”, usually <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/MESI_protocol">MESI</a> and descendants. The details are tangential to this article; what matters is that because writing to memory entails acquiring exclusive ownership, there’s never a risk of two cores simultaneously trying to write to the some location. In such a model, atomic operations can be implemented by holding exclusive ownership for the duration of the operation; if we had exclusive ownership for the whole time, there’s no chance that someone else was trying to write to the same location while we were performing the atomic operation. Again, the actual details of this get hairy pretty fast (especially as soon as things like paging, interrupts and exceptions get involved), but the 30000-feet-view will suffice for the purposes of this article.</p>
+<p>In this type of model, atomic operations are performed using the regular Core ALUs and load&#x2F;store units, and most of the “interesting” work happens in the caches. The advantage is that atomic operations are (more or less) regular memory accesses, albeit with some extra requirements. There’s a couple of problems, though: most importantly, the standard implementation of cache coherency, “snooping”, requires that all agents in the protocol talk to each other, which has serious scalability issues. There are ways around this restriction (mainly using so-called Directory-based Coherency protocols), but they add additional complexity and latency to memory accesses. Another issue is that all locks and memory transactions really happen at the cache line level; if two unrelated but frequently-updated variables share the same cache line, it can end up “ping-ponging” between multiple cores, causing tons of coherency transactions (and associated slowdown). This problem is called “false sharing”. Software can avoid it by making sure unrelated fields don’t fall into the same cache line; but on GPUs, neither the cache line size nor the memory layout during execution is known or controlled by the application, so this problem would be more serious.</p>
+<p>Current GPUs avoid this problem by structuring their memory hierarchy differently. Instead of handling atomic operations inside the shader units (which again raises the “who owns which memory” issue), there’s dedicated atomic units that directly talk to a shared lowest-level cache hierarchy. There’s only one such cache, so the issue of coherency doesn’t come up; either the cache line is present in the cache (which means it’s current) or it isn’t (which means the copy in memory is current). Atomic operations consist of first bringing the respective memory location into the cache (if it isn’t there already), then performing the required read-modify-write operation directly on the cache contents using a dedicated integer ALU on the atomic units. While an atomic unit is busy on a memory location, all other accesses to that location will stall. Since there’s multiple atomic units, it’s necessary to make sure they never try to access the same memory location at the same time; one easy way to accomplish this is to make each atomic unit “own” a certain set of addresses (statically – not dynamically as with cache line ownership). This is done by computing the index of the responsible atomic unit as some hash function of the memory address to be accessed. (Note that I can’t confirm this is how current GPUs do; I’ve found little detail on how the atomic units work in official docs).</p>
+<p>If a shader unit wants to perform an atomic operation to a given memory address, it first needs to determine which atomic unit is responsible, wait until it is ready to accept new commands, and then submit the operation (and potentially wait until it is finished if the result of the atomic operation is required). The atomic unit might only be processing one command at a time, or it might have a small FIFO of outstanding requests; and of course there’s all kinds of allocation and queuing details to get right so that atomic operation processing is reasonably fair so that shader units will always make progress. Again, I won’t go into further detail here.</p>
+<p>One final remark is that, of course, outstanding atomic operations count as “device memory” accesses, same as memory&#x2F;texture reads and UAV writes; shader units need to keep track of their outstanding atomic operations and make sure they’re finished when they hit device memory access barriers.</p>
+<h2 id="Structured-Buffers-and-Append-Consume-Buffers"><a href="#Structured-Buffers-and-Append-Consume-Buffers" class="headerlink" title="Structured Buffers and Append&#x2F;Consume Buffers"></a>Structured Buffers and Append&#x2F;Consume Buffers</h2><p>Unless I missed something, these two buffer types are the last CS-related features I haven’t talked about yet. And, well, from a hardware perspective, there’s not that much to talk about, really. Structured buffers are more of a hint to the driver-internal shader compiler than anything else; they give the driver some hint as to how they’re going to be used – namely, they consist of elements with a fixed stride that are likely going to be accessed together – but they still compile down to regular memory accesses in the end. The structured buffer part may bias the driver’s decision of their position and layout in memory, but it does not add any fundamentally new functionality to the model.</p>
+<p>Append&#x2F;consume buffers are similar; they could be implemented using the existing atomic instructions. In fact, they kind of are, except the append&#x2F;consume pointers aren’t at an explicit location in the resource, they’re side-band data outside the resource that are accessed using special atomic instructions. (And similarly to structured buffers, the fact that their usage is declared as append&#x2F;consume buffer allows the driver to pick their location in memory appropriately).</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>And… that’s it. No more previews for the next part, this series is done 😄, though that doesn’t mean I’m done with it. I have some restructuring and partial rewriting to do – these blog posts are raw and unproofed, and I intend to go over them and turn it into a single document. In the meantime, I’ll be writing about other stuff here. I’ll try to incorporate the feedback I got so far – if there’s any other questions, corrections or comments, now’s the time to tell me! I don’t want to nail down the ETA for the final cleaned-up version of this series, but I’ll try to get it down well before the end of the year. We’ll see. Until then, thanks for reading!</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://ZuowangDev.github.io">ZuowangDev</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zuowangdev.github.io/2024/04/25/chapter13-compute-shaders/">https://zuowangdev.github.io/2024/04/25/chapter13-compute-shaders/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ZuowangDev.github.io" target="_blank">ZuowangDev's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/GPU/">GPU</a></div><div class="post_share"><div class="social-share" data-image="/./img/cover3.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/04/25/chapter12-tessellation/" title="chapter12-tessellation"><img class="cover" src="/./img/cover2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">chapter12-tessellation</div></div></a></div><div class="next-post pull-right"><a href="/2024/04/25/chapter2-gpu-architecture/" title="chapter2-gpu-architecture"><img class="cover" src="/./img/cover3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">chapter2-gpu-architecture</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/04/25/README/" title="Introduce"><img class="cover" src="/./img/cover2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-25</div><div class="title">Introduce</div></div></a></div><div><a href="/2024/04/25/chapter1-software-stack/" title="chapter1-software-stack"><img class="cover" src="/./img/cover3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-25</div><div class="title">chapter1-software-stack</div></div></a></div><div><a href="/2024/04/25/chapter10-geometry-shaders/" title="chapter10-geometry-shaders"><img class="cover" src="/./img/cover1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-25</div><div class="title">chapter10-geometry-shaders</div></div></a></div><div><a href="/2024/04/25/chapter11-stream-out/" title="chapter11-stream-out"><img class="cover" src="/./img/cover1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-25</div><div class="title">chapter11-stream-out</div></div></a></div><div><a href="/2024/04/25/chapter12-tessellation/" title="chapter12-tessellation"><img class="cover" src="/./img/cover2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-25</div><div class="title">chapter12-tessellation</div></div></a></div><div><a href="/2024/04/25/chapter2-gpu-architecture/" title="chapter2-gpu-architecture"><img class="cover" src="/./img/cover3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-25</div><div class="title">chapter2-gpu-architecture</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ZuowangDev</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/ZuowangDev" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Compute-Shaders"><span class="toc-number">1.</span> <span class="toc-text">Compute Shaders</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Execution-Environment"><span class="toc-number">1.1.</span> <span class="toc-text">Execution Environment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread-Groups"><span class="toc-number">1.2.</span> <span class="toc-text">Thread Groups</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unordered-Access-Views"><span class="toc-number">1.3.</span> <span class="toc-text">Unordered Access Views</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Atomics"><span class="toc-number">1.4.</span> <span class="toc-text">Atomics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Structured-Buffers-and-Append-Consume-Buffers"><span class="toc-number">1.5.</span> <span class="toc-text">Structured Buffers and Append&#x2F;Consume Buffers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">1.6.</span> <span class="toc-text">Conclusion</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/04/25/GIt-U4/" title="Git_U4"><img src="/./img/cover1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git_U4"/></a><div class="content"><a class="title" href="/2024/04/25/GIt-U4/" title="Git_U4">Git_U4</a><time datetime="2024-04-25T08:25:28.000Z" title="发表于 2024-04-25 16:25:28">2024-04-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/25/Git-U1&amp;U2/" title="Git_U1&amp;U2"><img src="/./img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git_U1&amp;U2"/></a><div class="content"><a class="title" href="/2024/04/25/Git-U1&amp;U2/" title="Git_U1&amp;U2">Git_U1&amp;U2</a><time datetime="2024-04-25T08:25:28.000Z" title="发表于 2024-04-25 16:25:28">2024-04-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/25/Git-U3/" title="Git_U3"><img src="/./img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git_U3"/></a><div class="content"><a class="title" href="/2024/04/25/Git-U3/" title="Git_U3">Git_U3</a><time datetime="2024-04-25T08:25:28.000Z" title="发表于 2024-04-25 16:25:28">2024-04-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/25/README/" title="Introduce"><img src="/./img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Introduce"/></a><div class="content"><a class="title" href="/2024/04/25/README/" title="Introduce">Introduce</a><time datetime="2024-04-25T08:25:28.000Z" title="发表于 2024-04-25 16:25:28">2024-04-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/25/chapter1-software-stack/" title="chapter1-software-stack"><img src="/./img/cover3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="chapter1-software-stack"/></a><div class="content"><a class="title" href="/2024/04/25/chapter1-software-stack/" title="chapter1-software-stack">chapter1-software-stack</a><time datetime="2024-04-25T08:25:28.000Z" title="发表于 2024-04-25 16:25:28">2024-04-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By ZuowangDev</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div></div></body></html>

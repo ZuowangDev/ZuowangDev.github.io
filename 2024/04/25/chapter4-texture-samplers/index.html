@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>chapter4-texture-samplers | ZuowangDev's Blog</title><meta name="author" content="ZuowangDev"><meta name="copyright" content="ZuowangDev"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Texture SamplersWelcome back. Last part was about vertex shaders, with some coverage of GPU shader units in general. Mostly, they’re just vector processors, but they have access to one resource that d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="chapter4-texture-samplers">
+<meta property="og:url" content="https://zuowangdev.github.io/2024/04/25/chapter4-texture-samplers/index.html">
+<meta property="og:site_name" content="ZuowangDev&#39;s Blog">
+<meta property="og:description" content="Texture SamplersWelcome back. Last part was about vertex shaders, with some coverage of GPU shader units in general. Mostly, they’re just vector processors, but they have access to one resource that d">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zuowangdev.github.io/img/cover3.jpg">
+<meta property="article:published_time" content="2024-04-25T08:25:28.000Z">
+<meta property="article:modified_time" content="2024-04-25T12:12:27.460Z">
+<meta property="article:author" content="ZuowangDev">
+<meta property="article:tag" content="GPU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zuowangdev.github.io/img/cover3.jpg"><link rel="shortcut icon" href="/"><link rel="canonical" href="https://zuowangdev.github.io/2024/04/25/chapter4-texture-samplers/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":20},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'chapter4-texture-samplers',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-04-25 20:12:27'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/./img/cover3.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="ZuowangDev's Blog"><span class="site-name">ZuowangDev's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">chapter4-texture-samplers</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-25T08:25:28.000Z" title="发表于 2024-04-25 16:25:28">2024-04-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-25T12:12:27.460Z" title="更新于 2024-04-25 20:12:27">2024-04-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/EE/">EE</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Texture-Samplers"><a href="#Texture-Samplers" class="headerlink" title="Texture Samplers"></a>Texture Samplers</h1><p>Welcome back. Last part was about vertex shaders, with some coverage of GPU shader units in general. Mostly, they’re just vector processors, but they have access to one resource that doesn’t exist in other vector architectures: Texture samplers. They’re an integral part of the GPU pipeline and are complicated (and interesting!) enough to warrant their own article, so here goes.</p>
+<h2 id="Texture-State"><a href="#Texture-State" class="headerlink" title="Texture State"></a>Texture State</h2><p>Before we start with the actual texturing operations, let’s have a look at the API state that drives texturing. In the D3D11 part, this is composed of 3 distinct parts:</p>
+<ol>
+<li>The sampler state. Filter mode, addressing mode, max anisotropy, stuff like that. This controls how texture sampling is done in a general way.</li>
+<li>The underlying texture resource. This boils down to a pointer to the raw texture bits in memory. The resource also determines whether it’s a single texture or a texture array, what multisample format the texture has (if any), and the physical layout of the texture bits – i.e. at the resource level, it’s not yet decided how the values in memory are to be interpreted exactly, but their memory layout is nailed down.</li>
+<li>The shader resource view (SRV for short). This determines how the texture bits are to be interpreted by the sampler. In D3D10+, the resource view links to the underlying resource, so you never specify the resource explicitly.</li>
+</ol>
+<p>Most of the time, you will create a texture resource with a given format, let’s say RGBA, 8 bits per component, and then just create a matching SRV. But you can also create a texture as “8 bits per component, typeless” and then have several different SRVs for the same resource that read the underlying data in different formats, e.g. once as <code>UNORM8_SRGB</code> (unsigned 8-bit value in sRGB space that gets mapped to float 0..1) and once as UINT8 (unsigned 8-bit integer).</p>
+<p>Creating the extra SRV seems like an annoying extra step at first, but the point is that this allows the API runtime to do all type checking at SRV creation time; if you get a valid SRV back, that means the SRV and resource formats are compatible, and no further type checking needs to be done while that SRV exists. In other words, it’s all about API efficiency here.</p>
+<p>Anyway, at the hardware level, what this boils down to is just a bag of state associated with a texture sampling operation – sampler state, texture&#x2F;format to use, etc. – that needs to get kept somewhere (see <a target="_blank" rel="noopener" href="https://fgiesen.wordpress.com/2011/07/02/a-trip-through-the-graphics-pipeline-2011-part-2/">part 2</a> for an explanation of various ways to manage state in a pipelined architecture). So again, there’s various methods, from “pipeline flush every time any state changes” to “just go completely stateless in the sampler and send the full set along with every texture request”, with various options inbetween. It’s nothing you need to worry about – this is the kind of thing where HW architects whip up a cost-benefit analysis, simulate a few workloads and then take whichever method comes out ahead – but it’s worth repeating: as PC programmer, don’t assume the HW adheres to any particular model.</p>
+<p>Don’t assume that texture switches are expensive – they might be fully pipelined with stateless texture samplers so they’re basically free. But don’t assume they’re completely free either – maybe they are not fully pipelined or there’s a cap on the maximum number of different sets of texture states in the pipeline at any given time. Unless you’re on a console with fixed hardware (or you hand-optimize your engine for every generation of graphics HW you’re targeting), there’s just no way to tell. So when optimizing, do the obvious stuff – sort by material where possible to avoid unnecessary state changes and the like – which certainly saves you some API work at the very least, and then leave it at that. Don’t do anything fancy based on any particular model of what the HW is doing, because it can (and will!) change in the blink of an eye between HW generations.</p>
+<h2 id="Anatomy-Of-A-Texture-Request"><a href="#Anatomy-Of-A-Texture-Request" class="headerlink" title="Anatomy Of A Texture Request"></a>Anatomy Of A Texture Request</h2><p>So, how much information do we need to send along with a texture sample request? It depends on the texture type and which kind of sampling instruction we’re using. For now, let’s assume a 2D texture. What information do we need to send if we want to do a 2D texture sample with, say, up to 4x anisotropic sampling?</p>
+<ul>
+<li>The 2D texture coordinates – 2 floats, and sticking with the D3D terminology in this series, I’m going to call them u&#x2F;v and not s&#x2F;t.</li>
+<li>The partial derivatives of u and v along the screen “x” direction: $$\frac{\partial u}{\partial x}$$, $$\frac{\partial v}{\partial x}$$.</li>
+<li>Similarly, we need the partial derivative in the “y” direction too: $$\frac{\partial u}{\partial y}$$, $$\frac{\partial v}{\partial y}$$</li>
+</ul>
+<p>So, that’s 6 floats for a fairly pedestrian 2D sampling request (of the <code>SampleGrad</code> variety) – probably more than you thought. The 4 gradient values are used both for mipmap selection and to choose the size and shape of the anisotropic filtering kernel. You can also use texture sampling instructions that explicitly specify a mipmap level (in HLSL, that would be <code>SampleLevel</code>) – these don’t need the gradients, just a single value containing the LOD parameter, but they also can’t do anisotropic filtering – the best you’ll get is trilinear! Anyway, let’s stay with those 6 floats for a while. That sure seems like a lot. Do we really need to send them along with every texture request?</p>
+<p>The answer is: depends. In everything but Pixel Shaders, the answer is yes, we really have to (if we want anisotropic filtering that is). In Pixel Shaders, turns out we don’t; there’s a trick that allows Pixel Shaders to give you gradient instructions (where you can compute some value and then ask the hardware “what is the approximate screen-space gradient of this value?”), and that same trick can be employed by the texture sampler to get all the required partial derivatives just from the coordinates. So for a PS 2D “sample” instruction, you really only need to send the 2 coordinates which imply the rest, provided you’re willing to do some more math in the sampler units.</p>
+<p>Just for kicks: What’s the worst-case number of parameters required for a single texture sample? In the current D3D11 pipeline, it’s a <code>SampleGrad</code> on a Cubemap array. Let’s see the tally:</p>
+<ul>
+<li>3D texture coordinates – <code>u</code>, <code>v</code>, <code>w</code>: 3 <code>float</code>s.</li>
+<li>Cubemap array index: one int (let’s just bill that at the same cost as a float here).</li>
+<li>Gradient of <code>(u,v,w)</code> in the screen <code>x</code> and <code>y</code> directions: 6 <code>float</code>s.</li>
+</ul>
+<p>For a total of 10 values <em>per pixel sampled</em> – that’s 40 bytes if you actually store it like that. Now, you might decide that you don’t need full 32 bits for all of this (it’s probably overkill for the array index and gradients), but it’s still a lot of data to be sending around.</p>
+<p>In fact, let’s check what kind of bandwidth we’re talking about here. Let’s assume that most of our textures are 2D (with a few cubemaps thrown in), that most of our texture sampling requests come from the Pixel Shader with little to no texture samples in the Vertex Shader, and that the regular <code>Sample</code>-type requests are the most frequent, followed by <code>SampleLevel</code> (all of this is pretty typical for actual rendering you see in games). That means the average number of 32-bit floats values sent per pixel will be somewhere between 2 (u+v) and 3 (u+v+w &#x2F; u+v+lod), let’s say 2.5, or 10 bytes.</p>
+<p>Assume a medium resolution – say, <em>1280×720</em>, which is about <em>0.92 million pixels</em>. How many texture samples does your average game pixel shader have? I’d say at least 3. Let’s say we have a modest amount of overdraw, so during the 3D rendering phase, we touch each pixel on the screen roughly twice. And then we finish it off with a few texture-heavy full-screen passes to do post-processing. That probably adds at least another 6 samples per pixel, taking into account that some of that postprocessing will be done at a lower resolution. Add it all up and we have <code>0.92 - (3*2 + 6) = about 11 million texture samples per frame</code>, which at 30 fps is about <em>330 million a second</em>. At <em>10 bytes per request</em>, that’s <strong>3.3 GB&#x2F;s</strong> <em>just for texture request payloads</em>. Lower bound, since there’s some extra overhead involved (we’ll get to that in a second). Note that I’m *cough- erring “a bit” on the low side with all of these numbers 😄. An actual modern game on a good DX11 card will run in significantly higher resolution, with more complex shaders than I listed, comparable amount of overdraw or even somewhat less (deferred shading&#x2F;lighting to the rescue!), higher frame rate, and way more complex postprocessing – go ahead, do a quick back-of-the-envelope calculation how much texture request bandwidth a decent-quality SSAO pass in quarter-resolution with bilateral upsampling takes…</p>
+<p>Point being, this whole texture bandwidth thing is not something you can just hand-wave away. The texture samplers aren’t part of the shader cores, they’re separate units some distance away on the chip, and shuffling multiple gigabytes per second around isn’t something that just happens by itself. This is an actual architectural issue – and it’s a good thing we don’t use <code>SampleGrad</code> on Cubemap arrays for everything! 😄</p>
+<h2 id="But-Who-Asks-For-A-Single-Texture-Sample"><a href="#But-Who-Asks-For-A-Single-Texture-Sample" class="headerlink" title="But Who Asks For A Single Texture Sample?"></a>But Who Asks For A Single Texture Sample?</h2><p>The answer is of course: <em>No one</em>. Our texture requests are coming from shader units, which we know process somewhere between 16 and 64 pixels &#x2F; vertices &#x2F; control points &#x2F; … at once. So our shaders won’t be sending individual texture samples, they’ll dispatch a bunch of them at once. This time, I’ll use 16 as the number – simply because the 32 I chose last time is non-square, which just seems weird when talking about 2D texture requests. So, 16 texture requests at once – build that texture request payload, add some command fields at the start so the sampler knows what to do, add some more fields so the sampler knows which texture and sampler state to use (again, see the remarks above on state), and send that off to a texture sampler somewhere.</p>
+<p>This will take a while.</p>
+<p>No, seriously. Texture samplers have a seriously long pipeline (we’ll soon see why); a texture sampling operation takes <em>way</em> too long for a shader unit to just sit idle for all that time. Again, say it with me: <em>throughput</em>. So what happens is that on a texture sample, a shader unit will just quietly switch to another thread&#x2F;batch and do some other work, then switch back a while later when the results are there. Works just fine as long as there’s enough independent work for the shader units to do!</p>
+<h2 id="And-Once-The-Texture-Coordinates-Arrive…"><a href="#And-Once-The-Texture-Coordinates-Arrive…" class="headerlink" title="And Once The Texture Coordinates Arrive…"></a>And Once The Texture Coordinates Arrive…</h2><p>Well, there’s a bunch of computations to be done first: (In here and the following, I’m assuming a simple bilinear sample; trilinear and anisotropic take some more work, see below).</p>
+<ul>
+<li>If this is a <code>Sample</code> or <code>SampleBias</code>-type request, calculate texture coordinate gradients first.</li>
+<li>If no explicit mip level was given, calculate the mip level to be sampled from the gradients and add the LOD bias if specified.</li>
+<li>For each resulting sample position, apply the address modes (wrap &#x2F; clamp &#x2F; mirror etc.) to get the right position in the texture to sample from, in normalized <code>[0,1]</code> coordinates.</li>
+<li>If this is a cubemap, we also need to determine which cube face to sample from (based on the absolute values and signs of the u&#x2F;v&#x2F;w coordinates), and do a division to project the coordinates onto the unit cube so they are in the <code>[-1,1]</code> interval. We also need to drop one of the 3 coordinates (based on the cube face) and scale&#x2F;bias the other 2 so they’re in the same <code>[0,1]</code> normalized coordinate space we have for regular texture samples.</li>
+<li>Next, take the <code>[0,1]</code> normalized coordinates and convert them into fixed-point pixel coordinates to sample from – we need some fractional bits for the bilinear interpolation.</li>
+<li>Finally, from the integer x&#x2F;y&#x2F;z and texture array index, we can now compute the address to read texels from. Hey, at this point, what’s a few more multiplies and adds among friends?</li>
+</ul>
+<p>If you think it sounds bad summed up like that, let me take remind you that this is a simplified view. The above summary doesn’t even cover fun issues such as texture borders or sampling cubemap edges&#x2F;corners. Trust me, it may sound bad now, but if you were to actually write out the code for everything that needs to happen here, you’d be positively horrified. Good thing we have dedicated hardware to do it for us.</p>
+<p>Anyway, we now have a memory address to get data from. And wherever there’s memory addresses, there’s a cache or two nearby.</p>
+<h2 id="Texture-Cache"><a href="#Texture-Cache" class="headerlink" title="Texture Cache"></a>Texture Cache</h2><p>Everyone seems to be using a two-level texture cache these days. The second-level cache is a completely bog-standard cache that happens to cache memory containing texture data. The first-level cache is not quite as standard, because it’s got additional smarts. It’s also smaller than you probably expect – on the order of 4-8kb per sampler. Let’s cover the size first, because it tends to come as a surprise to most people.</p>
+<p>The thing is this: Most texture sampling is done in Pixel Shaders with mip-mapping enabled, and the mip level for sampling is specifically chosen to make the screen pixel:texel ratio roughly <code>1:1</code> – that’s the whole point. But this means that, unless you happen to hit the exact same location in a texture again and again, each texture sampling operation will miss about 1 texel on average – the actual measured value with bilinear filtering is around 1.25 misses&#x2F;request (if you track pixels individually). This value stays more or less unchanged for a long time even as you change texture cache size, and then drops dramatically as soon as your texture cache is large enough to contain the whole texture (which usually is between a few hundred kilobytes and several megabytes, totally unrealistic sizes for a L1 cache).</p>
+<p>Point being, <em>any</em> texture cache whatsoever is a massive win (since it drops you down from about 4 memory accesses per bilinear sample down to 1.25). But unlike with a CPU or shared memory for shader cores, there’s very little gain in going from say 4k of cache to 16k; we’re streaming larger texture data through the cache no matter what.</p>
+<p>Second point: Because of the 1.25 misses&#x2F;sample average, texture sampler pipelines need to be long enough to sustain a full read from memory per sample without stalling. Let me phrase that differently: texture sampler pipes are long enough to not stall for a memory read <em>even though it takes 400-800 cycles</em>. That’s one seriously long pipeline right there – and it really is a pipeline in the literal sense, handing data from one pipeline register to the next for a few hundred cycles without any processing until the memory read is completed.</p>
+<p>So, small L1 cache, long pipeline. What about the “additional smarts”? Well, there’s compressed texture formats. The ones you see on PC – S3TC aka DXTC aka BC1-3, then BC4 and 5 which were introduced with D3D10 and are just variations on DXT, and finally BC6H and 7 which were introduced with D3D11 – are all block-based methods that encode blocks of 4×4 pixels individually. If you decode them during texture sampling, that means you need to be able to decode up to 4 such blocks (if your 4 bilinear sample points happen to land in the worst-case configuration of straddling 4 blocks) per cycle and get a single pixel from each. That, frankly, just sucks. So instead, the 4×4 blocks are decoded when it’s brought into the L1 cache: in the case of BC3 (aka DXT5), you fetch one 128-bit block from texture L2, and then decode that into 16 pixels in the texture cache. And suddenly, instead of having to partially decode up to 4 blocks per sample, you now only need to decode <code>1.25/(4*4) = about 0.08 blocks per sample</code>, at least if your texture access patterns are coherent enough to hit the other 15 pixels you decoded alongside the one you actually asked for. Even if you only end up using part of it before it goes out of L1 again, that’s still a massive improvement. Nor is this technique limited to DXT blocks; you can handle most of the differences between the &gt;50 different texture formats required by D3D11 in your cache fill path, which is hit about a third as often as the actual pixel read path – nice. For example, things like UNORM sRGB textures can be handled by converting the sRGB pixels into a 16-bit integer&#x2F;channel (or 16-bit float&#x2F;channel, or even 32-bit float if you want) in the texture cache. Filtering then operates on that, properly, in linear space. Mind that this does end up increasing the footprint of texels in the L1 cache, so you might want to increase L1 texture size; not because you need to cache more texels, but because the texels you cache are fatter. As usual, it’s a trade-off.</p>
+<h2 id="Filtering"><a href="#Filtering" class="headerlink" title="Filtering"></a>Filtering</h2><p>And at this point, the actual bilinear filtering process is fairly straightforward. Grab 4 samples from the texture cache, use the fractional positions to blend between them. That’s a few more of our usual standby, the multiply-accumulate unit. (Actually a lot more – we’re doing this for 4 channels at the same time…)</p>
+<p>Trilinear filtering? Two bilinear samples and another linear interpolation. Just add some more multiply-accumulates to the pile.</p>
+<p>Anisotropic filtering? Now that actually takes some extra work earlier in the pipe, roughly at the point where we originally computed the mip-level to sample from. What we do is look at the gradients to determine not just the area but also the shape of a screen pixel in texel space; if it’s roughly as wide as it is high, we just do a regular bilinear&#x2F;trilinear sample, but if it’s elongated in one direction, we do several samples across that line and blend the results together. This generates several sample positions, so we end up looping through the full bilinear&#x2F;trilinear pipeline several times, and the actual way the samples are placed and their relative weights are computed is a closely guarded secret for each hardware vendor; they’ve been hacking at this problem for years, and by now both converged on something pretty damn good at reasonable hardware cost. I’m not gonna speculate what it is they’re doing; truth be told, as a graphics programmer, you just don’t need to care about the underlying anisotropic filtering algorithm as long as it’s not broken and produces either terrible artifacts or terrible slowdowns.</p>
+<p>Anyway, aside from the setup and the sequencing logic to loop over the required samples, this does not add a significant amount of computation to the pipe. At this point we have enough multiply-accumulate units to compute the weighted sum involved in anisotropic filtering without a lot of extra hardware in the actual filtering stage.</p>
+<h2 id="Texture-Returns"><a href="#Texture-Returns" class="headerlink" title="Texture Returns"></a>Texture Returns</h2><p>And now we’re almost at the end of the texture sampler pipe. What’s the result of all this? Up to 4 values (r, g, b, a) per texture sample requested. Unlike texture requests where there’s significant variation in the size of requests, here the most common case by far is just the shader consuming all 4 values. Mind you, sending 4 floats back is nothing to sneeze at from a bandwidth point of view, and again you might want to shave bits in some case. If your shader is sampling a 32-bit float&#x2F;channel texture, you’d better return 32-bit floats, but if it’s reading a 8-bit <code>UNORM SRGB</code> texture, 32 bit returns are just overkill, and you can save bandwidth by using a smaller format on the return path.</p>
+<p><img src="/img/texture_sample.jpg" alt="picture"></p>
+<p>And that’s it – the shader unit now has its texture sampling results back and can resume working on the batch you submitted – which concludes this part. See you again in the next installment, when I talk about the work that needs to be done before we can actually start rasterizing primitives. Here’s a picture of the texture sampling pipeline, including an amusing mistake that I’ve fixed in post like a pro!</p>
+<h2 id="The-Usual-Post-Script"><a href="#The-Usual-Post-Script" class="headerlink" title="The Usual Post-Script"></a>The Usual Post-Script</h2><p>This time, no big disclaimers. The numbers I mentioned in the bandwidth example are honestly just made up on the spot since I couldn’t be arsed to look up some actual figures for current games 😅, but other than that, what I describe here should be pretty close to what’s on your GPU right now, even though I hand-waved past some of the corner cases in filtering and such (mainly because the details are more nauseating than they are enlightening).</p>
+<p>As for texture L1 cache containing decompressed texture data, to the best of my knowledge this is accurate for current hardware. Some older HW would keep some formats compressed even in L1 texture cache, but because of the “1.25 misses&#x2F;sample for a large range of cache sizes” rule, that’s not a big win and probably not worth the complexity. I think that stuff’s all gone now.</p>
+<p>An interesting bit are embedded&#x2F;power-optimized graphics chips, e.g. PowerVR; I’ll not go into these kinds of chips much in this series since my focus here is on the high-performance parts you see in PCs, but I have some notes about them in the comments for previous parts if you’re interested. Anyway, the PVR chips have their own texture compression format that’s not block-based and very tightly integrated with their filtering hardware, so I would assume that they do keep their textures compressed even in L1 texture cache (actually, I don’t know if they even have a second cache level!). It’s an interesting method and probably at a fairly sweet spot in terms of useful work done per area and energy consumed. But I think the “depack to L1 cache” method gives higher throughput overall, and as I can’t mention often enough, it’s all about throughput on high-end PC GPUs.</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://ZuowangDev.github.io">ZuowangDev</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zuowangdev.github.io/2024/04/25/chapter4-texture-samplers/">https://zuowangdev.github.io/2024/04/25/chapter4-texture-samplers/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ZuowangDev.github.io" target="_blank">ZuowangDev's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/GPU/">GPU</a></div><div class="post_share"><div class="social-share" data-image="/./img/cover3.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/04/25/chapter3-pipeline-overview/" title="chapter3-pipeline-overview"><img class="cover" src="/./img/cover2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">chapter3-pipeline-overview</div></div></a></div><div class="next-post pull-right"><a href="/2024/04/25/chapter5-primitive-assembly/" title="chapter5-primitive-assembly"><img class="cover" src="/./img/cover3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">chapter5-primitive-assembly</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/04/25/README/" title="Introduce"><img class="cover" src="/./img/cover2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-25</div><div class="title">Introduce</div></div></a></div><div><a href="/2024/04/25/chapter1-software-stack/" title="chapter1-software-stack"><img class="cover" src="/./img/cover3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-25</div><div class="title">chapter1-software-stack</div></div></a></div><div><a href="/2024/04/25/chapter10-geometry-shaders/" title="chapter10-geometry-shaders"><img class="cover" src="/./img/cover1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-25</div><div class="title">chapter10-geometry-shaders</div></div></a></div><div><a href="/2024/04/25/chapter11-stream-out/" title="chapter11-stream-out"><img class="cover" src="/./img/cover1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-25</div><div class="title">chapter11-stream-out</div></div></a></div><div><a href="/2024/04/25/chapter12-tessellation/" title="chapter12-tessellation"><img class="cover" src="/./img/cover2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-25</div><div class="title">chapter12-tessellation</div></div></a></div><div><a href="/2024/04/25/chapter13-compute-shaders/" title="chapter12-tessellation"><img class="cover" src="/./img/cover3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-25</div><div class="title">chapter12-tessellation</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ZuowangDev</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/ZuowangDev" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Texture-Samplers"><span class="toc-number">1.</span> <span class="toc-text">Texture Samplers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Texture-State"><span class="toc-number">1.1.</span> <span class="toc-text">Texture State</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Anatomy-Of-A-Texture-Request"><span class="toc-number">1.2.</span> <span class="toc-text">Anatomy Of A Texture Request</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#But-Who-Asks-For-A-Single-Texture-Sample"><span class="toc-number">1.3.</span> <span class="toc-text">But Who Asks For A Single Texture Sample?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#And-Once-The-Texture-Coordinates-Arrive%E2%80%A6"><span class="toc-number">1.4.</span> <span class="toc-text">And Once The Texture Coordinates Arrive…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Texture-Cache"><span class="toc-number">1.5.</span> <span class="toc-text">Texture Cache</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Filtering"><span class="toc-number">1.6.</span> <span class="toc-text">Filtering</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Texture-Returns"><span class="toc-number">1.7.</span> <span class="toc-text">Texture Returns</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Usual-Post-Script"><span class="toc-number">1.8.</span> <span class="toc-text">The Usual Post-Script</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/04/25/GIt-U4/" title="Git_U4"><img src="/./img/cover1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git_U4"/></a><div class="content"><a class="title" href="/2024/04/25/GIt-U4/" title="Git_U4">Git_U4</a><time datetime="2024-04-25T08:25:28.000Z" title="发表于 2024-04-25 16:25:28">2024-04-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/25/Git-U1&amp;U2/" title="Git_U1&amp;U2"><img src="/./img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git_U1&amp;U2"/></a><div class="content"><a class="title" href="/2024/04/25/Git-U1&amp;U2/" title="Git_U1&amp;U2">Git_U1&amp;U2</a><time datetime="2024-04-25T08:25:28.000Z" title="发表于 2024-04-25 16:25:28">2024-04-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/25/Git-U3/" title="Git_U3"><img src="/./img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git_U3"/></a><div class="content"><a class="title" href="/2024/04/25/Git-U3/" title="Git_U3">Git_U3</a><time datetime="2024-04-25T08:25:28.000Z" title="发表于 2024-04-25 16:25:28">2024-04-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/25/README/" title="Introduce"><img src="/./img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Introduce"/></a><div class="content"><a class="title" href="/2024/04/25/README/" title="Introduce">Introduce</a><time datetime="2024-04-25T08:25:28.000Z" title="发表于 2024-04-25 16:25:28">2024-04-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/25/chapter1-software-stack/" title="chapter1-software-stack"><img src="/./img/cover3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="chapter1-software-stack"/></a><div class="content"><a class="title" href="/2024/04/25/chapter1-software-stack/" title="chapter1-software-stack">chapter1-software-stack</a><time datetime="2024-04-25T08:25:28.000Z" title="发表于 2024-04-25 16:25:28">2024-04-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By ZuowangDev</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div></div></body></html>

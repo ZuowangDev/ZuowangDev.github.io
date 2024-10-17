@@ -1,37 +1,505 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Zuowang&#39;s Blog</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://zuowangdev.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
-  <updated>2024-10-16T09:51:16.004Z</updated>
-  <id>http://example.com/</id>
+  <link href="https://zuowangdev.github.io/"/>
+  <updated>2024-10-17T10:12:16.991Z</updated>
+  <id>https://zuowangdev.github.io/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>Zuowang</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2024/10/16/hello-world/"/>
-    <id>http://example.com/2024/10/16/hello-world/</id>
-    <published>2024-10-16T09:51:16.004Z</published>
-    <updated>2024-10-16T09:51:16.004Z</updated>
+    <title>Linux编程U1</title>
+    <link href="https://zuowangdev.github.io/2024/10/17/Note/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8EShell%E7%BC%96%E7%A8%8B/U1/"/>
+    <id>https://zuowangdev.github.io/2024/10/17/Note/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8EShell%E7%BC%96%E7%A8%8B/U1/</id>
+    <published>2024-10-16T16:00:00.000Z</published>
+    <updated>2024-10-17T10:12:16.991Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>Linux系统：</p><ul><li>Linux内核<ul><li>系统内存管理</li><li>软件程序管理</li><li>硬件设备管理</li><li>文件系统管理</li></ul></li><li>GNU工具<ul><li>文件工具</li><li>文本工具</li><li>进程工具</li></ul></li><li>图形桌面</li><li>应用软件</li></ul><h1 id="U2"><a href="#U2" class="headerlink" title="U2"></a>U2</h1><p>创建多个虚拟控制台代替哑终端<br>图形化终端仿真，使用图形化终端仿真模拟出虚拟控制台<br>tty x表示在虚拟控制台n，tty: teletypewriter<br>虚拟控制台中无法运行任何图形界面</p><p>GNOME Terminal shortcut<br>shift + ctrl + T: new tab<br>+ N: new window<br>+ W: close tab<br>+ Q: close window<br>+ C: 复制<br>+ V: 粘贴<br>+ F: search<br>+ G: 向前搜索<br>+ H: 向后搜索</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+    <summary type="html">&lt;p&gt;Linux系统：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux内核&lt;ul&gt;
+&lt;li&gt;系统内存管理&lt;/li&gt;
+&lt;li&gt;软件程序管理&lt;/li&gt;
+&lt;li&gt;硬件设备管理&lt;/li&gt;
+&lt;li&gt;文件系统管理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;GNU工具&lt;ul&gt;
+&lt;li&gt;文件工具&lt;/li&gt;</summary>
       
     
     
+    
+    <category term="Linux" scheme="https://zuowangdev.github.io/categories/Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux编程U3</title>
+    <link href="https://zuowangdev.github.io/2024/10/17/Note/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8EShell%E7%BC%96%E7%A8%8B/U3/"/>
+    <id>https://zuowangdev.github.io/2024/10/17/Note/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8EShell%E7%BC%96%E7%A8%8B/U3/</id>
+    <published>2024-10-16T16:00:00.000Z</published>
+    <updated>2024-10-17T10:13:08.438Z</updated>
+    
+    <content type="html"><![CDATA[<p>shell提示符：告知terminal的状态<br>man(ual) [number] xxx: number为可选项，查看第几节</p><h2 id="Linux-文件管理系统"><a href="#Linux-文件管理系统" class="headerlink" title="Linux 文件管理系统"></a>Linux 文件管理系统</h2><p>Linux会将文件存储在虚拟目录，虚拟目录结构只包含一个根!<img src="/pic/Linux-1.png"></p><p>ls -F: 区分文件和文件夹<br>ls -a: 显示隐藏文件<br>ls -R: 列出隐藏文件<br>ls -l: 显示长列表</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;shell提示符：告知terminal的状态&lt;br&gt;man(ual) [number] xxx: number为可选项，查看第几节&lt;/p&gt;
+&lt;h2 id=&quot;Linux-文件管理系统&quot;&gt;&lt;a href=&quot;#Linux-文件管理系统&quot; class=&quot;headerlink&quot; ti</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://zuowangdev.github.io/categories/Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>标准单元电路设计技术</title>
+    <link href="https://zuowangdev.github.io/2024/10/17/Note/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/%E6%A0%87%E5%87%86%E5%8D%95%E5%85%83%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF/"/>
+    <id>https://zuowangdev.github.io/2024/10/17/Note/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/%E6%A0%87%E5%87%86%E5%8D%95%E5%85%83%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF/</id>
+    <published>2024-10-16T16:00:00.000Z</published>
+    <updated>2024-10-17T08:44:06.242Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>时序单元和组合单元</p></blockquote><h1 id="CMOS工艺数字电路实现结构"><a href="#CMOS工艺数字电路实现结构" class="headerlink" title="CMOS工艺数字电路实现结构"></a>CMOS工艺数字电路实现结构</h1><h2 id="静态电路"><a href="#静态电路" class="headerlink" title="静态电路"></a>静态电路</h2><blockquote><p>抗噪声、低功耗<br>主要由上拉网络(PUN)和下拉网络(PDN)组成。<br><img src="/pic/DICBED-3-1.png"></p></blockquote><h2 id="伪NMOS电路"><a href="#伪NMOS电路" class="headerlink" title="伪NMOS电路"></a>伪NMOS电路</h2><blockquote><p>晶体管数量少，面积小；输出低电平不彻底，噪声容限低；静态功耗高。<br>减少晶体管数量(到N+1个)，降低了电路复杂性，减少了传播延迟，提高性能。<br>但是输：出低电压不是0V，降低了噪声容限(使用PMOS作为上拉负载的伪NMOS电路，输出电压摆幅和电路性能取决于NMOS和PMOS尺寸比)；输出为低电平时，Vdd和GND之间的电流通路会引起静态功耗。<br>由于其优秀的面积，常用于大扇入的电路设计中<br><img src="/pic/DICBED-3-2.png"></p></blockquote><h2 id="传输门电路"><a href="#传输门电路" class="headerlink" title="传输门电路"></a>传输门电路</h2><blockquote><p>强0，作为开关电路。<br>传输管结构允许输入同时驱动MOS的栅、源、漏实现逻辑功能<br><img src="/pic/DICBED-3-3.png"><br>单个N传输门结构可以产生强0输出，但是当上拉一个节点到Vdd时性能差，不能产生强1输出<br>可以采用互补MOS的结构：<br><img src="/pic/DICBED-3-4.png"><br>由B信号控制的开关。传输门电可以有效地构成一些复杂的逻辑电路：<br><img src="/pic/DICBED-3-5.png"><br>OUT &#x3D; A * S + B * S</p></blockquote><h2 id="动态电路实现"><a href="#动态电路实现" class="headerlink" title="动态电路实现"></a>动态电路实现</h2><blockquote><p>速度快，面积小；可靠性差，在长时间没有预充电时，会有信息泄露，功耗高，电路设计复杂，需要时钟驱动。<br>静态逻辑电路通过稳定输入确定管子状态，维持稳定的输出。动态电路通过时钟控制写入和读取，基本动态电路在一个时钟周期只能完成一次输入和读取。<br><img src="/pic/DICBED-3-6.png"></p></blockquote><ul><li>由于工艺尺寸减小，器件尺寸减小，电容减小，同时电源电压下降，节点电容存储电荷量下降，降低电路可靠性；</li><li>存在亚阈值漏流和电荷分享等；长时间没有进行预充电，会导致存储信息丢失；</li><li>每个时钟周期都有翻转，功耗消耗高；</li><li>动态电路需要时钟信号控制，设计复杂，要周期性刷新节点电容电压。</li></ul><h2 id="高扇入逻辑电路"><a href="#高扇入逻辑电路" class="headerlink" title="高扇入逻辑电路"></a>高扇入逻辑电路</h2><h3 id="CMOS静态电路"><a href="#CMOS静态电路" class="headerlink" title="CMOS静态电路"></a>CMOS静态电路</h3><p>为了保证速度，尽量不采用串联形式，而是采用树状结构。一般串联不超过四级。<br><img src="/pic/DICBED-3-7.png"></p><h3 id="伪NMOS电路-1"><a href="#伪NMOS电路-1" class="headerlink" title="伪NMOS电路"></a>伪NMOS电路</h3><p>减少晶体管数量；但是由于并联NMOS增多，导致并联电容增大，速度减慢，一般适用于<strong>24扇入</strong>以下的或(或非)门。不适合用于高扇入的与(与非)门。不能用于分级结构。<br><img src="/pic/DICBED-3-8.png"></p><h3 id="动态电路"><a href="#动态电路" class="headerlink" title="动态电路"></a>动态电路</h3><blockquote><p>高效高速，面积小。<br>或非门和与非门<br><img src="/pic/DICBED-3-9.png"><br><img src="/pic/DICBED-3-10.png"><br>P型动态电路慢于N型动态电路，但是P型动态电路的逻辑级数更少，器件数目更少。<br>随着扇入的数目增加，动态电路的节点电容增大，电路工作速度降低，电路对输入噪声更加敏感。单级电路扇入速度应该小于16，更多的扇入需要采用串联分块的方法。以下是实现高扇入逻辑电路的串联方法。</p></blockquote><h4 id="多米诺电路"><a href="#多米诺电路" class="headerlink" title="多米诺电路"></a>多米诺电路</h4><p><img src="/pic/DICBED-3-11.png"><br>考虑或非门增加反相器，或门之间可以级联。在电路设计时，可以考虑去除除第一级之后的尾管，速度大大提高，时钟负载减小，面积减小，但要保证预充电时，所有NMOS的输入都要为0，保证所有NMOS不导通，否则Vdd经过两个导通管，大电流短路。在PND到Vdd之间增加PMOS保持管，弥补由反偏二极管和电荷分享造成的电荷损失。<br><img src="/pic/DICBED-3-12.png"><br>对于单级多米诺电路，有以下问题：当输入数目增加，动态节点电容增大，速度变慢，可靠性降低。可以增大保持管的尺寸，但是增大保持管的尺寸会导致与NMOS网络的电容充放电加剧。必须考虑分级分块，使得每个保持管的尺寸不过大，不会产生剧烈的竞争，降低功耗，提高性能。</p><h4 id="组合多米诺电路"><a href="#组合多米诺电路" class="headerlink" title="组合多米诺电路"></a>组合多米诺电路</h4><p>通过nor + nand的方式实现or。<br><img src="/pic/DICBED-3-13.png"><br>每块只需要一个小尺寸的PMOS充电管，有效减少动态节点的电容。不过一般来说，如果采用静态CMOS的nand，一般其扇入不超过4(静态nand的延时随扇入增加较快)。<br>如果输入到达的时间有先后(路径长度不可忽略)，则将延时相近的放在一个多米诺电路，然后将后到达的连接与非门靠近输出的晶体管栅极。<br><img src="/pic/DICBED-3-14.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;时序单元和组合单元&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;CMOS工艺数字电路实现结构&quot;&gt;&lt;a href=&quot;#CMOS工艺数字电路实现结构&quot; class=&quot;headerlink&quot; title=&quot;CMOS工艺数字电路实现结构&quot;&gt;&lt;/a&gt;</summary>
+      
+    
+    
+    
+    <category term="CMOS集成电路后端设计" scheme="https://zuowangdev.github.io/categories/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>全定制标准单元设计技术</title>
+    <link href="https://zuowangdev.github.io/2024/10/12/Note/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/%E5%85%A8%E5%AE%9A%E5%88%B6%E6%A0%87%E5%87%86%E5%8D%95%E5%85%83%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF/"/>
+    <id>https://zuowangdev.github.io/2024/10/12/Note/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/%E5%85%A8%E5%AE%9A%E5%88%B6%E6%A0%87%E5%87%86%E5%8D%95%E5%85%83%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF/</id>
+    <published>2024-10-11T16:00:00.000Z</published>
+    <updated>2024-10-17T03:41:58.830Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>单元符号库、单元电路结构库、版图库、电路性能参数库、设计规则、器件模型参数库</p></blockquote><p>标准单元法的特点是各个单元高度<strong>相同</strong>宽度<strong>不等</strong>，单元宽度随单元功能的复杂程度而变，所有单元的电源线和地线位置相同<br>高度相同，宽度不等，电源线和低线位置相同<br>主流采用3-1c的模式，pin在cell内部，电源线和地线在边缘<br>早期器件尺寸较大时，会留有专门的布线通道；随着器件尺寸的减小，提供布线资源的金属层逐渐增多，cell之间可以直接用不同层金属连接<br><img src="/pic/DICBED-1.png"></p><h1 id="标准单元的基本类型"><a href="#标准单元的基本类型" class="headerlink" title="标准单元的基本类型"></a>标准单元的基本类型</h1><p>一般来说，各种门电路、触发器、I&#x2F;O口是标准单元库所必需的配置。除此之外，大型的复杂宏单元如模拟单元、内存在很多流片厂商种往往作为IP提供，也可以不完全纳入标准单元库中</p><p><img src="/pic/DICBED-2.png"></p><ul><li>逻辑门单元：and &#x2F; or &#x2F;xor…</li><li>驱动单元：buffer&#x2F;inverter</li><li>时序单元：触发器、锁存器、移位寄存器</li><li>运算单元：半加&#x2F;全加器，减法器…</li><li>混合逻辑单元：复杂逻辑功能，多路选择器、计数器、译码器…</li><li>I&#x2F;O单元：接口信息</li><li>物理单元：物理单元指没有逻辑功能但是在物理实现上需要使用的单元，比如tie-high、tie-low、filler单元等。</li></ul><p>$\star$ 优秀的标准单元库要有以下设计：</p><p>1）拥有各种逻辑单元类型并且同时提供多种驱动力强度的同类型单元。<br>2）缓冲器（buffer）和反相器（inverter）的驱动强度变化范围大。<br>3）拥有上升和下降时间均衡的驱动单元，该类型单元主要用于时钟树的实现中。<br>4）拥有相同逻辑功能，但输出可以同时提供正向和反相输出的<strong>时序</strong>单元，比如时序单元的输出即有正向输出Q端也有输出取反端QN。<br>5）拥有相同的逻辑功能，但分别提供输出正向和输出反相的<strong>组合逻辑</strong>单元，比如与门单元（AND）和与非门单元（NAND）。<br>6）拥有多种高扇入的逻辑单元，用于逻辑优化，比如多输入或与非门单元（OAI）。<br>7）拥有多种驱动强度的正沿触发和负沿触发的时序单元。<br>8）拥有多种不同置位复位端组合的时序单元。<br>9）拥有多种用于修正保持时间违反的延时单元。<br>10）拥有各种灵活的物理单元，用于实现复杂芯片版图的完整性。</p><h1 id="标准单元库提供的信息"><a href="#标准单元库提供的信息" class="headerlink" title="标准单元库提供的信息"></a>标准单元库提供的信息</h1><ul><li>GDSII版图库</li><li>符号库</li><li>LIB时序库</li><li>LEF布局布线库</li><li>spice网表</li><li>Verilog与VHDL仿真模型（前端）</li></ul><h1 id="标准单元设计参数"><a href="#标准单元设计参数" class="headerlink" title="标准单元设计参数"></a>标准单元设计参数</h1><h2 id="cell关键参数："><a href="#cell关键参数：" class="headerlink" title="cell关键参数："></a>cell关键参数：</h2><ul><li>Drawn gate length：工艺大小</li><li>Layers of metal</li><li>Layout grid</li><li>Vertical PIN grid</li><li>Horizontal PIN grid</li><li>Cell power and ground rail width</li><li>Cell height</li></ul><h2 id="格点及其设置"><a href="#格点及其设置" class="headerlink" title="格点及其设置"></a>格点及其设置</h2><p>3种形式设置格点间距：线与线距离、线与通孔距离、通孔与通孔距离</p><p>1）线与线距离。线与线距离是布线金属层之间的最小DRC间距，基于满足线与线距离的格点间距定义可以最大化地利用走线资源。由于各层金属之间会通过通孔进行连接，如果通孔的面积小于金属线的宽度，那么就不会出现DRC违反，但是如果通孔的面积大于金属线宽，布局布线中会由于金属线到通孔的间距无法满足最小DRC间距的要求而导致DRC违反。</p><p>2）线与通孔距离。当通孔的面积大于金属线宽的时候，线与通孔距离是布线金属层与通孔之间的最小DRC间距，基于满足线与通孔距离的格点间距定义也可以比较高效地利用走线资源，但是和线与线距离存在的问题一样，当相邻的金属线在相同水平或者垂直方向上同时存在同类型的通孔时，可能出现通孔之间最小间距DRC违反，因此在走线资源的任何位置不能随意地通过通孔进行金属线层与层之间的连接，需要布局布线工具通过算法来控制通孔之间最小间距，防止DRC违反情况的发生。</p><p>3）通孔与通孔距离。当通孔的面积大于金属线宽的时候，通孔与通孔距离所利用的走线资源比前面两种格点间距的定义方法要少，但是却能很好地解决前面两种格点间距无法解决的最小间距DRC问题。定义格点间距满足通孔与通孔距离后，布局布线工具可以非常灵活地在走线资源的任何位置进行金属线层与层之间的连接并不会出现最小间距DRC问题。<img src="/pic/DICBED-3.png"></p><h2 id="垂直水平布线规则设置"><a href="#垂直水平布线规则设置" class="headerlink" title="垂直水平布线规则设置"></a>垂直水平布线规则设置</h2><p>垂直水平布线规则定义了金属层走线方向、走线金属宽度，走线金属间距和走线通道偏移值。金属层走线方向定义后，信号线走线时的方向改变可基于多层金属走线并通过<strong>错层切换走线方向</strong>的方式实现。走线金属宽度应该大于DRC规则的最小金属宽度，走线金属间距与格点间距相关。</p><p>一般情况下，为了能够在标准单元拼接后得到更好的布局结构且有效地利用布线资源，垂直和水平走线通道都设置了偏移半个格点的间距（如果无偏移，最边的走线通道只有一边有标准单元，资源有些浪费）</p><h2 id="标准单元端口设置"><a href="#标准单元端口设置" class="headerlink" title="标准单元端口设置"></a>标准单元端口设置</h2><h3 id="信号端口"><a href="#信号端口" class="headerlink" title="信号端口"></a>信号端口</h3><p>输入输出PIN脚应该在垂直与水平布线通道的交界处，降低布线难度，提高布线效率，不同信号端口应该错开排列，提高布线通道利用率</p><h3 id="电源端口"><a href="#电源端口" class="headerlink" title="电源端口"></a>电源端口</h3><p><img src="/pic/DICBED-4.png"><br>由于所有的cell高度一致，可以进行电源线或地线背靠背的拼接（类似版图中的共有源区）。如果左右没有肩并肩紧紧相连，后续会插入填充单元来使同一行上的标准单元肩并肩紧紧相连，达到电源地线连接的目的。但是对于阻塞比较严重的设计，不得不在标准单元行之间设置间距来增加足够的布线通道<br><img src="/pic/DICBED-5.png"></p><h2 id="传播延时和转换延时"><a href="#传播延时和转换延时" class="headerlink" title="传播延时和转换延时"></a>传播延时和转换延时</h2><p>传播延时：输入50%到输出50%<br>转换延时：上升10%-90%以及下降10%-90%<br>衰减因子：衰减因子是指时序数据受工作环境影响而适当乘以的缩放系数。衰减因子由许多不同的标准单元在不同影响程度下，实测数据统计出来的平均值。但是该因子并不适合所有的单元，有些特殊组合的单元可能要好于或坏于该计算结果。<br><img src="/pic/DICBED-6.png"></p><p>式中<br>$t_{TPD}$——总的传播延时；<br>$t_{typical}$——在典型工艺条件下的延时，典型条件是温度25°，标准电压供电与标准的工艺变化率；<br>$K_{load}$——负载衰减因子；<br>$C_{load}$——输出端的电容负载；<br>$K_{Process}$——工艺衰减因子，分别对应典型、最优、最差情况下三个取值；<br>$K_{Volt}$——电压衰减因子；<br>$ΔV_{dd}$——实际电压与理想电源的差值；<br>$K_{Temp}$——温度衰减因子；<br>$ΔT$——临界温度值，定义为-25°。</p><h2 id="时序参数"><a href="#时序参数" class="headerlink" title="时序参数"></a>时序参数</h2><ul><li>建立时间：建立时间是指为了保持单元功能的正确性，输入数据应该在时钟信号有效前到达并保持的最小时间。建立时间的测量值定义为数据信号的电压达到标准电压50%时间点到时钟信号电压到达标准电压50%时间点的时间间隔。</li><li>保持时间：保持时间是指时序单元要实现正确的逻辑功能，数据在时钟沿有效后必须保持的最小时间长度。保持时间的测量值定义为数据信号的电压达到标准电压50%的时的间点到时钟信号电压到达标准电压50%的时间点的时间间隔。</li><li>恢复时间是指为了保证单元正确的逻辑功能，要求复位&#x2F;置位信号在时钟有效沿之前保持有效的最小时间长度。恢复时间的测量值定义为复位或清零信号的电压达到标准电压50%的时间点到时钟信号电压到达标准电压50%的时间点的时间间隔。</li><li>移除时间是指为了保证单元正确的逻辑功能，要求复位&#x2F;置位信号在时钟有效沿之后继续保持有效的最小时间长度。移除时间的测量值定义为时钟信号电压达到标准电压50%的时间点到复位或清零信号的电压到达标准电压50%的时间点的时间间隔。</li></ul><p>最小脉冲宽度<br>最小脉冲宽度是指脉冲信号波形的开始到结束之间的最小时间间隔。最小高电平脉冲宽度测量值定义为信号的上升沿电压达到标准电压50%的时间点到信号电压下降沿到达标准电压50%的时间点的时间间隔。最小低电平脉冲宽度测量值定义为信号的下降沿电压达到标准电压50%的时间点到信号电压上升沿到达标准电压50%的时间点的时间间隔。</p><h2 id="功耗分析"><a href="#功耗分析" class="headerlink" title="功耗分析"></a>功耗分析</h2><p><img src="/pic/DICBED-7.png"></p><p>式中<br>$P_{avg}$——平均功耗；<br>$x$——输入管脚的数量；<br>$y$——输出管脚的数量；<br>$E_{in}$——对应输入管脚消耗的与开关频率相关的单位功耗；<br>$f_{in}$——在正常工作频率下输入管脚的开关频率；<br>$C_{on}$——某输出管脚的外部负载，包括所有输出管脚与输出驱动相连的电容、外加的布线金属走线电容、实际或预估的负载；<br>$V_{dd}$——实际工作的理想电压；<br>$f_{on}$——在正常工作频率下输出管脚的开关频率；<br>$E_{os}$——输出管脚所消耗的与开关频率相关的单位功耗。</p><h1 id="标准单元设计流程"><a href="#标准单元设计流程" class="headerlink" title="标准单元设计流程"></a>标准单元设计流程</h1><p>方案设计 -&gt; 电路与版图设计生成 -&gt; 标准单元库版图和时序信息提取 -&gt; 库模型生成及库文档生成 -&gt; 设计工具流程验证 -&gt; 测试电路设计…</p><h2 id="方案设计"><a href="#方案设计" class="headerlink" title="方案设计"></a>方案设计</h2><p>标准单元库的设计在大方向上需要确定标准单元库的应用类型及各种类型库所需要包含的单元种类、数量及单元性能指标等。</p><h3 id="标准单元电源-地线宽度的确定"><a href="#标准单元电源-地线宽度的确定" class="headerlink" title="标准单元电源&#x2F;地线宽度的确定"></a>标准单元电源&#x2F;地线宽度的确定</h3><p>通过设置合适的单元电源线的金属宽度满足功耗分布的需要，同时电源线的宽度应该设计得尽量窄来减少电源线所占用的标准单元内部面积，以实现最大化布线资源。<br>标准单元的电源线宽度首先需要设计的足够宽来满足自身需要。对于给定的具体设计，确定合理的电源&#x2F;地线的宽度主要是为了防止因温度、电流密度等因素引起的电迁移。<br>1）直接参考工艺厂家的标准单元库进行定义。如果在本工艺下有相应工艺厂家的标准单元库，可以直接套用该标准单元中电源&#x2F;地线的宽度。</p><p>2）基于标准单元仿真实验数据进行定义。根据仿真实验数据自行定义标准单元库电源&#x2F;地线的宽度。</p><p>电迁移敏感的单元像输出缓冲器和时钟发生器一样的大驱动器，在确定标准单元的物理设计规范前，在大范围温度、供电电压、信号斜率和工艺偏差内对大驱动能力单元进行模拟，以获得流过单元电源地网络的导线电流的预估最大值，同时结合流片厂家的电流密度规则决定电源和地网络导线的最小宽度。</p><p>3）基于设计所预估的总功耗和面积信息来定义。<br>$I_{avg}$——设计中的总平均电流，该值通过预估的总功耗计算得到；<br>$d_{m1}$——金属层1能够允许的最大电流密度；<br>$d_{m2}$——金属层2能够允许的最大电流密度；<br>$I_{m1}$——水平方向上的金属层1可以提供的最大电流；<br>$I_{strap}$——金属层1电源线总共需要提供的最大电流；<br>$W_{m2}$——实现垂直电源带的金属层2的宽度；<br>$r$——实现垂直金属层2电源带的数目；<br>$c$——设计中标准单元电源线的预估总行数；<br>$W_{m1}$——金属层1作为电源线的宽度。<br><img src="/pic/DICBED-8.png"><br><img src="/pic/DICBED-9.png"><br><img src="/pic/DICBED-10.png"></p><p>实际上要考虑通孔个数</p><h3 id="标准单元高度的确定"><a href="#标准单元高度的确定" class="headerlink" title="标准单元高度的确定"></a>标准单元高度的确定</h3><p>在通用的标准单元库中，单倍四输入的或非门是所有单元中N管有源区最高的，（一般五输入或更多输入的就选用输入最多的或非门组成），一般通过N管的有源区高度确定无折叠的P管的高度，最终确定cell的高度，结合四输入NOR门的高度最终确定单元高度等于几条布线通道值。通过对多个工艺下标准单元布线通道值的分析，一般的取值为7<del>15，所以标准单元的高度在通过或非门计算后，需尽量达到拥有7</del>15个布线通道的高度。</p><h3 id="标准单元的驱动强度设置"><a href="#标准单元的驱动强度设置" class="headerlink" title="标准单元的驱动强度设置"></a>标准单元的驱动强度设置</h3><p>首先是驱动单元的buffer和inverter的驱动能力。</p><ul><li>在逻辑门区域设置了至少四种驱动单元：半倍的低功耗驱动单元，常用的单倍驱动单元，高速的2倍驱动单元，4倍驱动能力单元</li><li>在时钟树区域往往所需的驱动更大：反相器一般会设计至少10种不同驱动能力的单元，从半倍到20倍不等<br>实际在绘制版图、设计晶体管电路时，首先应该根据驱动能力确定最小驱动单元的N管尺寸，即半倍std cell。<br>根据版图设计规则中定义的接触孔（contact）大小和有源区的最小包孔参数值（有源区（Active Area）与接触孔（Contact）之间的最小间距），选择最小包孔的有源区宽度，即半倍（XL）驱动能力N管宽度。考虑到驱动能力，需要在实际的工程中作适当的放大。</li></ul><p>在确定半倍负载尺寸后，大致有以下三种方法确定倍数驱动能力管的尺寸</p><ul><li>零负载与倍数尺寸：首先定义输出负载为0，通过<strong>本征延时数据</strong>确定不同驱动能力的单元，通过乘以倍数粗略计算N管的尺寸，再根据仿真信息，进行尺寸微调。</li><li>倍数负载和固定延时：实际EDA在综合和布局布线时，是根据延时、面积、功耗等约束进行单元选择的，零负载与倍数尺寸的方法不能满足复杂的电路设计。倍数负载和固定延时先选取一个基准的输出负载，一般选择inverter-XL（假定这个模块输出连接着一个inverter-XL），然后根据延时，面积，功耗的要求，调整管子尺寸。确定好之后，再进行倍数驱动管设计时，不是选取inverter-XL作为输出负载，而是将其负载乘以倍数，再进行电路的设计。延时规定都要小于设定的某个值。</li><li>固定负载与降级延时：主要用于添加驱动能力位于中间的单元，通常在固定负载和降级延时下，EDA对单元的选择有更大的灵活性，相对传统方法更有针对性，在相同负载下标定不同延时的驱动单元，为了提高标准单元库的灵活性，需要在XL<del>X1和XL</del>X2间根据延时差值增加更多驱动能力等级的单元，如驱动能力单元X0.6，X0.8，X1.3，X1.7等。</li></ul><p>测定、设置驱动强度调整NMOS的尺寸时，还要考虑std cell内部最后一级的P&#x2F;N管的宽长比。在std cell库中，考虑时可以分为两类。一类是作为时钟网络时，P&#x2F;N宽长比主要考虑时钟网络标准单元的rise_timing和fall_timing，另一类是作为常规网络的P&#x2F;N管宽度比值，此时主要考虑驱动的最优化。</p><h2 id="电路及版图设计"><a href="#电路及版图设计" class="headerlink" title="电路及版图设计"></a>电路及版图设计</h2><p><img src="/pic/DICBED-11.png"></p><p>版图设计要遵循以下规则：<br>1）输入输出端口要尽可能地放置在网格格点上，水平和垂直方向上的端口应尽量错开，这样可以充分利用垂直布线的资源。<br>2）输入输出端口必须在本单元的边界以内，而且边缘端口必须和单元的边界保持至少半个最小格点间距。<br>3）对于输入输出端口比较密集的单元，稍微增加单元面积的大小有时会比刻意保持单元面积最小要好，这样可以增加布线资源。<br>4）保证同类型的单元中最大单元的宽度是最小单元宽度的10倍之内。如果单元很复杂，可以通过增加高度来保证宽度的要求。<br>5）所有单元的宽度必须是格点间距的倍数或者是偏移半个格点后网格的倍数（根据布线工具的策略来定）。<br>6）如果单元内输入输出端口的周围有剩余空间，可以增加端口的金属面积使其更具多通孔性，多通孔单元可提高可连接度。</p><h2 id="标准单元库版图和时序信息提取"><a href="#标准单元库版图和时序信息提取" class="headerlink" title="标准单元库版图和时序信息提取"></a>标准单元库版图和时序信息提取</h2><h3 id="版图物理信息LEF提取"><a href="#版图物理信息LEF提取" class="headerlink" title="版图物理信息LEF提取"></a>版图物理信息LEF提取</h3><p>设计的标准单元库在DRC、LVS及ERC确定版图没有错误后，就可以进行物理信息抽象化来提取Lef文件了。<img src="/pic/DICBED-12.png"></p><p>输入：GDSII版图信息，布局布线信息的工艺文件。<br>输出：Lef文件，包含单元的金属层、PIN及电源地信息、单元面积等其他信息。<br>一般采用Abstract Genetrator(C)来提取Lef信息，需要导入Spice网表来使EDA正确识别标准单元的PIN脚信息</p><h3 id="时序信息LIB的提取"><a href="#时序信息LIB的提取" class="headerlink" title="时序信息LIB的提取"></a>时序信息LIB的提取</h3><p>业内使用的特征参数提取工具有：<br>SignalStorm Library Characterizer(C)（目前嵌入到ETS软件中）、Siliconsmart(Magma)、NCX(S)<br>在SignalStormLC中，输入将库设计规范文件（setup.ss）、标准单元的带寄生参数网表文件（.spf）及Hspice器件仿真模型参数文件（.lib和.mdl），可得到标准单元的有效电流源模型文件（ECSM）及中间文件（.alf），中间文件（.spf）可转化为多种数据格式（包括.html、.lib、.verilog和.vhdl），供其他相关EDA工具使用。</p><h2 id="库模型与库文档生成"><a href="#库模型与库文档生成" class="headerlink" title="库模型与库文档生成"></a>库模型与库文档生成</h2><ul><li><p>std cell针对各个cell的文字描述</p></li><li><p>std cell的verilog数据、电路级(CDL)数据、物理版图数据(GDSII)、物理视图(LEF)、时序信息数据(LIB)。</p></li><li><p>指导文件，指导设计人员如何使用库进行设计，描述库的性能，其中最重要的是给出系统最小时钟周期设置的数据。<br>对标准单元库进行性能评估的估计方法：<br>  时钟速度不能超过固定数量的门的传播延时，典型的门延时指的是FO4(Fanout-of-4 Inverter Delay)。这样可以在考虑不同体系架构时忽略不同工艺的影响。<br>  当同时考虑高性能和低功耗时，时钟周期为18FO4时，性能最优。将反相器的平均传输延时作为该工艺的FO4。<br>  FO4的计算公式如下：<br>  $d &#x3D; g h + p$<br>  p: std cell固有电容<br>  h: Cout和Cin之间的关系<br>  g: 表示电路拓扑结构对延迟的影响<br>  <img src="/pic/DICBED-13.png"></p><p>   h &#x3D; 4, g &#x3D; 1(inverter), p &#x3D; 1, FO4 &#x3D; 5。实际设计stdcell中可以进行仿真测试</p></li></ul><h2 id="设计工具流程验证"><a href="#设计工具流程验证" class="headerlink" title="设计工具流程验证"></a>设计工具流程验证</h2><p>之后使用EDA工具进行验证。物理参数和时序参数。<br>之后再搭建测试电路，测试电路设计主要包括功能验证电路、工作频率测试电路、建立&#x2F;保持时间测试电路、恢复&#x2F;移除时间测试电路以及制定测试方案。<br><img src="/pic/DICBED-14.png"></p><h2 id="EDA工具"><a href="#EDA工具" class="headerlink" title="EDA工具"></a>EDA工具</h2><ul><li>Layout: Virtuoso</li><li>Schemetic Design: Virtuoso</li><li>DRC&#x2F;ERC: Hercules Explorer DRC</li><li>LVS: Hercules Hierarchical Design Verification</li><li>RC Pex: Star RCXT</li><li>Simulator: Virtuoso</li><li>Liberty: SignalStorm Library Characterizer</li><li>Pysical Lef: Abstract Genetrator</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;单元符号库、单元电路结构库、版图库、电路性能参数库、设计规则、器件模型参数库&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;标准单元法的特点是各个单元高度&lt;strong&gt;相同&lt;/strong&gt;宽度&lt;strong&gt;不等&lt;/strong&gt;，单元宽度随单元功</summary>
+      
+    
+    
+    
+    <category term="CMOS集成电路后端设计" scheme="https://zuowangdev.github.io/categories/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>集成电路后端设计方法</title>
+    <link href="https://zuowangdev.github.io/2024/10/10/Note/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/"/>
+    <id>https://zuowangdev.github.io/2024/10/10/Note/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/</id>
+    <published>2024-10-09T16:00:00.000Z</published>
+    <updated>2024-10-17T01:59:37.434Z</updated>
+    
+    <content type="html"><![CDATA[<p>集成电路后端设计：</p><ul><li>全定制设计</li><li>半定制设计</li></ul><h2 id="全定制设计方法"><a href="#全定制设计方法" class="headerlink" title="全定制设计方法"></a>全定制设计方法</h2><p>后端全定制设计的目的以最小的面积和功耗代价获得性能最高的物理设计结果。后端全定制设计中，每个晶体管的尺寸，形状等都由设计者手工完成，可以获得最高的性能且面积最小、功耗最低；版图也由设计者手工完成，自动化程度低。<br>大致流程如下：<br>功能描述 -&gt; 模块划分 -&gt; 模块电路设计 -&gt; 模块版图布局规划与实现 -&gt; 模块版图模拟仿真</p><p>电路版图设计工具：virtuoso(C)</p><p>电路仿真工具：HSpice(S), Virtuoso Spectre Circuit Simulator(C), NanoTime(S), Cosmos-Scope(S)<br>HSpice,Virtuoso Spectre Circuit Simulator：电路仿真<br>NanoTime: 静态时序分析和lib生成<br>Cosmos-Scope: 图形化波形分析仪</p><p>特征化工具：<br>Abstract Generator(C): 通过单元版图、连接关系、工艺信息和定义的单元模型要求产生抽象化结果，该结果数据主要包括单元大小与类型、输入。输出PIN脚信息、阻塞块信息和天线效应信息，该抽象化数据通过替代版图复杂信息来提高布局布线工具的性能。<br>Encounter Library Characterizer(C)。能够自动生成最新建模格式的单元时序库。Library Characterizer可以使用高效电流源模型（ECSM）对时序、功耗、信号完整性等进行建模，同时也可支持CCS模型来精确地进行噪声、多电压、电压降的建模并用于时序和功耗分析。<br>Liberty NCX(S):针对不同的电压、温度等环境参数或自创的Cells进行时序特征化提取。</p><p>寄生参数提取工具：<br>QRC Extraction(C): 快速并且准确地提供并分析全芯片的寄生参数<br>Star-RC(S): 为ASIC、片上系统（SoC）、数字定制、内存和模拟电路的设计提供了一个统一的解决方案<br>Calibre xRC(M): 全芯片寄生参数提取工具，提供晶体管级、门级和混合级别寄生参数的提取能力，支持多层次的分析和仿真。</p><p>物理验证工具：<br>Hercules(S), Calibre(M): DRC LVS </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;集成电路后端设计：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;全定制设计&lt;/li&gt;
+&lt;li&gt;半定制设计&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;全定制设计方法&quot;&gt;&lt;a href=&quot;#全定制设计方法&quot; class=&quot;headerlink&quot; title=&quot;全定制设计方法&quot;&gt;&lt;/a&gt;全定制设计方法</summary>
+      
+    
+    
+    
+    <category term="CMOS集成电路后端设计" scheme="https://zuowangdev.github.io/categories/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>集成电路版图基础U3</title>
+    <link href="https://zuowangdev.github.io/2024/10/02/Note/%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E7%89%88%E5%9B%BE%E5%9F%BA%E7%A1%80/U3/"/>
+    <id>https://zuowangdev.github.io/2024/10/02/Note/%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E7%89%88%E5%9B%BE%E5%9F%BA%E7%A1%80/U3/</id>
+    <published>2024-10-01T16:00:00.000Z</published>
+    <updated>2024-10-17T01:59:00.146Z</updated>
+    
+    <content type="html"><![CDATA[<p>设计人员需要给出性能要求：电路设计规范(specs)<br>细长的MOS会引入问题<br>Gate和衬底之间的电容，氧化层带来的寄生电阻<br>寄生电容很难处理，取决于Gate穿越有源区的面积<br>可以将细长的MOS切割成多个并联的MOS减小寄生电阻</p><p>版图绘制技巧：<br>源漏共用、gate的拆分、保护环、多晶硅充当导体<br>钳位二极管保护刻蚀金属<br>如果分配电压（如开关某些器件），可以利用多晶硅，如果分配电流，采用金属</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;设计人员需要给出性能要求：电路设计规范(specs)&lt;br&gt;细长的MOS会引入问题&lt;br&gt;Gate和衬底之间的电容，氧化层带来的寄生电阻&lt;br&gt;寄生电容很难处理，取决于Gate穿越有源区的面积&lt;br&gt;可以将细长的MOS切割成多个并联的MOS减小寄生电阻&lt;/p&gt;
+&lt;p&gt;版图绘</summary>
+      
+    
+    
+    
+    <category term="集成电路版图基础" scheme="https://zuowangdev.github.io/categories/%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E7%89%88%E5%9B%BE%E5%9F%BA%E7%A1%80/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>集成电路版图基础U1-2</title>
+    <link href="https://zuowangdev.github.io/2024/10/01/Note/%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E7%89%88%E5%9B%BE%E5%9F%BA%E7%A1%80/U1-2/"/>
+    <id>https://zuowangdev.github.io/2024/10/01/Note/%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E7%89%88%E5%9B%BE%E5%9F%BA%E7%A1%80/U1-2/</id>
+    <published>2024-09-30T16:00:00.000Z</published>
+    <updated>2024-10-17T02:07:31.061Z</updated>
+    
+    <content type="html"><![CDATA[<p>耗尽型平面mos会导致关断时电压变化较大，降低频率特性<br>考虑浅注入<br>增强型可以做到浅层反型<img src="/pic/ICLayout-U1-1.png"><br>做N-well和P-well。如果衬底不接电压，MOS产生的漏电流会使<strong>有源区-衬底</strong>的junction正偏，N&#x2F;P-well保证juntion反偏。<br>PMOS：有源区 - N-well - 衬底形成双极型器件，产生latch-up</p><p>晶圆制备：Cz直拉法</p><ul><li>增加材料层</li><li>改变表面材料</li><li>去除材料层</li></ul><p>掺杂：</p><ul><li>离子注入：电离 + 真空室 + 电场加速。可能会因为通道效应打入半导体的深处；破坏晶格结构，产生缺陷</li><li>热扩散：扩散浓度梯度不均匀，退火修复晶格</li></ul><p>生长材料层：</p><ul><li>外延：同质外延 &amp; 异质外延</li><li>化学气相沉积(CVD)：快速生长Si层，多晶硅，用于生成Gate电极，快速生长是防止杂质扩散的太多；<ul><li>等离子增强化学气相沉积(PECVD)：等离⼦体提供了⽓体间化学反应的能量⽽不⽤提⾼晶圆的温度。低温将有助于维持原先的杂质分布，避免杂质的进⼀步扩散。</li></ul></li><li>热氧化：作为离子注入保护层；栅极隔离层；管间隔离区；做硬掩膜……；干氧氧化：结构致密，表面平整，生长缓慢；湿氧氧化：生长速度快，相同时间内生长速度是干氧氧化的5-10倍，生成的氧化层密度低。</li><li>溅射：通过惰性气体产生等离子体，轰击出材料原子</li><li>蒸镀(PVD)：加热冷凝</li></ul><p>去除材料层：</p><ul><li>刻蚀</li><li>反应离子刻蚀(RIE)：等离子体轰击晶圆</li></ul><p>光刻：</p><ul><li>旋转涂胶</li><li>正胶 &amp; 负胶：负性光刻胶不适合制作⾼质量的图形并且操作也较困难。</li><li>Mask：石英镀铬；阳版 &amp; 阴版</li></ul><p>CMP：</p><ul><li>化学腐蚀，机械研磨</li></ul><p>自对准硅栅<br>Si基上热氧化，通过旋转涂胶（正），阳版光刻，留出窗口，刻蚀<br><img src="/pic/ICLayout-U1-2.png"></p><p><img src="/pic/ICLayout-U1-3.png"><br>再生长一层薄的氧化层，作为Gate的隔离氧化层<br><img src="/pic/ICLayout-U1-4.png"><br>通过CVD生长多晶硅，光刻，生长出gate<img src="/pic/ICLayout-U1-5.png"><br>之后，刻蚀掉除了多晶硅保护区域的SiO2(如CF4)<br><img src="/pic/ICLayout-U1-6.png"><br>进行离子注入，SiO2作为保护层<br><img src="/pic/ICLayout-U1-7.png"><br>退火，有源区杂质扩散；热氧化，生长氧化层<br><img src="/pic/ICLayout-U1-8.png"></p><blockquote><p>随着时间和经验积累，你将能够眼睛看着电路，⼼⾥想象着版图，到了这个⽔平，你就不仅仅是⼯作，⽽是在创造。 </p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;耗尽型平面mos会导致关断时电压变化较大，降低频率特性&lt;br&gt;考虑浅注入&lt;br&gt;增强型可以做到浅层反型&lt;img src=&quot;/pic/ICLayout-U1-1.png&quot;&gt;&lt;br&gt;做N-well和P-well。如果衬底不接电压，MOS产生的漏电流会使&lt;strong&gt;有源区-衬</summary>
+      
+    
+    
+    
+    <category term="集成电路版图基础" scheme="https://zuowangdev.github.io/categories/%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E7%89%88%E5%9B%BE%E5%9F%BA%E7%A1%80/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Lecture 1</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%201/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%201/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T03:18:21.359Z</updated>
+    
+    <content type="html"><![CDATA[<p>读完这篇《提问的智慧》后，我深受启发。这篇文章不仅为技术问题的提问提供了指导，更在更广泛的层面上教会了我们如何更有效地沟通和学习。</p><p>我们在提问之前应该先进行充分的自我探索和研究。这包括阅读相关的文档、搜索网络资源以及尝试自己解决问题。这个过程本身就是一种学习，能够帮助我们更深入地理解问题的本质。通过这种方式，我们不仅能够提升自己的解决问题的能力，还能够培养独立思考的习惯。依赖他人提供答案并不是长久之计，只有自己具备了解决问题的能力，才能够在面对更复杂的问题时游刃有余。</p><p>首先，文章强调了在提问前应该做的准备工作，比如搜索旧文章、上网搜索、阅读手册和常见问题解答等。这一点让我意识到，很多情况下，问题的答案已经存在于我们能够触及的地方，关键在于我们是否愿意投入时间和精力去寻找。</p><p>其次，文章提到了提问时应该选择正确的论坛或渠道，这让我认识到，找到合适的提问场所，不仅能够更快地得到答案，也是对他人时间和空间的尊重。</p><p>提问时的表达方式也很重要，比如使用清晰、准确、并且合乎语法的语言，以及提供易于阅读的文件格式。这些细节提醒了我，良好的表达能力是沟通的关键，无论是在技术社区还是日常生活中。</p><p>“话不在多而在精”的原则，让我反思了自己在日常沟通中是否过于啰嗦，没有抓住重点。学会精确地描述问题，不仅能帮助他人更快地理解并解决问题，也提高了沟通的效率。</p><p>文章中还提到了在提问时不应该要求私下回复，这一点让我理解到，知识的分享应该是开放和透明的，这有助于建立一个互帮互助的社区环境。</p><p>最后，文章提到的“问题解决后，加个简短的补充说明”，这不仅是对帮助者的尊重，也是对社区的贡献，让更多人能够从问题和答案中学习。以至于在帮助他人时，我们应该引导他们独立思考，而不是简单地提供答案。这种方式虽然在短期内可能会让求助者感到困难，但从长远来看，它能够帮助他们建立起解决问题的能力，为他们的职业生涯打下坚实的基础。</p><p>综上所述，这一课的阅读内容不仅教会了我如何科学地提问，更在如何成为一个合格的社区成员和有效沟通上给予了我宝贵的指导。这些原则和建议，我相信在任何需要提问和沟通的场合都是适用的。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;读完这篇《提问的智慧》后，我深受启发。这篇文章不仅为技术问题的提问提供了指导，更在更广泛的层面上教会了我们如何更有效地沟通和学习。&lt;/p&gt;
+&lt;p&gt;我们在提问之前应该先进行充分的自我探索和研究。这包括阅读相关的文档、搜索网络资源以及尝试自己解决问题。这个过程本身就是一种学习，</summary>
+      
+    
+    
+    
+    <category term="ysyx" scheme="https://zuowangdev.github.io/categories/ysyx/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Lecture 2</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%202/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%202/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T03:18:39.818Z</updated>
+    
+    <content type="html"><![CDATA[<p>在MAC上使用multipass + ubuntu + aptitude配置环境<br>图形界面使用mac系统进行操作，将ysyx-workbench挂载在VM下</p><p>sudo aptitude install bison flex</p><h2 id="Linux-101随笔"><a href="#Linux-101随笔" class="headerlink" title="Linux 101随笔"></a>Linux 101随笔</h2><p>cp -l -s : 创建硬链接和软链接<br>硬链接和软链接都指向文件本身：<br>硬链接是不同文件共用一个inode，修改一个文件会对另外的文件产生影响，而软链接是A文件的内容是B文件，读取A文件时会自动打开B文件，A、B有不同的inode。</p><p>搜索文件和目录：find option path expression<br>find . -name ‘report.pdf’在当前目录下搜索名为report.pdf的文件<br>find &#x2F; -sizw +1G全盘搜索大于1G的文件<br>通配符：<br>*: 任意字串；foo*: 以foo开头的字串；*x*: 包含x的字串<br>?: 一个字串</p><h3 id="进程、前后台、服务与-例行性任务"><a href="#进程、前后台、服务与-例行性任务" class="headerlink" title="进程、前后台、服务与 例行性任务"></a>进程、前后台、服务与 例行性任务</h3><blockquote><p>进程就是正在进行的程序；当启动一个程序时，操作系统就会从硬盘中读取程序文件，将程序内容载入内存，之后CPU就会执行这个程序</p></blockquote><p>进程标识符（PID）是进程的唯一标识<br>进程的优先级与Priority（PRI）和nice（NI）值有关<br>nice值与用户更相关，nice值在-20到19之间，default &#x3D; 0<br>nice -n 10 : vim以10为nice运行vim<br>renice -n 10 -p 12345: 设置PID为12345的进程nice值为10</p><p><code>PRI = nice + 20</code>。这对于普通进程是成立的——普通进程的 PRI 会被映射到一个非负整数。</p><p>但在正常运行的 Linux 系统中，我们可能会发现有些进程的 PRI 值是 RT，或者是负数。这表明对应的进程有更高的实时性要求（例如内核进程、音频相关进程等），采用了与普通进程不同的调度策略，优先级也相应更高。</p><h4 id="进程状态"><a href="#进程状态" class="headerlink" title="进程状态"></a>进程状态</h4><ul><li>正在运行的程序（running）</li><li>可以运行但正在排队等待的程序（ready）</li><li>正在等待其他资源（blocked）</li></ul><p>实际的linux系统中，进程的状态更复杂：<br>Status: R: running; S: sleeping; T: traced&#x2F;stopped; Z: zombie; D: disk sleep</p><p>shell前后台<br>默认情况下，shell命令都是在前台运行，如果需要在后台运行，需要在最后加上&amp;</p><p>终端一旦被关闭会向其中每个进程发送 SIGHUP（Signal hangup），而 SIGHUP 的默认动作即退出程序运行。</p><h2 id="The-Missing-Semester-of-Your-CS-Education"><a href="#The-Missing-Semester-of-Your-CS-Education" class="headerlink" title="The Missing Semester of Your CS Education"></a>The Missing Semester of Your CS Education</h2><h3 id="课程概览与shell"><a href="#课程概览与shell" class="headerlink" title="课程概览与shell"></a>课程概览与shell</h3><p><img src="/pic/ysyx-Lecture2-1.png"><br><img src="/pic/ysyx-Lecture2-2.png"><br><img src="/pic/ysyx-Lecture2-3.png"></p><h3 id="Shell工具和脚本"><a href="#Shell工具和脚本" class="headerlink" title="Shell工具和脚本"></a>Shell工具和脚本</h3><p>“”中的变量会进行转义，’’中的不会</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">mcd</span></span>()&#123;</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>$1是脚本的第一个参数；<br>$0: 脚本名；<br>$@: 所有参数；<br>$#: 参数个数；<br>$?: 前一个命令的返回值；<br>$$: 当前脚本的进程识别码；<br>$\star$ !!: 上一条完整的命令，包括参数，常见应用：sudo !!；<br>$_: 上一个命令的最后一个参数；</p><p>命令通常使用STDOUT返回输出值，使用STDERR返回错误及错误码</p><p>与操作符和或操作符：&amp;&amp;  ||<br>shell在执行时，先执行第一个程序，如果执行的结果为flase，再确定执不执行之后的程序<br>$(CMD)会执行CMD这个命令后，将输出结果替换CMD<br>通配符与{}<br><img src="/pic/ysyx-Lecture2-4.png"><img src="/pic/ysyx-Lecture2-5.png"><img src="/pic/ysyx-Lecture2-6.png"><img src="/pic/ysyx-Lecture2-7.png"><img src="/pic/ysyx-Lecture2-8.png"><br><img src="/pic/ysyx-Lecture2-9.png"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> f -name <span class="string">&quot;*.html&quot;</span> | xargs -d <span class="string">&#x27;\n&#x27;</span> tar -cvzf html.zip</span><br><span class="line"></span><br><span class="line">find . -<span class="built_in">type</span> f -mmin -60 -print0 | xargs -0 <span class="built_in">ls</span> -lt | <span class="built_in">head</span> -10</span><br></pre></td></tr></table></figure><h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><dl><dt>vim: :%s&#x2F;old&#x2F;new&#x2F;g全局替换</dt><dd>g&#x2F;partern&#x2F;s&#x2F;old&#x2F;new&#x2F;g: 查找有partern的行进行替换（如果查找项与被替换项目一致，就不用再写被替换项）![[截屏2024-09-08 17.36.08.png]]</dd></dl><h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><ol start="2"><li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cat words | tr A-Z a-z | grep -E &#x27;^(\[^a]*a)&#123;3&#125;&#x27; | grep -v &quot;&#x27;s$&quot; | wc -l</span><br><span class="line"></span><br><span class="line">cat words | tr A-Z a-z | grep -E &#x27;^[^a]*a)&#123;3&#125;&#x27; | grep -v &quot;&#x27;s$&quot; | sed -E &quot;s/.*([a-z]&#123;2&#125;)/\1/&quot; | sort | uniq -c | sort -rn | head -3</span><br><span class="line"></span><br><span class="line">cat words | tr A-Z a-z | grep -E &#x27;^([^a]*a)&#123;3&#125;&#x27; | grep -v &quot;&#x27;s$&quot; | sed -E &quot;s/.*([a-z]&#123;2&#125;)$/\1/&quot; | sort | uniq | wc -l</span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line"> </span><br><span class="line">for i in &#123;a..z&#125;</span><br><span class="line">do</span><br><span class="line">for j in &#123;a..z&#125;</span><br><span class="line">do</span><br><span class="line">echo &quot;$i$j&quot;</span><br><span class="line">done</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">comm -23 report.txt part.txt</span><br></pre></td></tr></table></figure></li><li><ol><li><strong>数据丢失</strong>：如果 <code>sed</code> 命令执行过程中发生错误，或者输入文件在处理过程中被意外删除或损坏，那么原始数据可能会丢失，而且没有备份。</li><li><strong>不可预测性</strong>：原地替换可能会在文件系统中产生临时文件，这可能会影响文件的权限、所有权、时间戳等属性。</li><li><strong>并发问题</strong>：如果有多个进程试图同时对同一个文件进行原地替换，可能会导致数据不一致或文件损坏。</li><li><strong>备份问题</strong>：在某些情况下，你可能希望保留原始文件的副本，以便在出现问题时可以恢复。原地替换不会自动为你创建这样的备份。</li><li><strong>文件锁定</strong>：在某些操作系统上，原地替换可能会导致文件被锁定，这可能会阻止其他进程访问该文件。<br> sed -i.bak ‘s&#x2F;REGEX&#x2F;SUBSTITUTION&#x2F;‘ input.txt</li></ol></li><li></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在MAC上使用multipass + ubuntu + aptitude配置环境&lt;br&gt;图形界面使用mac系统进行操作，将ysyx-workbench挂载在VM下&lt;/p&gt;
+&lt;p&gt;sudo aptitude install bison flex&lt;/p&gt;
+&lt;h2 id=&quot;Lin</summary>
+      
+    
+    
+    
+    <category term="ysyx" scheme="https://zuowangdev.github.io/categories/ysyx/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>8-17-firstmeeting</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Project_Note/8-17-firstmeeting/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Project_Note/8-17-firstmeeting/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T01:26:17.017Z</updated>
+    
+    <content type="html"><![CDATA[<p>digital IC flow:<br>RTL &#x3D;&gt; [[DC(synthesis)]] &#x3D;&gt; netlist(.v) &#x3D;&gt; instance(inst) &#x3D;&gt; [[flow plan]] &#x3D;&gt; place &#x3D;&gt; timing&#x2F;congestion &#x3D;&gt; cts(clock tree synthesis) &#x3D;&gt; timming Opt &#x3D;&gt; route ··&gt;timing ECO &#x3D;&gt; drc ··&gt; [[timing ECO]]</p><ul><li>netlist(.v) (✅)</li><li>liberty(.lib)(✅)</li><li>DEF(.def)</li><li>LEF(.lef)</li><li>tech file</li><li>pt</li></ul><p>flow plan: certain the pin location, where is the clock tree, How much area does this chip use</p><p>timing ECO: this step is to opt timing in IC design by change some part of routing. There may are some measures to deal with:</p><ul><li>heuristic algorithm, such as KL…</li><li>Simulated annealing algorithm, deal with goal function</li><li>analysis method</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;digital IC flow:&lt;br&gt;RTL &amp;#x3D;&amp;gt; [[DC(synthesis)]] &amp;#x3D;&amp;gt; netlist(.v) &amp;#x3D;&amp;gt; instance(inst) &amp;#x3D;&amp;gt; [[flow plan]] &amp;#x3D;&amp;gt;</summary>
+      
+    
+    
+    
+    <category term="Porject Note" scheme="https://zuowangdev.github.io/categories/Porject-Note/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DC(synthesis)</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Project_Note/DC(synthesis)/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Project_Note/DC(synthesis)/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T01:26:56.755Z</updated>
+    
+    <content type="html"><![CDATA[<p>run.tcl:</p><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># SET PARAMETER</span></span><br><span class="line"><span class="keyword">set</span> CLK_PERIOD <span class="number">40</span></span><br><span class="line"><span class="keyword">set</span> MAX_INPUT_DELAY <span class="number">28</span></span><br><span class="line"><span class="keyword">set</span> MIN_INPUT_DELAY <span class="number">0</span></span><br><span class="line"><span class="keyword">set</span> MAX_OUTPUT_DELAY <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># SET THE LIBRARY OF THIS PROJECT(LOCAL)</span></span><br><span class="line">set_app_var link_library <span class="string">&quot; * class_fpga.db&quot;</span></span><br><span class="line">set_app_var target_library <span class="string">&quot;class_fpga.db&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># READ DESIGN</span></span><br><span class="line">read_verilog stbitF.v</span><br><span class="line"></span><br><span class="line"><span class="comment"># SET CLOCK AND DELAY (TIMING)</span></span><br><span class="line">create_clock clk -period <span class="variable">$CLK_PERIOD</span> -waveform [<span class="keyword">list</span> <span class="number">8</span> <span class="number">28</span>]</span><br><span class="line">set_dont_touch_network &#123;clk rst_n&#125;</span><br><span class="line">set_input_delay -max <span class="variable">$MAX_INPUT_DELAY</span> signin</span><br><span class="line">set_input_delay -min <span class="variable">$MIN_INPUT_DELAY</span> signin</span><br><span class="line">set_output_delay -max <span class="variable">$MAX_OUTPUT_DELAY</span> signout</span><br><span class="line"></span><br><span class="line"><span class="comment"># THIS SITE START TO SET  THE PARAMETER ABOUT SCAN CHAIN</span></span><br><span class="line">set_scan_configuration -style multiplexed_flip_flop</span><br><span class="line">set_dft_signal -view existing_dft -type ScanClock -port clk -timing &#123;<span class="number">8</span> <span class="number">28</span>&#125;</span><br><span class="line">set_dft_signal -view existing_dft -type Reset -port rst_n -active_state <span class="number">0</span></span><br><span class="line">set_dft_signal -view spec -type ScanDataIn -port signin</span><br><span class="line">set_dft_signal -view spec -type ScanDataOut -port signout</span><br><span class="line"></span><br><span class="line">create_test_protocol</span><br><span class="line">dft_drc</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># COMPILE</span></span><br><span class="line">compile -<span class="keyword">scan</span></span><br><span class="line"></span><br><span class="line">insert_dft</span><br><span class="line"></span><br><span class="line"><span class="comment"># OUTPUT FILES</span></span><br><span class="line">write_scan_def</span><br><span class="line">echo <span class="string">&quot;report area&quot;</span> &gt; report.log</span><br><span class="line">report_area &gt;&gt; report.log</span><br><span class="line">echo <span class="string">&quot;report timing&quot;</span> &gt;&gt; report.log</span><br><span class="line">report_timing -delay_type max &gt;&gt; report.log</span><br><span class="line">echo <span class="string">&quot;report constraint&quot;</span> &gt;&gt; report.log</span><br><span class="line">report_constraint -all_violators &gt;&gt; report.log</span><br><span class="line">write -<span class="keyword">format</span> ddc -hierarchy -output ./stbitF_real.ddc</span><br><span class="line">write -<span class="keyword">format</span> verilog -hierarchy -output ./stbitF_netlist.v</span><br><span class="line"></span><br><span class="line"><span class="comment"># BYE</span></span><br><span class="line"><span class="keyword">exit</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;run.tcl:&lt;/p&gt;
+&lt;figure class=&quot;highlight tcl&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;</summary>
+      
+    
+    
+    
+    <category term="Porject Note" scheme="https://zuowangdev.github.io/categories/Porject-Note/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>6.05 Chapter 1 Bit</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_1%20Bit/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_1%20Bit/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T01:52:29.779Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>Boolean Bit</li><li>Circuit Bit</li><li>Physical Bit</li><li>Quantum Bit</li><li>Classical Bit</li></ul><p>There are some important rules about <em>Bits</em></p><ul><li>information can be acquired by observation, experiment and measurement</li><li>subjective </li><li>the uncertain will up and down</li><li>information can be lost through coding or itself</li><li>physical information is localized on space and time</li></ul><p>Boolean Bit: Function<br>Circuit Bit: Combinational logic circuits<br>Control Bit: Computer Programe<br>Physical Bit: Dot to store</p><h2 id="Quantum-Bit"><a href="#Quantum-Bit" class="headerlink" title="Quantum Bit"></a>Quantum Bit</h2><p>There are two states of a small object, just be expressed by |0 |1. </p><p>There are three properties of q-bit:</p><ul><li><p>Reversibility: one state can lead to another by means of<br>some transition, then the reverse transition is also possible. There are two reasons that can cause the irreversibility of q-bit: </p><ol><li>the state of the environment is unknown, then some of the information in the system is lost.</li><li>the very act of measuring the state of a system is irreversible.</li></ol></li><li><p>Superposition: Messurement can change the character.</p></li><li><p>Entanglement: Space can be ignore.</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;Boolean Bit&lt;/li&gt;
+&lt;li&gt;Circuit Bit&lt;/li&gt;
+&lt;li&gt;Physical Bit&lt;/li&gt;
+&lt;li&gt;Quantum Bit&lt;/li&gt;
+&lt;li&gt;Classical Bit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are some imp</summary>
+      
+    
+    
+    
+    <category term="6.05" scheme="https://zuowangdev.github.io/categories/6-05/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT report</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Project_Note/PT%20report/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Project_Note/PT%20report/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T01:26:54.687Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Global-Timing-Summary-Report"><a href="#Global-Timing-Summary-Report" class="headerlink" title="Global Timing Summary Report"></a>Global Timing Summary Report</h2><ul><li>command: report_global_timing: Top Level Summary of the timing report<ul><li>Worst negative slack(WNS) among all endpoints</li><li>Total negative slack(TNS) of all endpoints</li><li>Number of violating endpoints</li></ul></li></ul><h2 id="Path-Timing-Report"><a href="#Path-Timing-Report" class="headerlink" title="Path Timing Report"></a>Path Timing Report</h2><p>report timing provides detailed timing information about any number of requested paths.</p><ul><li><p>Gate levels in the logic path</p></li><li><p>Incremental delay value of each gate level</p></li><li><p>Sum of the total path delays</p></li><li><p>Amount of slack in the path</p></li><li><p>Source and destination clock name, latency, and uncertainty</p></li><li><p>On-chip variation (OCV) with clock reconvergence pessimism removed</p></li></ul><h3 id="report-timing"><a href="#report-timing" class="headerlink" title="report_timing"></a><em>report_timing</em></h3><ol start="0"><li>-significant_digits: 显示的</li><li>当-max_paths设置为大于1的任何值时，命令仅报告具有负松弛的路径。要在多路径报告中包含正松弛路径，请使用-slack_lesser_than选项。</li><li>可以在单个命令中使用多个-through选项来指定穿越多个点的路径：<code>report_timing -from A1 -through B1 -through C1 \ -to D1</code></li><li><code>report_timing -transition_time -capacitance</code>:report transition time and capacitance</li></ol><h3 id="Report-Normalized-Slack"><a href="#Report-Normalized-Slack" class="headerlink" title="Report Normalized Slack"></a>Report Normalized Slack</h3><p>路径的最大频率取决于路径的传播延迟和路径所需的时钟周期数。要确定现有设计的可实现频率，您需要找到限制频率的计时路径，并专注于优化这些路径。PrimeTime通过计算归一化松弛（计时路径的度量）来找到对时钟频率影响最大的路径。PrimeTime使用以下方程计算路径的归一化松弛：<br>$[Normalized slack] &#x3D; [Path slack] &#x2F; [Allowed propagation delay for path]$</p><p>要启用规范化松弛分析，请在运行定时分析之前将timing_enable_normalized_slack变量设置为true。启用规范化的松弛分析后，report_timing命令会报告规范化的松弛数据。该工具还可以按归一化松弛对路径进行排序，并找到归一化松弛最差的路径。要报告最糟糕的标准化松弛，请输入<code>report_timing -normalized_slack</code></p><h3 id="Setting-Limits-for-Normalized-Slack-Analysis"><a href="#Setting-Limits-for-Normalized-Slack-Analysis" class="headerlink" title="Setting Limits for Normalized Slack Analysis"></a>Setting Limits for Normalized Slack Analysis</h3><p>可以通过将沿路径允许的传播延迟限制在时钟周期的指定倍数来减少效果。要指定此倍数，设置timing_max_normalization_cycles变量, The default is four clock cycles.</p><p>-exclude 排除路径: 将pin、port、cell等指定part排除，优先级高于-from -to</p><h2 id="Quality-of-Result-Report"><a href="#Quality-of-Result-Report" class="headerlink" title="Quality of Result Report"></a>Quality of Result Report</h2><ul><li><p>Length of the worst paths (shown as “Critical Path Length” in the report, which represents the arrival time of the signal at the path’s endpoint)</p></li><li><p>Total negative slack (TNS)</p></li><li><p>Minimum delay and hold</p></li><li><p>Detailed design rule constraints summary</p></li></ul><p>Total negative slack (TNS) kinds</p><ul><li><p>Union TNS mode (default) – The tool adds up the worst slack for all endpoints with negative slack, taking the worst-slack values across all path groups, across all scenarios. Each endpoint with negative slack contributes only once to the TNS, even if that endpoint has negative slack in multiple path groups (for example, when two clocks reach the same endpoint).</p></li><li><p>Every-group TNS mode – The tool adds up the worst slack for all endpoints with negative slack per path group, across all scenarios. If a given endpoint exists in two path groups and the endpoint has negative slack in both groups, it contributes twice to the TNS.</p></li></ul><p>You select the mode by setting the timing_report_union_tns variable to true for the union mode (the default) or false for the every-group mode.</p><h2 id="Constraint-Reports"><a href="#Constraint-Reports" class="headerlink" title="Constraint Reports"></a>Constraint Reports</h2><p><code>report_constraint</code>report the constraint violations<br>PT can report the maximum area of a design and certain timing constraints</p><p>The followings are some kinds of constraints:</p><h3 id="Timing-Constraints"><a href="#Timing-Constraints" class="headerlink" title="Timing Constraints"></a>Timing Constraints</h3><ul><li><p>Maximum path delay and setup</p></li><li><p>Minimum path delay and hold</p></li><li><p>Recovery time, the minimum amount of time required between an asynchronous control signal (such as the asynchronous clear input of a flip-flop) going inactive and a subsequent active clock edge</p></li><li><p>Removal time, the minimum amount of time required between a clock edge that occurs while an asynchronous input is active and the subsequent removal of the asserted asynchronous control signal</p></li><li><p>Clock-gating setup and hold</p></li><li><p>Minimum pulse width high or low at one or several clock pins in the network</p></li><li><p>Minimum period at a clock pin</p></li><li><p>Maximum skew between two clock pins of a cell</p></li></ul><h3 id="Design-Rule-Constraints"><a href="#Design-Rule-Constraints" class="headerlink" title="Design Rule Constraints"></a>Design Rule Constraints</h3><ol start="0"><li>to ensure that the netlist meets the design rules defined by the ASIC vendor and specified in the design library.</li><li>can also set the important parameter such as set_max_capacitance.</li></ol><ul><li><p>Total net capacitance (minimum and maximum limits)</p></li><li><p>Pin transition time (minimum and maximum limits)</p></li><li><p>Sum of fanout load attributes on net (minimum and maximum limits)<br>That are default generation, can also set the design rule constraint separately for rising and falling transitions, capacitance, and different clock domains and data paths for these clock domains.</p></li></ul><h3 id="Reporting-Violations"><a href="#Reporting-Violations" class="headerlink" title="Reporting Violations"></a>Reporting Violations</h3><p>To report all instances of constraint violations, use the report_constraint -all_violators command, as shown in the following example</p><p>To show detailed information about the violations, use the report_constraint -verbose</p><h3 id="Maximum-Skew-Checks"><a href="#Maximum-Skew-Checks" class="headerlink" title="Maximum Skew Checks"></a>Maximum Skew Checks</h3><p>there are two key words to express the type og Skew checks :</p><ul><li>skew_rising</li><li>skew_falling<br> this key word can be set in Library Compiler</li><li>skew_rising: intrinsic_rise: maximum skew time between ref pin rising to the constrained pin rising; intrinsic_fall: maximum skew time between the reference pin rising to the constrained pin falling.</li><li>skew_falling: intrinsic_rise: the maximum skew time between the reference pin falling to the constrained pin rising; intrinsic_fall: the maximum skew time between the reference pin falling to the constrained pin falling.<br>PT: report_constraint -max_skew<br>report all the violators of max skew: report_constraint -max_skew -all_violators</li></ul><h3 id="No-Change-Timing-Check"><a href="#No-Change-Timing-Check" class="headerlink" title="No-Change Timing Check"></a>No-Change Timing Check</h3><p>Sertain signals need no-change timing checks to make sure that they do not switch during the active interval of a periodic signal such as a clock</p><h3 id="Mininum-Pulse-Width-Report"><a href="#Mininum-Pulse-Width-Report" class="headerlink" title="Mininum Pulse Width Report"></a>Mininum Pulse Width Report</h3><p>report_min_pulse_width: set_timing_derate -late 2.0 -cell_check<br>                        report_min_pulse_width -all_violators -path_type full_clock -derate</p><h3 id="Minimum-Period-Report"><a href="#Minimum-Period-Report" class="headerlink" title="Minimum Period Report"></a>Minimum Period Report</h3><p>report_min_period<br>If there is a minimum period violation, you can debug the problem by reporting the full clock path:<br>report_min_period -path_type full_clock_expanded</p><h2 id="Bottleneck-Report"><a href="#Bottleneck-Report" class="headerlink" title="Bottleneck Report"></a>Bottleneck Report</h2><ul><li>report_bottleneck<ul><li><ol start="0"><li>If you use the report_bottleneck command in your flow, set the timing_save_pin_arrival_and_slack variable to true before your first timing update.</li></ol></li></ul></li></ul><h2 id="Global-Slack-Report"><a href="#Global-Slack-Report" class="headerlink" title="Global Slack Report"></a>Global Slack Report</h2><p>report_global_slack:Before using this command, time the design with the timing_save_pin_arrival_and_slack variable set to true.</p><h2 id="Analysis-Coverage-Report"><a href="#Analysis-Coverage-Report" class="headerlink" title="Analysis Coverage Report"></a>Analysis Coverage Report</h2><p>report_analysis_coverage: Generating information about timing checks is most critical for new designs<br>Analysis coverage checks are critical for sign-off. Follow this basic flow:</p><ol><li>Runlink_design and resolve link errors.  </li><li>Runcheck_timing and resolve timing check errors.  </li><li>Run report_analysis_coverage and resolve untested issues.  </li><li>Perform the rest of the analysis.</li></ol><p>report_analysis_coverage:</p><ul><li><p>Setup</p></li><li><p>Hold</p></li><li><p>No-change</p></li><li><p>Minimum period</p></li><li><p>Recovery</p></li><li><p>Removal</p></li><li><p>Minimum pulse width</p></li><li><p>Clock separation (master-slave)</p></li><li><p>Clock-gating setup</p></li><li><p>Clock-gating hold</p></li><li><p>Output setup</p></li><li><p>Output hold</p></li><li><p>Maximum skew</p></li></ul><h2 id="Clock-Network-Timing-Report"><a href="#Clock-Network-Timing-Report" class="headerlink" title="Clock Network Timing Report"></a>Clock Network Timing Report</h2><p>timing characteristics of the clock network: report_clock_timing</p><h3 id="Latency-and-Transition-time-Reporting"><a href="#Latency-and-Transition-time-Reporting" class="headerlink" title="Latency and Transition time Reporting"></a>Latency and Transition time Reporting</h3><p>The clock latency at a particular pin depends on the followings analysis conditions:</p><ul><li><p>Constraint type: setup or hold</p></li><li><p>Timing path role: launch or capture</p></li><li><p>Transition type: rise or fall</p></li></ul><h3 id="Skew-Reporting"><a href="#Skew-Reporting" class="headerlink" title="Skew Reporting"></a>Skew Reporting</h3><ul><li>single clock: report_clock_timing -type skew</li><li>different clocks: report_clock_timing -type interclock_skew</li></ul><p>PT considers the following conditions at each pin:</p><ul><li><p>Type of sequential device involved: rising or falling edge-sensitive; or high or low level-sensitive</p></li><li><p>Type of constraint: setup or hold (which determines the path type, transition type, and library)</p></li><li><p>Role of the sequential device in the constraint relationship: launch or capture</p></li></ul><h3 id="Interclock-Skew-Reporting"><a href="#Interclock-Skew-Reporting" class="headerlink" title="Interclock Skew Reporting"></a>Interclock Skew Reporting</h3><p>To report skew between pins clocked by different clocks as well as by the same clock, use the report_clock_timing -type interclock_skew</p><ul><li><p>Skew between pin A (clocked by CLK1) and pin B (clocked by CLK2)</p></li><li><p>Worst local skew between all sequential devices clocked by CLK1 and all sequential devices clocked by CLK2</p></li><li><p>Ten worst skews to all devices that communicate with pin A, irrespective of their domain</p></li></ul><h3 id="Clock-Timing-Reporting-Options"><a href="#Clock-Timing-Reporting-Options" class="headerlink" title="Clock Timing Reporting Options"></a>Clock Timing Reporting Options</h3><p>report_clock_timing -type:</p><ul><li>summary: minimum and maximum values for each clock</li><li>skew -nworst 5: Skew report, pin pairs and associated skew, one clock per pair</li><li>interclock_skew –nworst 5: Interclock skew report (pin pairs and associated skew, any clocks)</li><li>transition –nworst 5: Pin report (single pins and associated latency, transition time)</li><li>report_clock_timing -from U1&#x2F;CP -to U5&#x2F;CP -verbose -type skew: Verbose report (detailed timing along clock paths)</li></ul><h2 id="Summary-Rreport"><a href="#Summary-Rreport" class="headerlink" title="Summary Rreport"></a>Summary Rreport</h2><p>A summary report shows a list of the minimum and maximum latency, transition time, and clock skew values found in the requested scope of the clock network.</p><ul><li><p>Pins at which the minimum or maximum value occurred</p></li><li><p>Minimum or maximum time value</p></li><li><p>Conditions under which the minimum or maximum time value occurred</p></li></ul><h3 id="List-Report"><a href="#List-Report" class="headerlink" title="List Report"></a>List Report</h3><p>A list report provides latency, transition time, and skew information in greater detail than a summary report.</p><ul><li>skew report</li><li>pin report</li></ul><p>eg: report_clock_timing -type interclock_skew \ –nworst 12 -setup -include_uncertainty_in_skew<br>The report shows the 12 largest skew values between clock pins, whether clocked by the same clock or by different clocks.</p><h3 id="Verbose-Path-Based-Report"><a href="#Verbose-Path-Based-Report" class="headerlink" title="Verbose Path-Based Report"></a>Verbose Path-Based Report</h3><p>The most detailed type of clock network timing report is the verbose, path-based report. This type of report shows the calculation of skew, latency, and transition times along the clock path.<br>report_clock_timing \  -from f3_3&#x2F;CP -to f2_2&#x2F;CP -verbose -hold -type skew -include_uncertainty_in_skew<br>This command produces a report showing the transition time, incremental delay, and total latency along the clock paths to the specified pins; and the clock skew between the two pins</p><h3 id="Limitations-of-Clock-Network-Reporting"><a href="#Limitations-of-Clock-Network-Reporting" class="headerlink" title="Limitations of Clock Network Reporting"></a>Limitations of Clock Network Reporting</h3><p>report_clock_timing</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Global-Timing-Summary-Report&quot;&gt;&lt;a href=&quot;#Global-Timing-Summary-Report&quot; class=&quot;headerlink&quot; title=&quot;Global Timing Summary Report&quot;&gt;&lt;/a&gt;Gl</summary>
+      
+    
+    
+    
+    <category term="Porject Note" scheme="https://zuowangdev.github.io/categories/Porject-Note/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>6.05 Chapter 2 Code</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_2%20Code/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_2%20Code/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T01:53:09.700Z</updated>
+    
+    <content type="html"><![CDATA[<p>Preview: [[Chapter_1 Bit]] Just use for simple things</p><pre><code>Letters: BCD, EBCDIC, ASCII, Unicode, Morse CodeIntegers: Binary, Gray, 2’s complementNumbers: Floating-PointProteins: Genetic CodeTelephones: NANP, International codesHosts: Ethernet, IP Addresses, Domain namesImages: TIFF, GIF, and JPEGAudio: MP3Video: MPEG</code></pre><h2 id="Symble-space-size"><a href="#Symble-space-size" class="headerlink" title="Symble space size"></a>Symble space size</h2><ul><li><p>The number of symbles that <strong>need</strong> to be encode<br>As a special case, if there is only one symbol, no bits are required to specify it.</p></li><li><p>If the number of symbols is infinite but countable (able to be put into a one-to-one relation with the integers) then a bit string of a given length can only denote a finite number of items from this infinite set.</p></li><li><p>If the number of symbols is infinite and uncountable (such as the value of a physical quantity like voltage or acoustic pressure) then some technique of “discretization” must be used to replace possible values by a finite number of selected values that are approximately the same.</p></li></ul><h2 id="Use-of-Spare-Capacity"><a href="#Use-of-Spare-Capacity" class="headerlink" title="Use of Spare Capacity"></a>Use of Spare Capacity</h2><ul><li>Ignore</li><li>Map to other values</li><li>Reserve for future expansion</li><li>Use for control codes</li><li>Use for common abbreviations<br> EXAMPLES:</li></ul><p>BCD: ignore or other method</p><p>Genetic Code: control code(3个密码子，第三个密码子由于摆动特性，易被损坏，丙氨酸有四个代码，包括所有以GC开头的代码，提高了编码的鲁棒性，UAA、UAG、UGA为停止代码，control code)<br>ASCII<br>Morse<br>…</p><p>there is an interesting thing<br>XOR is not a universal gate</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Preview: [[Chapter_1 Bit]] Just use for simple things&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Letters: BCD, EBCDIC, ASCII, Unicode, Morse Code
+Integers: Binary, G</summary>
+      
+    
+    
+    
+    <category term="6.05" scheme="https://zuowangdev.github.io/categories/6-05/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>6.05 Chapter 3 Compression</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_3%20Compression/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_3%20Compression/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T01:53:06.424Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>Lossless or reversible compression</li><li>Lossy or irreversible compression</li></ul><h2 id="Variable-length-Encoding"><a href="#Variable-length-Encoding" class="headerlink" title="Variable_length Encoding"></a>Variable_length Encoding</h2><p>Morse</p><h2 id="Run-Length-Encoding"><a href="#Run-Length-Encoding" class="headerlink" title="Run Length Encoding"></a>Run Length Encoding</h2><p>For example: a B B B B a a B B equires to a 1 B 4 a 2 B 2<br>It is not convenient to deliver information which does not have much repeated information</p><h2 id="Static-Dictionary"><a href="#Static-Dictionary" class="headerlink" title="Static Dictionary"></a>Static Dictionary</h2><p>unused code be set to frequently occurring sequences of symbols</p><p>However, there is an inherent risk: the eﬀect of errors is apt to be much greater.<br>rise the account of the single code<br>This technique works well for sets of messages that are quite similar</p><h2 id="Semi-adaptive-Dictionary"><a href="#Semi-adaptive-Dictionary" class="headerlink" title="Semi-adaptive Dictionary"></a>Semi-adaptive Dictionary</h2><p>The static-dictionary approach requires one dictionary, defined in advance, that applies to all messages. If a new dictionary could be defined for each message, the compression could be greater because the particular sequences of symbols found in the message could be made into dictionary entries<br>The dictionary must compress with message, and it is necessary to analyze the information before compression. The PC need to have enough space to store</p><h2 id="Dynamic-Dictionary"><a href="#Dynamic-Dictionary" class="headerlink" title="Dynamic Dictionary"></a>Dynamic Dictionary</h2><p>动态字典，最好的解决办法是消息传入后即时进行计算解包，[[LZW Algorithm]]</p><h2 id="2-D-Discrete-Cosine-Transformation"><a href="#2-D-Discrete-Cosine-Transformation" class="headerlink" title="2-D Discrete Cosine Transformation"></a>2-D Discrete Cosine Transformation</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;Lossless or reversible compression&lt;/li&gt;
+&lt;li&gt;Lossy or irreversible compression&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Variable-length-Encoding&quot;&gt;&lt;a href=</summary>
+      
+    
+    
+    
+    <category term="6.05" scheme="https://zuowangdev.github.io/categories/6-05/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>6.05 Chapter 4 Errors</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_4%20Errors/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_4%20Errors/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T01:53:31.498Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>Error is inevitable, protection is necessary</p></blockquote><h2 id="Extension-of-System-Model"><a href="#Extension-of-System-Model" class="headerlink" title="Extension of System Model"></a>Extension of System Model</h2><p>We will extend message bits to know errors possible even repair the errors</p><h2 id="How-do-Errors-Happen"><a href="#How-do-Errors-Happen" class="headerlink" title="How do Errors Happen?"></a>How do Errors Happen?</h2><p>communication, data storage, computation</p><h2 id="Detection-Correction"><a href="#Detection-Correction" class="headerlink" title="Detection &amp; Correction"></a>Detection &amp; Correction</h2><p>It is necessary to contain redundancy in message</p><blockquote><p>In fact, if every illegal pattern is, in a sense to be described below, closer to one legal message than any other, the decoder could substitute the closest legal message, thereby repairing the damage.</p></blockquote><h2 id="Hammnig-Distance"><a href="#Hammnig-Distance" class="headerlink" title="Hammnig Distance"></a>Hammnig Distance</h2><blockquote><p>We need some technique for saying how similar two bit partterns are, so there is <em>Hamming Distance</em></p></blockquote><p>A more useful definition of the difference between teo bit patterns is the number of bits that are different between the two.<br>In the encoder, it is useful to calculate Hamming distance. But because of compression, Hamming distance must be set at least 3 to distingguish two legal code.</p><h2 id="Single-Bits"><a href="#Single-Bits" class="headerlink" title="Single Bits"></a>Single Bits</h2><blockquote><p>It is not important but commonly</p></blockquote><p>能很好的避免偶然错误，但是出现系统错误（相邻的位同时变化），三重冗余将失效</p><h2 id="Multiple-Bits"><a href="#Multiple-Bits" class="headerlink" title="Multiple Bits"></a>Multiple Bits</h2><blockquote><p>To detect errors in a sequence of bits several techniques can be used. Some can perform error correction as well as detection.</p></blockquote><h3 id="Parity"><a href="#Parity" class="headerlink" title="Parity"></a>Parity</h3><p>用于出错概率不大</p><h3 id="Rectangular-Codes"><a href="#Rectangular-Codes" class="headerlink" title="Rectangular Codes"></a>Rectangular Codes</h3><p>二维阵列的奇偶校验位：<br>可以纠正一个错误，发现两个错误，无法处理三重错误</p><h3 id="Hamming-Codes"><a href="#Hamming-Codes" class="headerlink" title="Hamming Codes"></a>Hamming Codes</h3><p>[[Hamming Codes]]</p><h3 id="Block-Codes"><a href="#Block-Codes" class="headerlink" title="Block Codes"></a>Block Codes</h3><p>7 bit Hamming Codes: (7,4,3)block code</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;Error is inevitable, protection is necessary&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;Extension-of-System-Model&quot;&gt;&lt;a href=&quot;#Extension-of-Sys</summary>
+      
+    
+    
+    
+    <category term="6.05" scheme="https://zuowangdev.github.io/categories/6-05/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>6.05 Chapter 5 Probability</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_5%20Probability/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_5%20Probability/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T01:56:08.712Z</updated>
+    
+    <content type="html"><![CDATA[<p>联合事件和条件概型</p><h2 id="Information"><a href="#Information" class="headerlink" title="Information"></a>Information</h2><p>需要表示四个结果需要2bit，需要表示n个结果需要log(2)nbit<br>假设一个班有32个人，30男，如果被告知选中的是男，则获得的信息是：<br>$\log_2 32 - \log_2 30 &#x3D; \log_2 (\frac{1}{P})$<br>加权平均</p><h2 id="Eﬃcient-Source-Coding"><a href="#Eﬃcient-Source-Coding" class="headerlink" title="Eﬃcient Source Coding"></a>Eﬃcient Source Coding</h2><p><img src="/pic/6.05-1.png"></p><p>例如：为了表示30名男，需$\log_2 30$位，</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;联合事件和条件概型&lt;/p&gt;
+&lt;h2 id=&quot;Information&quot;&gt;&lt;a href=&quot;#Information&quot; class=&quot;headerlink&quot; title=&quot;Information&quot;&gt;&lt;/a&gt;Information&lt;/h2&gt;&lt;p&gt;需要表示四个结果需要2bit，需要</summary>
+      
+    
+    
+    
+    <category term="6.05" scheme="https://zuowangdev.github.io/categories/6-05/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>6.05 Chapter 7 Communications</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_6%20Communications/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_6%20Communications/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T01:54:11.609Z</updated>
+    
+    <content type="html"><![CDATA[<p>$\star$<br>how fast the information can be transferred to the output<br>there are model about source and channel. </p><h2 id="Source-Model"><a href="#Source-Model" class="headerlink" title="Source Model"></a>Source Model</h2><p>An important property of such codewords is that none can be the same as the first portion or anather loager codewords(to avoid ambiguity)</p><h3 id="Kraft-Inequality"><a href="#Kraft-Inequality" class="headerlink" title="Kraft Inequality"></a>Kraft Inequality</h3><p>克拉夫特不等式<br>$\sum\frac {1}{2^{L_i}} \leq 1$<br>实际上，是满足：概率和小于等于1，想达到1的最大值，需要bit保证能表达的符号空间都是useful<br>如若用11，10，01，00表示0，1，2三个数，则会出现小于1<br>如果用00：0，01:1，1：2，则会等于1，<br>先展开为max length codewords，再根据code space，进行取&amp;</p><h2 id="Source-Entropy"><a href="#Source-Entropy" class="headerlink" title="Source Entropy"></a>Source Entropy</h2><p>在选定下一个符号时的不确定性是下一个符号选定时获得的信息量<br>H &#x3D; $\sum_i p(A_i)log_2(\frac{1}{p(A_i)})$ </p><h3 id="Gibbs-Inequality"><a href="#Gibbs-Inequality" class="headerlink" title="Gibbs Inequality"></a>Gibbs Inequality</h3><p>证明关键：$lnx \leq x - 1$ </p><h2 id="Source-Coding-Theorem"><a href="#Source-Coding-Theorem" class="headerlink" title="Source Coding Theorem"></a>Source Coding Theorem</h2><p>存在目标函数：codewords total length:<br>$L &#x3D; \sum_ip(A_i)L_i$<br>实际上，源编码需要满足以下定理：<br>$H \leq L$<br>证明这个不等式，使用Gibbs，假设为fixed-length code，q &#x3D; 1&#x2F;(2^L)，每一位bit的权均分<br>Gibbs是数学定理，独立的、不包含物理意义。</p><h2 id="Channel-Model"><a href="#Channel-Model" class="headerlink" title="Channel Model"></a>Channel Model</h2><blockquote><p>accept input and produce output</p></blockquote><p>如果channel根据它的输入状态完全改变它的输出状态，则它是无噪声的。<br>在这种情况下，除了输出状态，没有任何其他因素影响输出。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;$&#92;star$&lt;br&gt;how fast the information can be transferred to the output&lt;br&gt;there are model about source and channel. &lt;/p&gt;
+&lt;h2 id=&quot;Source-Mod</summary>
+      
+    
+    
+    
+    <category term="6.05" scheme="https://zuowangdev.github.io/categories/6-05/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>6.05 Hamming Codes</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Hamming%20Codes/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Hamming%20Codes/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T01:54:26.741Z</updated>
+    
+    <content type="html"><![CDATA[<p>将十进制化为二进制，任何二进制数都可以用power of 2的和表达：<br>6 -&gt; 110 -&gt; 2 + 4 -&gt; 010 + 100<br>实际上在进行奇偶校验时，Hamming Codes作出以下分组，<br>假设第n组<br>判断其二进制数是否在第n位上为1，若为1，则处于第n位的校验码对其进行校验。保证其1的数量满足奇偶性，在进行接收验证时，如果某组显示其校验错误，则证明错误发生在该组，说明错误位有这个校验位n的权重，将所有算得后，得到的就是错误位</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;将十进制化为二进制，任何二进制数都可以用power of 2的和表达：&lt;br&gt;6 -&amp;gt; 110 -&amp;gt; 2 + 4 -&amp;gt; 010 + 100&lt;br&gt;实际上在进行奇偶校验时，Hamming Codes作出以下分组，&lt;br&gt;假设第n组&lt;br&gt;判断其二进制数是否在</summary>
+      
+    
+    
+    
+    <category term="6.05" scheme="https://zuowangdev.github.io/categories/6-05/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LZW Algorithm</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/LZW%20Algorithm/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/LZW%20Algorithm/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T01:54:48.107Z</updated>
+    
+    <content type="html"><![CDATA[<p>（1）步骤一：开始时词典包含所有可能的根，当前前缀字符串P 和 当前字符均为空；</p><p>（2）步骤二：读入新的字符C，与P合并形成字符串P+C；</p><p>（3）步骤三：判断P+C是否在字典中</p><pre><code>                    如果“是”：                            P = P + C；                             返回步骤二；                    如果“否”：                            输出P的映射；                             P = P+C ；                            把前缀字符串P添加到字典，建立映射;                            令P = C //(现在的P仅包含一个字符C);</code></pre><p>（4）步骤四： 判断码字流中是否还有码字要译</p><pre><code>                     如果“是”：                          返回步骤二；                     如果“否”：                        把代表当前前缀P的码字输出到码字流;                        结束。</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;（1）步骤一：开始时词典包含所有可能的根，当前前缀字符串P 和 当前字符均为空；&lt;/p&gt;
+&lt;p&gt;（2）步骤二：读入新的字符C，与P合并形成字符串P+C；&lt;/p&gt;
+&lt;p&gt;（3）步骤三：判断P+C是否在字典中&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;                   </summary>
+      
+    
+    
+    
+    <category term="6.05" scheme="https://zuowangdev.github.io/categories/6-05/"/>
     
     
   </entry>

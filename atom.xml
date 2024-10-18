@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Zuowang&#39;s Blog</title>
+  <title>ZuowangDev&#39;s Blog</title>
   
   
   <link href="https://zuowangdev.github.io/atom.xml" rel="self"/>
@@ -194,28 +194,6 @@
   </entry>
   
   <entry>
-    <title>8-17-firstmeeting</title>
-    <link href="https://zuowangdev.github.io/2024/08/17/Project_Note/8-17-firstmeeting/"/>
-    <id>https://zuowangdev.github.io/2024/08/17/Project_Note/8-17-firstmeeting/</id>
-    <published>2024-08-16T16:00:00.000Z</published>
-    <updated>2024-10-17T01:26:17.017Z</updated>
-    
-    <content type="html"><![CDATA[<p>digital IC flow:<br>RTL &#x3D;&gt; [[DC(synthesis)]] &#x3D;&gt; netlist(.v) &#x3D;&gt; instance(inst) &#x3D;&gt; [[flow plan]] &#x3D;&gt; place &#x3D;&gt; timing&#x2F;congestion &#x3D;&gt; cts(clock tree synthesis) &#x3D;&gt; timming Opt &#x3D;&gt; route ··&gt;timing ECO &#x3D;&gt; drc ··&gt; [[timing ECO]]</p><ul><li>netlist(.v) (✅)</li><li>liberty(.lib)(✅)</li><li>DEF(.def)</li><li>LEF(.lef)</li><li>tech file</li><li>pt</li></ul><p>flow plan: certain the pin location, where is the clock tree, How much area does this chip use</p><p>timing ECO: this step is to opt timing in IC design by change some part of routing. There may are some measures to deal with:</p><ul><li>heuristic algorithm, such as KL…</li><li>Simulated annealing algorithm, deal with goal function</li><li>analysis method</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;digital IC flow:&lt;br&gt;RTL &amp;#x3D;&amp;gt; [[DC(synthesis)]] &amp;#x3D;&amp;gt; netlist(.v) &amp;#x3D;&amp;gt; instance(inst) &amp;#x3D;&amp;gt; [[flow plan]] &amp;#x3D;&amp;gt;</summary>
-      
-    
-    
-    
-    <category term="Porject Note" scheme="https://zuowangdev.github.io/categories/Porject-Note/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>DC(synthesis)</title>
     <link href="https://zuowangdev.github.io/2024/08/17/Project_Note/DC(synthesis)/"/>
     <id>https://zuowangdev.github.io/2024/08/17/Project_Note/DC(synthesis)/</id>
@@ -229,6 +207,28 @@
       
     <summary type="html">&lt;p&gt;run.tcl:&lt;/p&gt;
 &lt;figure class=&quot;highlight tcl&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;</summary>
+      
+    
+    
+    
+    <category term="Porject Note" scheme="https://zuowangdev.github.io/categories/Porject-Note/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>8-17-firstmeeting</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Project_Note/8-17-firstmeeting/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Project_Note/8-17-firstmeeting/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T01:26:17.017Z</updated>
+    
+    <content type="html"><![CDATA[<p>digital IC flow:<br>RTL &#x3D;&gt; [[DC(synthesis)]] &#x3D;&gt; netlist(.v) &#x3D;&gt; instance(inst) &#x3D;&gt; [[flow plan]] &#x3D;&gt; place &#x3D;&gt; timing&#x2F;congestion &#x3D;&gt; cts(clock tree synthesis) &#x3D;&gt; timming Opt &#x3D;&gt; route ··&gt;timing ECO &#x3D;&gt; drc ··&gt; [[timing ECO]]</p><ul><li>netlist(.v) (✅)</li><li>liberty(.lib)(✅)</li><li>DEF(.def)</li><li>LEF(.lef)</li><li>tech file</li><li>pt</li></ul><p>flow plan: certain the pin location, where is the clock tree, How much area does this chip use</p><p>timing ECO: this step is to opt timing in IC design by change some part of routing. There may are some measures to deal with:</p><ul><li>heuristic algorithm, such as KL…</li><li>Simulated annealing algorithm, deal with goal function</li><li>analysis method</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;digital IC flow:&lt;br&gt;RTL &amp;#x3D;&amp;gt; [[DC(synthesis)]] &amp;#x3D;&amp;gt; netlist(.v) &amp;#x3D;&amp;gt; instance(inst) &amp;#x3D;&amp;gt; [[flow plan]] &amp;#x3D;&amp;gt;</summary>
       
     
     
@@ -308,6 +308,30 @@
   </entry>
   
   <entry>
+    <title>6.05 Chapter 2 Code</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_2%20Code/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_2%20Code/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T01:53:09.700Z</updated>
+    
+    <content type="html"><![CDATA[<p>Preview: [[Chapter_1 Bit]] Just use for simple things</p><pre><code>Letters: BCD, EBCDIC, ASCII, Unicode, Morse CodeIntegers: Binary, Gray, 2’s complementNumbers: Floating-PointProteins: Genetic CodeTelephones: NANP, International codesHosts: Ethernet, IP Addresses, Domain namesImages: TIFF, GIF, and JPEGAudio: MP3Video: MPEG</code></pre><h2 id="Symble-space-size"><a href="#Symble-space-size" class="headerlink" title="Symble space size"></a>Symble space size</h2><ul><li><p>The number of symbles that <strong>need</strong> to be encode<br>As a special case, if there is only one symbol, no bits are required to specify it.</p></li><li><p>If the number of symbols is infinite but countable (able to be put into a one-to-one relation with the integers) then a bit string of a given length can only denote a finite number of items from this infinite set.</p></li><li><p>If the number of symbols is infinite and uncountable (such as the value of a physical quantity like voltage or acoustic pressure) then some technique of “discretization” must be used to replace possible values by a finite number of selected values that are approximately the same.</p></li></ul><h2 id="Use-of-Spare-Capacity"><a href="#Use-of-Spare-Capacity" class="headerlink" title="Use of Spare Capacity"></a>Use of Spare Capacity</h2><ul><li>Ignore</li><li>Map to other values</li><li>Reserve for future expansion</li><li>Use for control codes</li><li>Use for common abbreviations<br> EXAMPLES:</li></ul><p>BCD: ignore or other method</p><p>Genetic Code: control code(3个密码子，第三个密码子由于摆动特性，易被损坏，丙氨酸有四个代码，包括所有以GC开头的代码，提高了编码的鲁棒性，UAA、UAG、UGA为停止代码，control code)<br>ASCII<br>Morse<br>…</p><p>there is an interesting thing<br>XOR is not a universal gate</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Preview: [[Chapter_1 Bit]] Just use for simple things&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Letters: BCD, EBCDIC, ASCII, Unicode, Morse Code
+Integers: Binary, G</summary>
+      
+    
+    
+    
+    <category term="6.05" scheme="https://zuowangdev.github.io/categories/6-05/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>6.05 Chapter 1 Bit</title>
     <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_1%20Bit/"/>
     <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_1%20Bit/</id>
@@ -337,20 +361,21 @@
   </entry>
   
   <entry>
-    <title>6.05 Chapter 2 Code</title>
-    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_2%20Code/"/>
-    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_2%20Code/</id>
+    <title>6.05 Chapter 4 Errors</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_4%20Errors/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_4%20Errors/</id>
     <published>2024-08-16T16:00:00.000Z</published>
-    <updated>2024-10-17T01:53:09.700Z</updated>
+    <updated>2024-10-17T01:53:31.498Z</updated>
     
-    <content type="html"><![CDATA[<p>Preview: [[Chapter_1 Bit]] Just use for simple things</p><pre><code>Letters: BCD, EBCDIC, ASCII, Unicode, Morse CodeIntegers: Binary, Gray, 2’s complementNumbers: Floating-PointProteins: Genetic CodeTelephones: NANP, International codesHosts: Ethernet, IP Addresses, Domain namesImages: TIFF, GIF, and JPEGAudio: MP3Video: MPEG</code></pre><h2 id="Symble-space-size"><a href="#Symble-space-size" class="headerlink" title="Symble space size"></a>Symble space size</h2><ul><li><p>The number of symbles that <strong>need</strong> to be encode<br>As a special case, if there is only one symbol, no bits are required to specify it.</p></li><li><p>If the number of symbols is infinite but countable (able to be put into a one-to-one relation with the integers) then a bit string of a given length can only denote a finite number of items from this infinite set.</p></li><li><p>If the number of symbols is infinite and uncountable (such as the value of a physical quantity like voltage or acoustic pressure) then some technique of “discretization” must be used to replace possible values by a finite number of selected values that are approximately the same.</p></li></ul><h2 id="Use-of-Spare-Capacity"><a href="#Use-of-Spare-Capacity" class="headerlink" title="Use of Spare Capacity"></a>Use of Spare Capacity</h2><ul><li>Ignore</li><li>Map to other values</li><li>Reserve for future expansion</li><li>Use for control codes</li><li>Use for common abbreviations<br> EXAMPLES:</li></ul><p>BCD: ignore or other method</p><p>Genetic Code: control code(3个密码子，第三个密码子由于摆动特性，易被损坏，丙氨酸有四个代码，包括所有以GC开头的代码，提高了编码的鲁棒性，UAA、UAG、UGA为停止代码，control code)<br>ASCII<br>Morse<br>…</p><p>there is an interesting thing<br>XOR is not a universal gate</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>Error is inevitable, protection is necessary</p></blockquote><h2 id="Extension-of-System-Model"><a href="#Extension-of-System-Model" class="headerlink" title="Extension of System Model"></a>Extension of System Model</h2><p>We will extend message bits to know errors possible even repair the errors</p><h2 id="How-do-Errors-Happen"><a href="#How-do-Errors-Happen" class="headerlink" title="How do Errors Happen?"></a>How do Errors Happen?</h2><p>communication, data storage, computation</p><h2 id="Detection-Correction"><a href="#Detection-Correction" class="headerlink" title="Detection &amp; Correction"></a>Detection &amp; Correction</h2><p>It is necessary to contain redundancy in message</p><blockquote><p>In fact, if every illegal pattern is, in a sense to be described below, closer to one legal message than any other, the decoder could substitute the closest legal message, thereby repairing the damage.</p></blockquote><h2 id="Hammnig-Distance"><a href="#Hammnig-Distance" class="headerlink" title="Hammnig Distance"></a>Hammnig Distance</h2><blockquote><p>We need some technique for saying how similar two bit partterns are, so there is <em>Hamming Distance</em></p></blockquote><p>A more useful definition of the difference between teo bit patterns is the number of bits that are different between the two.<br>In the encoder, it is useful to calculate Hamming distance. But because of compression, Hamming distance must be set at least 3 to distingguish two legal code.</p><h2 id="Single-Bits"><a href="#Single-Bits" class="headerlink" title="Single Bits"></a>Single Bits</h2><blockquote><p>It is not important but commonly</p></blockquote><p>能很好的避免偶然错误，但是出现系统错误（相邻的位同时变化），三重冗余将失效</p><h2 id="Multiple-Bits"><a href="#Multiple-Bits" class="headerlink" title="Multiple Bits"></a>Multiple Bits</h2><blockquote><p>To detect errors in a sequence of bits several techniques can be used. Some can perform error correction as well as detection.</p></blockquote><h3 id="Parity"><a href="#Parity" class="headerlink" title="Parity"></a>Parity</h3><p>用于出错概率不大</p><h3 id="Rectangular-Codes"><a href="#Rectangular-Codes" class="headerlink" title="Rectangular Codes"></a>Rectangular Codes</h3><p>二维阵列的奇偶校验位：<br>可以纠正一个错误，发现两个错误，无法处理三重错误</p><h3 id="Hamming-Codes"><a href="#Hamming-Codes" class="headerlink" title="Hamming Codes"></a>Hamming Codes</h3><p>[[Hamming Codes]]</p><h3 id="Block-Codes"><a href="#Block-Codes" class="headerlink" title="Block Codes"></a>Block Codes</h3><p>7 bit Hamming Codes: (7,4,3)block code</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;Preview: [[Chapter_1 Bit]] Just use for simple things&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Letters: BCD, EBCDIC, ASCII, Unicode, Morse Code
-Integers: Binary, G</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;Error is inevitable, protection is necessary&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;Extension-of-System-Model&quot;&gt;&lt;a href=&quot;#Extension-of-Sys</summary>
       
     
     
@@ -377,31 +402,6 @@ Integers: Binary, G</summary>
 &lt;li&gt;Lossy or irreversible compression&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;Variable-length-Encoding&quot;&gt;&lt;a href=</summary>
-      
-    
-    
-    
-    <category term="6.05" scheme="https://zuowangdev.github.io/categories/6-05/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>6.05 Chapter 4 Errors</title>
-    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_4%20Errors/"/>
-    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_4%20Errors/</id>
-    <published>2024-08-16T16:00:00.000Z</published>
-    <updated>2024-10-17T01:53:31.498Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>Error is inevitable, protection is necessary</p></blockquote><h2 id="Extension-of-System-Model"><a href="#Extension-of-System-Model" class="headerlink" title="Extension of System Model"></a>Extension of System Model</h2><p>We will extend message bits to know errors possible even repair the errors</p><h2 id="How-do-Errors-Happen"><a href="#How-do-Errors-Happen" class="headerlink" title="How do Errors Happen?"></a>How do Errors Happen?</h2><p>communication, data storage, computation</p><h2 id="Detection-Correction"><a href="#Detection-Correction" class="headerlink" title="Detection &amp; Correction"></a>Detection &amp; Correction</h2><p>It is necessary to contain redundancy in message</p><blockquote><p>In fact, if every illegal pattern is, in a sense to be described below, closer to one legal message than any other, the decoder could substitute the closest legal message, thereby repairing the damage.</p></blockquote><h2 id="Hammnig-Distance"><a href="#Hammnig-Distance" class="headerlink" title="Hammnig Distance"></a>Hammnig Distance</h2><blockquote><p>We need some technique for saying how similar two bit partterns are, so there is <em>Hamming Distance</em></p></blockquote><p>A more useful definition of the difference between teo bit patterns is the number of bits that are different between the two.<br>In the encoder, it is useful to calculate Hamming distance. But because of compression, Hamming distance must be set at least 3 to distingguish two legal code.</p><h2 id="Single-Bits"><a href="#Single-Bits" class="headerlink" title="Single Bits"></a>Single Bits</h2><blockquote><p>It is not important but commonly</p></blockquote><p>能很好的避免偶然错误，但是出现系统错误（相邻的位同时变化），三重冗余将失效</p><h2 id="Multiple-Bits"><a href="#Multiple-Bits" class="headerlink" title="Multiple Bits"></a>Multiple Bits</h2><blockquote><p>To detect errors in a sequence of bits several techniques can be used. Some can perform error correction as well as detection.</p></blockquote><h3 id="Parity"><a href="#Parity" class="headerlink" title="Parity"></a>Parity</h3><p>用于出错概率不大</p><h3 id="Rectangular-Codes"><a href="#Rectangular-Codes" class="headerlink" title="Rectangular Codes"></a>Rectangular Codes</h3><p>二维阵列的奇偶校验位：<br>可以纠正一个错误，发现两个错误，无法处理三重错误</p><h3 id="Hamming-Codes"><a href="#Hamming-Codes" class="headerlink" title="Hamming Codes"></a>Hamming Codes</h3><p>[[Hamming Codes]]</p><h3 id="Block-Codes"><a href="#Block-Codes" class="headerlink" title="Block Codes"></a>Block Codes</h3><p>7 bit Hamming Codes: (7,4,3)block code</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;Error is inevitable, protection is necessary&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;Extension-of-System-Model&quot;&gt;&lt;a href=&quot;#Extension-of-Sys</summary>
       
     
     

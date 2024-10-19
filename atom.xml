@@ -6,7 +6,7 @@
   <link href="https://zuowangdev.github.io/atom.xml" rel="self"/>
   
   <link href="https://zuowangdev.github.io/"/>
-  <updated>2024-10-17T10:12:16.991Z</updated>
+  <updated>2024-10-17T08:44:06.242Z</updated>
   <id>https://zuowangdev.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>标准单元电路设计技术</title>
+    <link href="https://zuowangdev.github.io/2024/10/17/Note/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/%E6%A0%87%E5%87%86%E5%8D%95%E5%85%83%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF/"/>
+    <id>https://zuowangdev.github.io/2024/10/17/Note/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/%E6%A0%87%E5%87%86%E5%8D%95%E5%85%83%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF/</id>
+    <published>2024-10-16T16:00:00.000Z</published>
+    <updated>2024-10-17T08:44:06.242Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>时序单元和组合单元</p></blockquote><h1 id="CMOS工艺数字电路实现结构"><a href="#CMOS工艺数字电路实现结构" class="headerlink" title="CMOS工艺数字电路实现结构"></a>CMOS工艺数字电路实现结构</h1><h2 id="静态电路"><a href="#静态电路" class="headerlink" title="静态电路"></a>静态电路</h2><blockquote><p>抗噪声、低功耗<br>主要由上拉网络(PUN)和下拉网络(PDN)组成。<br><img src="/pic/DICBED-3-1.png"></p></blockquote><h2 id="伪NMOS电路"><a href="#伪NMOS电路" class="headerlink" title="伪NMOS电路"></a>伪NMOS电路</h2><blockquote><p>晶体管数量少，面积小；输出低电平不彻底，噪声容限低；静态功耗高。<br>减少晶体管数量(到N+1个)，降低了电路复杂性，减少了传播延迟，提高性能。<br>但是输：出低电压不是0V，降低了噪声容限(使用PMOS作为上拉负载的伪NMOS电路，输出电压摆幅和电路性能取决于NMOS和PMOS尺寸比)；输出为低电平时，Vdd和GND之间的电流通路会引起静态功耗。<br>由于其优秀的面积，常用于大扇入的电路设计中<br><img src="/pic/DICBED-3-2.png"></p></blockquote><h2 id="传输门电路"><a href="#传输门电路" class="headerlink" title="传输门电路"></a>传输门电路</h2><blockquote><p>强0，作为开关电路。<br>传输管结构允许输入同时驱动MOS的栅、源、漏实现逻辑功能<br><img src="/pic/DICBED-3-3.png"><br>单个N传输门结构可以产生强0输出，但是当上拉一个节点到Vdd时性能差，不能产生强1输出<br>可以采用互补MOS的结构：<br><img src="/pic/DICBED-3-4.png"><br>由B信号控制的开关。传输门电可以有效地构成一些复杂的逻辑电路：<br><img src="/pic/DICBED-3-5.png"><br>OUT &#x3D; A * S + B * S</p></blockquote><h2 id="动态电路实现"><a href="#动态电路实现" class="headerlink" title="动态电路实现"></a>动态电路实现</h2><blockquote><p>速度快，面积小；可靠性差，在长时间没有预充电时，会有信息泄露，功耗高，电路设计复杂，需要时钟驱动。<br>静态逻辑电路通过稳定输入确定管子状态，维持稳定的输出。动态电路通过时钟控制写入和读取，基本动态电路在一个时钟周期只能完成一次输入和读取。<br><img src="/pic/DICBED-3-6.png"></p></blockquote><ul><li>由于工艺尺寸减小，器件尺寸减小，电容减小，同时电源电压下降，节点电容存储电荷量下降，降低电路可靠性；</li><li>存在亚阈值漏流和电荷分享等；长时间没有进行预充电，会导致存储信息丢失；</li><li>每个时钟周期都有翻转，功耗消耗高；</li><li>动态电路需要时钟信号控制，设计复杂，要周期性刷新节点电容电压。</li></ul><h2 id="高扇入逻辑电路"><a href="#高扇入逻辑电路" class="headerlink" title="高扇入逻辑电路"></a>高扇入逻辑电路</h2><h3 id="CMOS静态电路"><a href="#CMOS静态电路" class="headerlink" title="CMOS静态电路"></a>CMOS静态电路</h3><p>为了保证速度，尽量不采用串联形式，而是采用树状结构。一般串联不超过四级。<br><img src="/pic/DICBED-3-7.png"></p><h3 id="伪NMOS电路-1"><a href="#伪NMOS电路-1" class="headerlink" title="伪NMOS电路"></a>伪NMOS电路</h3><p>减少晶体管数量；但是由于并联NMOS增多，导致并联电容增大，速度减慢，一般适用于<strong>24扇入</strong>以下的或(或非)门。不适合用于高扇入的与(与非)门。不能用于分级结构。<br><img src="/pic/DICBED-3-8.png"></p><h3 id="动态电路"><a href="#动态电路" class="headerlink" title="动态电路"></a>动态电路</h3><blockquote><p>高效高速，面积小。<br>或非门和与非门<br><img src="/pic/DICBED-3-9.png"><br><img src="/pic/DICBED-3-10.png"><br>P型动态电路慢于N型动态电路，但是P型动态电路的逻辑级数更少，器件数目更少。<br>随着扇入的数目增加，动态电路的节点电容增大，电路工作速度降低，电路对输入噪声更加敏感。单级电路扇入速度应该小于16，更多的扇入需要采用串联分块的方法。以下是实现高扇入逻辑电路的串联方法。</p></blockquote><h4 id="多米诺电路"><a href="#多米诺电路" class="headerlink" title="多米诺电路"></a>多米诺电路</h4><p><img src="/pic/DICBED-3-11.png"><br>考虑或非门增加反相器，或门之间可以级联。在电路设计时，可以考虑去除除第一级之后的尾管，速度大大提高，时钟负载减小，面积减小，但要保证预充电时，所有NMOS的输入都要为0，保证所有NMOS不导通，否则Vdd经过两个导通管，大电流短路。在PND到Vdd之间增加PMOS保持管，弥补由反偏二极管和电荷分享造成的电荷损失。<br><img src="/pic/DICBED-3-12.png"><br>对于单级多米诺电路，有以下问题：当输入数目增加，动态节点电容增大，速度变慢，可靠性降低。可以增大保持管的尺寸，但是增大保持管的尺寸会导致与NMOS网络的电容充放电加剧。必须考虑分级分块，使得每个保持管的尺寸不过大，不会产生剧烈的竞争，降低功耗，提高性能。</p><h4 id="组合多米诺电路"><a href="#组合多米诺电路" class="headerlink" title="组合多米诺电路"></a>组合多米诺电路</h4><p>通过nor + nand的方式实现or。<br><img src="/pic/DICBED-3-13.png"><br>每块只需要一个小尺寸的PMOS充电管，有效减少动态节点的电容。不过一般来说，如果采用静态CMOS的nand，一般其扇入不超过4(静态nand的延时随扇入增加较快)。<br>如果输入到达的时间有先后(路径长度不可忽略)，则将延时相近的放在一个多米诺电路，然后将后到达的连接与非门靠近输出的晶体管栅极。<br><img src="/pic/DICBED-3-14.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;时序单元和组合单元&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;CMOS工艺数字电路实现结构&quot;&gt;&lt;a href=&quot;#CMOS工艺数字电路实现结构&quot; class=&quot;headerlink&quot; title=&quot;CMOS工艺数字电路实现结构&quot;&gt;&lt;/a&gt;</summary>
+      
+    
+    
+    
+    <category term="CMOS集成电路后端设计" scheme="https://zuowangdev.github.io/categories/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Linux编程U1</title>
@@ -67,31 +92,6 @@
     
     
     <category term="Linux" scheme="https://zuowangdev.github.io/categories/Linux/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>标准单元电路设计技术</title>
-    <link href="https://zuowangdev.github.io/2024/10/17/Note/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/%E6%A0%87%E5%87%86%E5%8D%95%E5%85%83%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF/"/>
-    <id>https://zuowangdev.github.io/2024/10/17/Note/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/%E6%A0%87%E5%87%86%E5%8D%95%E5%85%83%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF/</id>
-    <published>2024-10-16T16:00:00.000Z</published>
-    <updated>2024-10-17T08:44:06.242Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>时序单元和组合单元</p></blockquote><h1 id="CMOS工艺数字电路实现结构"><a href="#CMOS工艺数字电路实现结构" class="headerlink" title="CMOS工艺数字电路实现结构"></a>CMOS工艺数字电路实现结构</h1><h2 id="静态电路"><a href="#静态电路" class="headerlink" title="静态电路"></a>静态电路</h2><blockquote><p>抗噪声、低功耗<br>主要由上拉网络(PUN)和下拉网络(PDN)组成。<br><img src="/pic/DICBED-3-1.png"></p></blockquote><h2 id="伪NMOS电路"><a href="#伪NMOS电路" class="headerlink" title="伪NMOS电路"></a>伪NMOS电路</h2><blockquote><p>晶体管数量少，面积小；输出低电平不彻底，噪声容限低；静态功耗高。<br>减少晶体管数量(到N+1个)，降低了电路复杂性，减少了传播延迟，提高性能。<br>但是输：出低电压不是0V，降低了噪声容限(使用PMOS作为上拉负载的伪NMOS电路，输出电压摆幅和电路性能取决于NMOS和PMOS尺寸比)；输出为低电平时，Vdd和GND之间的电流通路会引起静态功耗。<br>由于其优秀的面积，常用于大扇入的电路设计中<br><img src="/pic/DICBED-3-2.png"></p></blockquote><h2 id="传输门电路"><a href="#传输门电路" class="headerlink" title="传输门电路"></a>传输门电路</h2><blockquote><p>强0，作为开关电路。<br>传输管结构允许输入同时驱动MOS的栅、源、漏实现逻辑功能<br><img src="/pic/DICBED-3-3.png"><br>单个N传输门结构可以产生强0输出，但是当上拉一个节点到Vdd时性能差，不能产生强1输出<br>可以采用互补MOS的结构：<br><img src="/pic/DICBED-3-4.png"><br>由B信号控制的开关。传输门电可以有效地构成一些复杂的逻辑电路：<br><img src="/pic/DICBED-3-5.png"><br>OUT &#x3D; A * S + B * S</p></blockquote><h2 id="动态电路实现"><a href="#动态电路实现" class="headerlink" title="动态电路实现"></a>动态电路实现</h2><blockquote><p>速度快，面积小；可靠性差，在长时间没有预充电时，会有信息泄露，功耗高，电路设计复杂，需要时钟驱动。<br>静态逻辑电路通过稳定输入确定管子状态，维持稳定的输出。动态电路通过时钟控制写入和读取，基本动态电路在一个时钟周期只能完成一次输入和读取。<br><img src="/pic/DICBED-3-6.png"></p></blockquote><ul><li>由于工艺尺寸减小，器件尺寸减小，电容减小，同时电源电压下降，节点电容存储电荷量下降，降低电路可靠性；</li><li>存在亚阈值漏流和电荷分享等；长时间没有进行预充电，会导致存储信息丢失；</li><li>每个时钟周期都有翻转，功耗消耗高；</li><li>动态电路需要时钟信号控制，设计复杂，要周期性刷新节点电容电压。</li></ul><h2 id="高扇入逻辑电路"><a href="#高扇入逻辑电路" class="headerlink" title="高扇入逻辑电路"></a>高扇入逻辑电路</h2><h3 id="CMOS静态电路"><a href="#CMOS静态电路" class="headerlink" title="CMOS静态电路"></a>CMOS静态电路</h3><p>为了保证速度，尽量不采用串联形式，而是采用树状结构。一般串联不超过四级。<br><img src="/pic/DICBED-3-7.png"></p><h3 id="伪NMOS电路-1"><a href="#伪NMOS电路-1" class="headerlink" title="伪NMOS电路"></a>伪NMOS电路</h3><p>减少晶体管数量；但是由于并联NMOS增多，导致并联电容增大，速度减慢，一般适用于<strong>24扇入</strong>以下的或(或非)门。不适合用于高扇入的与(与非)门。不能用于分级结构。<br><img src="/pic/DICBED-3-8.png"></p><h3 id="动态电路"><a href="#动态电路" class="headerlink" title="动态电路"></a>动态电路</h3><blockquote><p>高效高速，面积小。<br>或非门和与非门<br><img src="/pic/DICBED-3-9.png"><br><img src="/pic/DICBED-3-10.png"><br>P型动态电路慢于N型动态电路，但是P型动态电路的逻辑级数更少，器件数目更少。<br>随着扇入的数目增加，动态电路的节点电容增大，电路工作速度降低，电路对输入噪声更加敏感。单级电路扇入速度应该小于16，更多的扇入需要采用串联分块的方法。以下是实现高扇入逻辑电路的串联方法。</p></blockquote><h4 id="多米诺电路"><a href="#多米诺电路" class="headerlink" title="多米诺电路"></a>多米诺电路</h4><p><img src="/pic/DICBED-3-11.png"><br>考虑或非门增加反相器，或门之间可以级联。在电路设计时，可以考虑去除除第一级之后的尾管，速度大大提高，时钟负载减小，面积减小，但要保证预充电时，所有NMOS的输入都要为0，保证所有NMOS不导通，否则Vdd经过两个导通管，大电流短路。在PND到Vdd之间增加PMOS保持管，弥补由反偏二极管和电荷分享造成的电荷损失。<br><img src="/pic/DICBED-3-12.png"><br>对于单级多米诺电路，有以下问题：当输入数目增加，动态节点电容增大，速度变慢，可靠性降低。可以增大保持管的尺寸，但是增大保持管的尺寸会导致与NMOS网络的电容充放电加剧。必须考虑分级分块，使得每个保持管的尺寸不过大，不会产生剧烈的竞争，降低功耗，提高性能。</p><h4 id="组合多米诺电路"><a href="#组合多米诺电路" class="headerlink" title="组合多米诺电路"></a>组合多米诺电路</h4><p>通过nor + nand的方式实现or。<br><img src="/pic/DICBED-3-13.png"><br>每块只需要一个小尺寸的PMOS充电管，有效减少动态节点的电容。不过一般来说，如果采用静态CMOS的nand，一般其扇入不超过4(静态nand的延时随扇入增加较快)。<br>如果输入到达的时间有先后(路径长度不可忽略)，则将延时相近的放在一个多米诺电路，然后将后到达的连接与非门靠近输出的晶体管栅极。<br><img src="/pic/DICBED-3-14.png"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;时序单元和组合单元&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;CMOS工艺数字电路实现结构&quot;&gt;&lt;a href=&quot;#CMOS工艺数字电路实现结构&quot; class=&quot;headerlink&quot; title=&quot;CMOS工艺数字电路实现结构&quot;&gt;&lt;/a&gt;</summary>
-      
-    
-    
-    
-    <category term="CMOS集成电路后端设计" scheme="https://zuowangdev.github.io/categories/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/"/>
     
     
   </entry>
@@ -194,6 +194,53 @@
   </entry>
   
   <entry>
+    <title>Lecture 1</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%201/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%201/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T03:18:21.359Z</updated>
+    
+    <content type="html"><![CDATA[<p>读完这篇《提问的智慧》后，我深受启发。这篇文章不仅为技术问题的提问提供了指导，更在更广泛的层面上教会了我们如何更有效地沟通和学习。</p><p>我们在提问之前应该先进行充分的自我探索和研究。这包括阅读相关的文档、搜索网络资源以及尝试自己解决问题。这个过程本身就是一种学习，能够帮助我们更深入地理解问题的本质。通过这种方式，我们不仅能够提升自己的解决问题的能力，还能够培养独立思考的习惯。依赖他人提供答案并不是长久之计，只有自己具备了解决问题的能力，才能够在面对更复杂的问题时游刃有余。</p><p>首先，文章强调了在提问前应该做的准备工作，比如搜索旧文章、上网搜索、阅读手册和常见问题解答等。这一点让我意识到，很多情况下，问题的答案已经存在于我们能够触及的地方，关键在于我们是否愿意投入时间和精力去寻找。</p><p>其次，文章提到了提问时应该选择正确的论坛或渠道，这让我认识到，找到合适的提问场所，不仅能够更快地得到答案，也是对他人时间和空间的尊重。</p><p>提问时的表达方式也很重要，比如使用清晰、准确、并且合乎语法的语言，以及提供易于阅读的文件格式。这些细节提醒了我，良好的表达能力是沟通的关键，无论是在技术社区还是日常生活中。</p><p>“话不在多而在精”的原则，让我反思了自己在日常沟通中是否过于啰嗦，没有抓住重点。学会精确地描述问题，不仅能帮助他人更快地理解并解决问题，也提高了沟通的效率。</p><p>文章中还提到了在提问时不应该要求私下回复，这一点让我理解到，知识的分享应该是开放和透明的，这有助于建立一个互帮互助的社区环境。</p><p>最后，文章提到的“问题解决后，加个简短的补充说明”，这不仅是对帮助者的尊重，也是对社区的贡献，让更多人能够从问题和答案中学习。以至于在帮助他人时，我们应该引导他们独立思考，而不是简单地提供答案。这种方式虽然在短期内可能会让求助者感到困难，但从长远来看，它能够帮助他们建立起解决问题的能力，为他们的职业生涯打下坚实的基础。</p><p>综上所述，这一课的阅读内容不仅教会了我如何科学地提问，更在如何成为一个合格的社区成员和有效沟通上给予了我宝贵的指导。这些原则和建议，我相信在任何需要提问和沟通的场合都是适用的。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;读完这篇《提问的智慧》后，我深受启发。这篇文章不仅为技术问题的提问提供了指导，更在更广泛的层面上教会了我们如何更有效地沟通和学习。&lt;/p&gt;
+&lt;p&gt;我们在提问之前应该先进行充分的自我探索和研究。这包括阅读相关的文档、搜索网络资源以及尝试自己解决问题。这个过程本身就是一种学习，</summary>
+      
+    
+    
+    
+    <category term="ysyx" scheme="https://zuowangdev.github.io/categories/ysyx/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Lecture 2</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%202/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%202/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T03:18:39.818Z</updated>
+    
+    <content type="html"><![CDATA[<p>在MAC上使用multipass + ubuntu + aptitude配置环境<br>图形界面使用mac系统进行操作，将ysyx-workbench挂载在VM下</p><p>sudo aptitude install bison flex</p><h2 id="Linux-101随笔"><a href="#Linux-101随笔" class="headerlink" title="Linux 101随笔"></a>Linux 101随笔</h2><p>cp -l -s : 创建硬链接和软链接<br>硬链接和软链接都指向文件本身：<br>硬链接是不同文件共用一个inode，修改一个文件会对另外的文件产生影响，而软链接是A文件的内容是B文件，读取A文件时会自动打开B文件，A、B有不同的inode。</p><p>搜索文件和目录：find option path expression<br>find . -name ‘report.pdf’在当前目录下搜索名为report.pdf的文件<br>find &#x2F; -sizw +1G全盘搜索大于1G的文件<br>通配符：<br>*: 任意字串；foo*: 以foo开头的字串；*x*: 包含x的字串<br>?: 一个字串</p><h3 id="进程、前后台、服务与-例行性任务"><a href="#进程、前后台、服务与-例行性任务" class="headerlink" title="进程、前后台、服务与 例行性任务"></a>进程、前后台、服务与 例行性任务</h3><blockquote><p>进程就是正在进行的程序；当启动一个程序时，操作系统就会从硬盘中读取程序文件，将程序内容载入内存，之后CPU就会执行这个程序</p></blockquote><p>进程标识符（PID）是进程的唯一标识<br>进程的优先级与Priority（PRI）和nice（NI）值有关<br>nice值与用户更相关，nice值在-20到19之间，default &#x3D; 0<br>nice -n 10 : vim以10为nice运行vim<br>renice -n 10 -p 12345: 设置PID为12345的进程nice值为10</p><p><code>PRI = nice + 20</code>。这对于普通进程是成立的——普通进程的 PRI 会被映射到一个非负整数。</p><p>但在正常运行的 Linux 系统中，我们可能会发现有些进程的 PRI 值是 RT，或者是负数。这表明对应的进程有更高的实时性要求（例如内核进程、音频相关进程等），采用了与普通进程不同的调度策略，优先级也相应更高。</p><h4 id="进程状态"><a href="#进程状态" class="headerlink" title="进程状态"></a>进程状态</h4><ul><li>正在运行的程序（running）</li><li>可以运行但正在排队等待的程序（ready）</li><li>正在等待其他资源（blocked）</li></ul><p>实际的linux系统中，进程的状态更复杂：<br>Status: R: running; S: sleeping; T: traced&#x2F;stopped; Z: zombie; D: disk sleep</p><p>shell前后台<br>默认情况下，shell命令都是在前台运行，如果需要在后台运行，需要在最后加上&amp;</p><p>终端一旦被关闭会向其中每个进程发送 SIGHUP（Signal hangup），而 SIGHUP 的默认动作即退出程序运行。</p><h2 id="The-Missing-Semester-of-Your-CS-Education"><a href="#The-Missing-Semester-of-Your-CS-Education" class="headerlink" title="The Missing Semester of Your CS Education"></a>The Missing Semester of Your CS Education</h2><h3 id="课程概览与shell"><a href="#课程概览与shell" class="headerlink" title="课程概览与shell"></a>课程概览与shell</h3><p><img src="/pic/ysyx-Lecture2-1.png"><br><img src="/pic/ysyx-Lecture2-2.png"><br><img src="/pic/ysyx-Lecture2-3.png"></p><h3 id="Shell工具和脚本"><a href="#Shell工具和脚本" class="headerlink" title="Shell工具和脚本"></a>Shell工具和脚本</h3><p>“”中的变量会进行转义，’’中的不会</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">mcd</span></span>()&#123;</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>$1是脚本的第一个参数；<br>$0: 脚本名；<br>$@: 所有参数；<br>$#: 参数个数；<br>$?: 前一个命令的返回值；<br>$$: 当前脚本的进程识别码；<br>$\star$ !!: 上一条完整的命令，包括参数，常见应用：sudo !!；<br>$_: 上一个命令的最后一个参数；</p><p>命令通常使用STDOUT返回输出值，使用STDERR返回错误及错误码</p><p>与操作符和或操作符：&amp;&amp;  ||<br>shell在执行时，先执行第一个程序，如果执行的结果为flase，再确定执不执行之后的程序<br>$(CMD)会执行CMD这个命令后，将输出结果替换CMD<br>通配符与{}<br><img src="/pic/ysyx-Lecture2-4.png"><img src="/pic/ysyx-Lecture2-5.png"><img src="/pic/ysyx-Lecture2-6.png"><img src="/pic/ysyx-Lecture2-7.png"><img src="/pic/ysyx-Lecture2-8.png"><br><img src="/pic/ysyx-Lecture2-9.png"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> f -name <span class="string">&quot;*.html&quot;</span> | xargs -d <span class="string">&#x27;\n&#x27;</span> tar -cvzf html.zip</span><br><span class="line"></span><br><span class="line">find . -<span class="built_in">type</span> f -mmin -60 -print0 | xargs -0 <span class="built_in">ls</span> -lt | <span class="built_in">head</span> -10</span><br></pre></td></tr></table></figure><h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><dl><dt>vim: :%s&#x2F;old&#x2F;new&#x2F;g全局替换</dt><dd>g&#x2F;partern&#x2F;s&#x2F;old&#x2F;new&#x2F;g: 查找有partern的行进行替换（如果查找项与被替换项目一致，就不用再写被替换项）![[截屏2024-09-08 17.36.08.png]]</dd></dl><h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><ol start="2"><li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cat words | tr A-Z a-z | grep -E &#x27;^(\[^a]*a)&#123;3&#125;&#x27; | grep -v &quot;&#x27;s$&quot; | wc -l</span><br><span class="line"></span><br><span class="line">cat words | tr A-Z a-z | grep -E &#x27;^[^a]*a)&#123;3&#125;&#x27; | grep -v &quot;&#x27;s$&quot; | sed -E &quot;s/.*([a-z]&#123;2&#125;)/\1/&quot; | sort | uniq -c | sort -rn | head -3</span><br><span class="line"></span><br><span class="line">cat words | tr A-Z a-z | grep -E &#x27;^([^a]*a)&#123;3&#125;&#x27; | grep -v &quot;&#x27;s$&quot; | sed -E &quot;s/.*([a-z]&#123;2&#125;)$/\1/&quot; | sort | uniq | wc -l</span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line"> </span><br><span class="line">for i in &#123;a..z&#125;</span><br><span class="line">do</span><br><span class="line">for j in &#123;a..z&#125;</span><br><span class="line">do</span><br><span class="line">echo &quot;$i$j&quot;</span><br><span class="line">done</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">comm -23 report.txt part.txt</span><br></pre></td></tr></table></figure></li><li><ol><li><strong>数据丢失</strong>：如果 <code>sed</code> 命令执行过程中发生错误，或者输入文件在处理过程中被意外删除或损坏，那么原始数据可能会丢失，而且没有备份。</li><li><strong>不可预测性</strong>：原地替换可能会在文件系统中产生临时文件，这可能会影响文件的权限、所有权、时间戳等属性。</li><li><strong>并发问题</strong>：如果有多个进程试图同时对同一个文件进行原地替换，可能会导致数据不一致或文件损坏。</li><li><strong>备份问题</strong>：在某些情况下，你可能希望保留原始文件的副本，以便在出现问题时可以恢复。原地替换不会自动为你创建这样的备份。</li><li><strong>文件锁定</strong>：在某些操作系统上，原地替换可能会导致文件被锁定，这可能会阻止其他进程访问该文件。<br> sed -i.bak ‘s&#x2F;REGEX&#x2F;SUBSTITUTION&#x2F;‘ input.txt</li></ol></li><li></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在MAC上使用multipass + ubuntu + aptitude配置环境&lt;br&gt;图形界面使用mac系统进行操作，将ysyx-workbench挂载在VM下&lt;/p&gt;
+&lt;p&gt;sudo aptitude install bison flex&lt;/p&gt;
+&lt;h2 id=&quot;Lin</summary>
+      
+    
+    
+    
+    <category term="ysyx" scheme="https://zuowangdev.github.io/categories/ysyx/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>8-17-firstmeeting</title>
     <link href="https://zuowangdev.github.io/2024/08/17/Project_Note/8-17-firstmeeting/"/>
     <id>https://zuowangdev.github.io/2024/08/17/Project_Note/8-17-firstmeeting/</id>
@@ -256,53 +303,6 @@
     
     
     <category term="Porject Note" scheme="https://zuowangdev.github.io/categories/Porject-Note/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Lecture 1</title>
-    <link href="https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%201/"/>
-    <id>https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%201/</id>
-    <published>2024-08-16T16:00:00.000Z</published>
-    <updated>2024-10-17T03:18:21.359Z</updated>
-    
-    <content type="html"><![CDATA[<p>读完这篇《提问的智慧》后，我深受启发。这篇文章不仅为技术问题的提问提供了指导，更在更广泛的层面上教会了我们如何更有效地沟通和学习。</p><p>我们在提问之前应该先进行充分的自我探索和研究。这包括阅读相关的文档、搜索网络资源以及尝试自己解决问题。这个过程本身就是一种学习，能够帮助我们更深入地理解问题的本质。通过这种方式，我们不仅能够提升自己的解决问题的能力，还能够培养独立思考的习惯。依赖他人提供答案并不是长久之计，只有自己具备了解决问题的能力，才能够在面对更复杂的问题时游刃有余。</p><p>首先，文章强调了在提问前应该做的准备工作，比如搜索旧文章、上网搜索、阅读手册和常见问题解答等。这一点让我意识到，很多情况下，问题的答案已经存在于我们能够触及的地方，关键在于我们是否愿意投入时间和精力去寻找。</p><p>其次，文章提到了提问时应该选择正确的论坛或渠道，这让我认识到，找到合适的提问场所，不仅能够更快地得到答案，也是对他人时间和空间的尊重。</p><p>提问时的表达方式也很重要，比如使用清晰、准确、并且合乎语法的语言，以及提供易于阅读的文件格式。这些细节提醒了我，良好的表达能力是沟通的关键，无论是在技术社区还是日常生活中。</p><p>“话不在多而在精”的原则，让我反思了自己在日常沟通中是否过于啰嗦，没有抓住重点。学会精确地描述问题，不仅能帮助他人更快地理解并解决问题，也提高了沟通的效率。</p><p>文章中还提到了在提问时不应该要求私下回复，这一点让我理解到，知识的分享应该是开放和透明的，这有助于建立一个互帮互助的社区环境。</p><p>最后，文章提到的“问题解决后，加个简短的补充说明”，这不仅是对帮助者的尊重，也是对社区的贡献，让更多人能够从问题和答案中学习。以至于在帮助他人时，我们应该引导他们独立思考，而不是简单地提供答案。这种方式虽然在短期内可能会让求助者感到困难，但从长远来看，它能够帮助他们建立起解决问题的能力，为他们的职业生涯打下坚实的基础。</p><p>综上所述，这一课的阅读内容不仅教会了我如何科学地提问，更在如何成为一个合格的社区成员和有效沟通上给予了我宝贵的指导。这些原则和建议，我相信在任何需要提问和沟通的场合都是适用的。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;读完这篇《提问的智慧》后，我深受启发。这篇文章不仅为技术问题的提问提供了指导，更在更广泛的层面上教会了我们如何更有效地沟通和学习。&lt;/p&gt;
-&lt;p&gt;我们在提问之前应该先进行充分的自我探索和研究。这包括阅读相关的文档、搜索网络资源以及尝试自己解决问题。这个过程本身就是一种学习，</summary>
-      
-    
-    
-    
-    <category term="ysyx" scheme="https://zuowangdev.github.io/categories/ysyx/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Lecture 2</title>
-    <link href="https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%202/"/>
-    <id>https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%202/</id>
-    <published>2024-08-16T16:00:00.000Z</published>
-    <updated>2024-10-17T03:18:39.818Z</updated>
-    
-    <content type="html"><![CDATA[<p>在MAC上使用multipass + ubuntu + aptitude配置环境<br>图形界面使用mac系统进行操作，将ysyx-workbench挂载在VM下</p><p>sudo aptitude install bison flex</p><h2 id="Linux-101随笔"><a href="#Linux-101随笔" class="headerlink" title="Linux 101随笔"></a>Linux 101随笔</h2><p>cp -l -s : 创建硬链接和软链接<br>硬链接和软链接都指向文件本身：<br>硬链接是不同文件共用一个inode，修改一个文件会对另外的文件产生影响，而软链接是A文件的内容是B文件，读取A文件时会自动打开B文件，A、B有不同的inode。</p><p>搜索文件和目录：find option path expression<br>find . -name ‘report.pdf’在当前目录下搜索名为report.pdf的文件<br>find &#x2F; -sizw +1G全盘搜索大于1G的文件<br>通配符：<br>*: 任意字串；foo*: 以foo开头的字串；*x*: 包含x的字串<br>?: 一个字串</p><h3 id="进程、前后台、服务与-例行性任务"><a href="#进程、前后台、服务与-例行性任务" class="headerlink" title="进程、前后台、服务与 例行性任务"></a>进程、前后台、服务与 例行性任务</h3><blockquote><p>进程就是正在进行的程序；当启动一个程序时，操作系统就会从硬盘中读取程序文件，将程序内容载入内存，之后CPU就会执行这个程序</p></blockquote><p>进程标识符（PID）是进程的唯一标识<br>进程的优先级与Priority（PRI）和nice（NI）值有关<br>nice值与用户更相关，nice值在-20到19之间，default &#x3D; 0<br>nice -n 10 : vim以10为nice运行vim<br>renice -n 10 -p 12345: 设置PID为12345的进程nice值为10</p><p><code>PRI = nice + 20</code>。这对于普通进程是成立的——普通进程的 PRI 会被映射到一个非负整数。</p><p>但在正常运行的 Linux 系统中，我们可能会发现有些进程的 PRI 值是 RT，或者是负数。这表明对应的进程有更高的实时性要求（例如内核进程、音频相关进程等），采用了与普通进程不同的调度策略，优先级也相应更高。</p><h4 id="进程状态"><a href="#进程状态" class="headerlink" title="进程状态"></a>进程状态</h4><ul><li>正在运行的程序（running）</li><li>可以运行但正在排队等待的程序（ready）</li><li>正在等待其他资源（blocked）</li></ul><p>实际的linux系统中，进程的状态更复杂：<br>Status: R: running; S: sleeping; T: traced&#x2F;stopped; Z: zombie; D: disk sleep</p><p>shell前后台<br>默认情况下，shell命令都是在前台运行，如果需要在后台运行，需要在最后加上&amp;</p><p>终端一旦被关闭会向其中每个进程发送 SIGHUP（Signal hangup），而 SIGHUP 的默认动作即退出程序运行。</p><h2 id="The-Missing-Semester-of-Your-CS-Education"><a href="#The-Missing-Semester-of-Your-CS-Education" class="headerlink" title="The Missing Semester of Your CS Education"></a>The Missing Semester of Your CS Education</h2><h3 id="课程概览与shell"><a href="#课程概览与shell" class="headerlink" title="课程概览与shell"></a>课程概览与shell</h3><p><img src="/pic/ysyx-Lecture2-1.png"><br><img src="/pic/ysyx-Lecture2-2.png"><br><img src="/pic/ysyx-Lecture2-3.png"></p><h3 id="Shell工具和脚本"><a href="#Shell工具和脚本" class="headerlink" title="Shell工具和脚本"></a>Shell工具和脚本</h3><p>“”中的变量会进行转义，’’中的不会</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">mcd</span></span>()&#123;</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>$1是脚本的第一个参数；<br>$0: 脚本名；<br>$@: 所有参数；<br>$#: 参数个数；<br>$?: 前一个命令的返回值；<br>$$: 当前脚本的进程识别码；<br>$\star$ !!: 上一条完整的命令，包括参数，常见应用：sudo !!；<br>$_: 上一个命令的最后一个参数；</p><p>命令通常使用STDOUT返回输出值，使用STDERR返回错误及错误码</p><p>与操作符和或操作符：&amp;&amp;  ||<br>shell在执行时，先执行第一个程序，如果执行的结果为flase，再确定执不执行之后的程序<br>$(CMD)会执行CMD这个命令后，将输出结果替换CMD<br>通配符与{}<br><img src="/pic/ysyx-Lecture2-4.png"><img src="/pic/ysyx-Lecture2-5.png"><img src="/pic/ysyx-Lecture2-6.png"><img src="/pic/ysyx-Lecture2-7.png"><img src="/pic/ysyx-Lecture2-8.png"><br><img src="/pic/ysyx-Lecture2-9.png"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> f -name <span class="string">&quot;*.html&quot;</span> | xargs -d <span class="string">&#x27;\n&#x27;</span> tar -cvzf html.zip</span><br><span class="line"></span><br><span class="line">find . -<span class="built_in">type</span> f -mmin -60 -print0 | xargs -0 <span class="built_in">ls</span> -lt | <span class="built_in">head</span> -10</span><br></pre></td></tr></table></figure><h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><dl><dt>vim: :%s&#x2F;old&#x2F;new&#x2F;g全局替换</dt><dd>g&#x2F;partern&#x2F;s&#x2F;old&#x2F;new&#x2F;g: 查找有partern的行进行替换（如果查找项与被替换项目一致，就不用再写被替换项）![[截屏2024-09-08 17.36.08.png]]</dd></dl><h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><ol start="2"><li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cat words | tr A-Z a-z | grep -E &#x27;^(\[^a]*a)&#123;3&#125;&#x27; | grep -v &quot;&#x27;s$&quot; | wc -l</span><br><span class="line"></span><br><span class="line">cat words | tr A-Z a-z | grep -E &#x27;^[^a]*a)&#123;3&#125;&#x27; | grep -v &quot;&#x27;s$&quot; | sed -E &quot;s/.*([a-z]&#123;2&#125;)/\1/&quot; | sort | uniq -c | sort -rn | head -3</span><br><span class="line"></span><br><span class="line">cat words | tr A-Z a-z | grep -E &#x27;^([^a]*a)&#123;3&#125;&#x27; | grep -v &quot;&#x27;s$&quot; | sed -E &quot;s/.*([a-z]&#123;2&#125;)$/\1/&quot; | sort | uniq | wc -l</span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line"> </span><br><span class="line">for i in &#123;a..z&#125;</span><br><span class="line">do</span><br><span class="line">for j in &#123;a..z&#125;</span><br><span class="line">do</span><br><span class="line">echo &quot;$i$j&quot;</span><br><span class="line">done</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">comm -23 report.txt part.txt</span><br></pre></td></tr></table></figure></li><li><ol><li><strong>数据丢失</strong>：如果 <code>sed</code> 命令执行过程中发生错误，或者输入文件在处理过程中被意外删除或损坏，那么原始数据可能会丢失，而且没有备份。</li><li><strong>不可预测性</strong>：原地替换可能会在文件系统中产生临时文件，这可能会影响文件的权限、所有权、时间戳等属性。</li><li><strong>并发问题</strong>：如果有多个进程试图同时对同一个文件进行原地替换，可能会导致数据不一致或文件损坏。</li><li><strong>备份问题</strong>：在某些情况下，你可能希望保留原始文件的副本，以便在出现问题时可以恢复。原地替换不会自动为你创建这样的备份。</li><li><strong>文件锁定</strong>：在某些操作系统上，原地替换可能会导致文件被锁定，这可能会阻止其他进程访问该文件。<br> sed -i.bak ‘s&#x2F;REGEX&#x2F;SUBSTITUTION&#x2F;‘ input.txt</li></ol></li><li></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;在MAC上使用multipass + ubuntu + aptitude配置环境&lt;br&gt;图形界面使用mac系统进行操作，将ysyx-workbench挂载在VM下&lt;/p&gt;
-&lt;p&gt;sudo aptitude install bison flex&lt;/p&gt;
-&lt;h2 id=&quot;Lin</summary>
-      
-    
-    
-    
-    <category term="ysyx" scheme="https://zuowangdev.github.io/categories/ysyx/"/>
     
     
   </entry>
@@ -387,6 +387,54 @@ Integers: Binary, G</summary>
   </entry>
   
   <entry>
+    <title>6.05 Chapter 4 Errors</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_4%20Errors/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_4%20Errors/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T01:53:31.498Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>Error is inevitable, protection is necessary</p></blockquote><h2 id="Extension-of-System-Model"><a href="#Extension-of-System-Model" class="headerlink" title="Extension of System Model"></a>Extension of System Model</h2><p>We will extend message bits to know errors possible even repair the errors</p><h2 id="How-do-Errors-Happen"><a href="#How-do-Errors-Happen" class="headerlink" title="How do Errors Happen?"></a>How do Errors Happen?</h2><p>communication, data storage, computation</p><h2 id="Detection-Correction"><a href="#Detection-Correction" class="headerlink" title="Detection &amp; Correction"></a>Detection &amp; Correction</h2><p>It is necessary to contain redundancy in message</p><blockquote><p>In fact, if every illegal pattern is, in a sense to be described below, closer to one legal message than any other, the decoder could substitute the closest legal message, thereby repairing the damage.</p></blockquote><h2 id="Hammnig-Distance"><a href="#Hammnig-Distance" class="headerlink" title="Hammnig Distance"></a>Hammnig Distance</h2><blockquote><p>We need some technique for saying how similar two bit partterns are, so there is <em>Hamming Distance</em></p></blockquote><p>A more useful definition of the difference between teo bit patterns is the number of bits that are different between the two.<br>In the encoder, it is useful to calculate Hamming distance. But because of compression, Hamming distance must be set at least 3 to distingguish two legal code.</p><h2 id="Single-Bits"><a href="#Single-Bits" class="headerlink" title="Single Bits"></a>Single Bits</h2><blockquote><p>It is not important but commonly</p></blockquote><p>能很好的避免偶然错误，但是出现系统错误（相邻的位同时变化），三重冗余将失效</p><h2 id="Multiple-Bits"><a href="#Multiple-Bits" class="headerlink" title="Multiple Bits"></a>Multiple Bits</h2><blockquote><p>To detect errors in a sequence of bits several techniques can be used. Some can perform error correction as well as detection.</p></blockquote><h3 id="Parity"><a href="#Parity" class="headerlink" title="Parity"></a>Parity</h3><p>用于出错概率不大</p><h3 id="Rectangular-Codes"><a href="#Rectangular-Codes" class="headerlink" title="Rectangular Codes"></a>Rectangular Codes</h3><p>二维阵列的奇偶校验位：<br>可以纠正一个错误，发现两个错误，无法处理三重错误</p><h3 id="Hamming-Codes"><a href="#Hamming-Codes" class="headerlink" title="Hamming Codes"></a>Hamming Codes</h3><p>[[Hamming Codes]]</p><h3 id="Block-Codes"><a href="#Block-Codes" class="headerlink" title="Block Codes"></a>Block Codes</h3><p>7 bit Hamming Codes: (7,4,3)block code</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;Error is inevitable, protection is necessary&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;Extension-of-System-Model&quot;&gt;&lt;a href=&quot;#Extension-of-Sys</summary>
+      
+    
+    
+    
+    <category term="6.05" scheme="https://zuowangdev.github.io/categories/6-05/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>6.05 Chapter 5 Probability</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_5%20Probability/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_5%20Probability/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T01:56:08.712Z</updated>
+    
+    <content type="html"><![CDATA[<p>联合事件和条件概型</p><h2 id="Information"><a href="#Information" class="headerlink" title="Information"></a>Information</h2><p>需要表示四个结果需要2bit，需要表示n个结果需要log(2)nbit<br>假设一个班有32个人，30男，如果被告知选中的是男，则获得的信息是：<br>$\log_2 32 - \log_2 30 &#x3D; \log_2 (\frac{1}{P})$<br>加权平均</p><h2 id="Eﬃcient-Source-Coding"><a href="#Eﬃcient-Source-Coding" class="headerlink" title="Eﬃcient Source Coding"></a>Eﬃcient Source Coding</h2><p><img src="/pic/6.05-1.png"></p><p>例如：为了表示30名男，需$\log_2 30$位，</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;联合事件和条件概型&lt;/p&gt;
+&lt;h2 id=&quot;Information&quot;&gt;&lt;a href=&quot;#Information&quot; class=&quot;headerlink&quot; title=&quot;Information&quot;&gt;&lt;/a&gt;Information&lt;/h2&gt;&lt;p&gt;需要表示四个结果需要2bit，需要</summary>
+      
+    
+    
+    
+    <category term="6.05" scheme="https://zuowangdev.github.io/categories/6-05/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>6.05 Chapter 7 Communications</title>
     <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_6%20Communications/"/>
     <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_6%20Communications/</id>
@@ -400,31 +448,6 @@ Integers: Binary, G</summary>
       
     <summary type="html">&lt;p&gt;$&#92;star$&lt;br&gt;how fast the information can be transferred to the output&lt;br&gt;there are model about source and channel. &lt;/p&gt;
 &lt;h2 id=&quot;Source-Mod</summary>
-      
-    
-    
-    
-    <category term="6.05" scheme="https://zuowangdev.github.io/categories/6-05/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>LZW Algorithm</title>
-    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/LZW%20Algorithm/"/>
-    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/LZW%20Algorithm/</id>
-    <published>2024-08-16T16:00:00.000Z</published>
-    <updated>2024-10-17T01:54:48.107Z</updated>
-    
-    <content type="html"><![CDATA[<p>（1）步骤一：开始时词典包含所有可能的根，当前前缀字符串P 和 当前字符均为空；</p><p>（2）步骤二：读入新的字符C，与P合并形成字符串P+C；</p><p>（3）步骤三：判断P+C是否在字典中</p><pre><code>                    如果“是”：                            P = P + C；                             返回步骤二；                    如果“否”：                            输出P的映射；                             P = P+C ；                            把前缀字符串P添加到字典，建立映射;                            令P = C //(现在的P仅包含一个字符C);</code></pre><p>（4）步骤四： 判断码字流中是否还有码字要译</p><pre><code>                     如果“是”：                          返回步骤二；                     如果“否”：                        把代表当前前缀P的码字输出到码字流;                        结束。</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;（1）步骤一：开始时词典包含所有可能的根，当前前缀字符串P 和 当前字符均为空；&lt;/p&gt;
-&lt;p&gt;（2）步骤二：读入新的字符C，与P合并形成字符串P+C；&lt;/p&gt;
-&lt;p&gt;（3）步骤三：判断P+C是否在字典中&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;                   </summary>
       
     
     
@@ -457,44 +480,21 @@ Integers: Binary, G</summary>
   </entry>
   
   <entry>
-    <title>SICP U1</title>
-    <link href="https://zuowangdev.github.io/2024/08/17/Note/SICP/U1/"/>
-    <id>https://zuowangdev.github.io/2024/08/17/Note/SICP/U1/</id>
+    <title>LZW Algorithm</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/LZW%20Algorithm/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/LZW%20Algorithm/</id>
     <published>2024-08-16T16:00:00.000Z</published>
-    <updated>2024-10-17T03:19:02.402Z</updated>
+    <updated>2024-10-17T01:54:48.107Z</updated>
     
-    <content type="html"><![CDATA[<p>简单元素 + 组合 + 抽象命名<br>采用Lisp的原因：Lisp本身描述的操作过程可以被当作数据（Lisp构造的函数可以作为参数）<br>Lisp采用应用序求值<br>应用序求值策略是“先求值参数，再应用函数”。正则序求值策略是“完全展开，逐步规约”。 </p><p>说明性和行动性描述<br>迭代计算 &amp; 递归计算：计算需求量的展开速度：树状递归，线性递归，迭代</p><p>过程也是模式，它描述了一个计算过程的局部演化方式，针对递归的计算过程，采用状态机转化成迭代处理，在软件端表现为堆栈处理</p><p>在大部分语言中，递归过程的解释，所消耗的存储量总是与过程调用的数目成正比，即使计算过程是迭代的，必须借助循环来执行。<br>而对于scheme则没有这个限制，它将总能在常量空间中执行选代型计算过程，即使这一计算是用一个递归过程描述的。 具有这一特性的实现称为尾递归的。各种复杂的专用选代结构变成不过是一些语法糖衣</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;简单元素 + 组合 + 抽象命名&lt;br&gt;采用Lisp的原因：Lisp本身描述的操作过程可以被当作数据（Lisp构造的函数可以作为参数）&lt;br&gt;Lisp采用应用序求值&lt;br&gt;应用序求值策略是“先求值参数，再应用函数”。正则序求值策略是“完全展开，逐步规约”。 &lt;/p&gt;
-&lt;p&gt;</summary>
-      
-    
-    
-    
-    <category term="SICP" scheme="https://zuowangdev.github.io/categories/SICP/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>6.05 Chapter 4 Errors</title>
-    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_4%20Errors/"/>
-    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_4%20Errors/</id>
-    <published>2024-08-16T16:00:00.000Z</published>
-    <updated>2024-10-17T01:53:31.498Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>Error is inevitable, protection is necessary</p></blockquote><h2 id="Extension-of-System-Model"><a href="#Extension-of-System-Model" class="headerlink" title="Extension of System Model"></a>Extension of System Model</h2><p>We will extend message bits to know errors possible even repair the errors</p><h2 id="How-do-Errors-Happen"><a href="#How-do-Errors-Happen" class="headerlink" title="How do Errors Happen?"></a>How do Errors Happen?</h2><p>communication, data storage, computation</p><h2 id="Detection-Correction"><a href="#Detection-Correction" class="headerlink" title="Detection &amp; Correction"></a>Detection &amp; Correction</h2><p>It is necessary to contain redundancy in message</p><blockquote><p>In fact, if every illegal pattern is, in a sense to be described below, closer to one legal message than any other, the decoder could substitute the closest legal message, thereby repairing the damage.</p></blockquote><h2 id="Hammnig-Distance"><a href="#Hammnig-Distance" class="headerlink" title="Hammnig Distance"></a>Hammnig Distance</h2><blockquote><p>We need some technique for saying how similar two bit partterns are, so there is <em>Hamming Distance</em></p></blockquote><p>A more useful definition of the difference between teo bit patterns is the number of bits that are different between the two.<br>In the encoder, it is useful to calculate Hamming distance. But because of compression, Hamming distance must be set at least 3 to distingguish two legal code.</p><h2 id="Single-Bits"><a href="#Single-Bits" class="headerlink" title="Single Bits"></a>Single Bits</h2><blockquote><p>It is not important but commonly</p></blockquote><p>能很好的避免偶然错误，但是出现系统错误（相邻的位同时变化），三重冗余将失效</p><h2 id="Multiple-Bits"><a href="#Multiple-Bits" class="headerlink" title="Multiple Bits"></a>Multiple Bits</h2><blockquote><p>To detect errors in a sequence of bits several techniques can be used. Some can perform error correction as well as detection.</p></blockquote><h3 id="Parity"><a href="#Parity" class="headerlink" title="Parity"></a>Parity</h3><p>用于出错概率不大</p><h3 id="Rectangular-Codes"><a href="#Rectangular-Codes" class="headerlink" title="Rectangular Codes"></a>Rectangular Codes</h3><p>二维阵列的奇偶校验位：<br>可以纠正一个错误，发现两个错误，无法处理三重错误</p><h3 id="Hamming-Codes"><a href="#Hamming-Codes" class="headerlink" title="Hamming Codes"></a>Hamming Codes</h3><p>[[Hamming Codes]]</p><h3 id="Block-Codes"><a href="#Block-Codes" class="headerlink" title="Block Codes"></a>Block Codes</h3><p>7 bit Hamming Codes: (7,4,3)block code</p>]]></content>
+    <content type="html"><![CDATA[<p>（1）步骤一：开始时词典包含所有可能的根，当前前缀字符串P 和 当前字符均为空；</p><p>（2）步骤二：读入新的字符C，与P合并形成字符串P+C；</p><p>（3）步骤三：判断P+C是否在字典中</p><pre><code>                    如果“是”：                            P = P + C；                             返回步骤二；                    如果“否”：                            输出P的映射；                             P = P+C ；                            把前缀字符串P添加到字典，建立映射;                            令P = C //(现在的P仅包含一个字符C);</code></pre><p>（4）步骤四： 判断码字流中是否还有码字要译</p><pre><code>                     如果“是”：                          返回步骤二；                     如果“否”：                        把代表当前前缀P的码字输出到码字流;                        结束。</code></pre>]]></content>
     
     
       
       
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;Error is inevitable, protection is necessary&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;Extension-of-System-Model&quot;&gt;&lt;a href=&quot;#Extension-of-Sys</summary>
+    <summary type="html">&lt;p&gt;（1）步骤一：开始时词典包含所有可能的根，当前前缀字符串P 和 当前字符均为空；&lt;/p&gt;
+&lt;p&gt;（2）步骤二：读入新的字符C，与P合并形成字符串P+C；&lt;/p&gt;
+&lt;p&gt;（3）步骤三：判断P+C是否在字典中&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;                   </summary>
       
     
     

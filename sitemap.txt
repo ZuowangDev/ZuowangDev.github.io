@@ -25,11 +25,11 @@ https://zuowangdev.github.io/2024/08/17/Project_Note/PT%20report/
 https://zuowangdev.github.io/2024/08/17/Project_Note/8-17-firstmeeting/
 https://zuowangdev.github.io/categories/index.html
 https://zuowangdev.github.io/
-https://zuowangdev.github.io/categories/Porject-Note/
 https://zuowangdev.github.io/categories/ysyx/
+https://zuowangdev.github.io/categories/Porject-Note/
 https://zuowangdev.github.io/categories/6-05/
-https://zuowangdev.github.io/categories/SICP/
 https://zuowangdev.github.io/categories/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/
-https://zuowangdev.github.io/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6/
 https://zuowangdev.github.io/categories/Linux/
+https://zuowangdev.github.io/categories/SICP/
+https://zuowangdev.github.io/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6/
 https://zuowangdev.github.io/categories/%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E7%89%88%E5%9B%BE%E5%9F%BA%E7%A1%80/

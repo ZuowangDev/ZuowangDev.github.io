@@ -1,7 +1,8 @@
+https://zuowangdev.github.io/2024/10/17/Note/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/%E6%A0%87%E5%87%86%E5%8D%95%E5%85%83%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF/
+https://zuowangdev.github.io/2024/10/20/Note/The_C_Programming_Language/Chapter2/
 https://zuowangdev.github.io/2024/10/19/Note/The_C_Programming_Language/Chapter1/
 https://zuowangdev.github.io/2024/10/17/Note/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8EShell%E7%BC%96%E7%A8%8B/U3/
 https://zuowangdev.github.io/2024/10/17/Note/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8EShell%E7%BC%96%E7%A8%8B/U1/
-https://zuowangdev.github.io/2024/10/17/Note/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/%E6%A0%87%E5%87%86%E5%8D%95%E5%85%83%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF/
 https://zuowangdev.github.io/2024/10/12/Note/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/%E5%85%A8%E5%AE%9A%E5%88%B6%E6%A0%87%E5%87%86%E5%8D%95%E5%85%83%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF/
 https://zuowangdev.github.io/2024/08/17/Note/Semiconductor%20Neoman/%E6%99%B6%E6%A0%BC%E7%BB%93%E6%9E%84/
 https://zuowangdev.github.io/2024/08/17/Note/SICP/U1/

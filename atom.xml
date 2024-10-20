@@ -6,7 +6,7 @@
   <link href="https://zuowangdev.github.io/atom.xml" rel="self"/>
   
   <link href="https://zuowangdev.github.io/"/>
-  <updated>2024-10-20T04:58:54.067Z</updated>
+  <updated>2024-10-20T10:51:23.843Z</updated>
   <id>https://zuowangdev.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Chapter 2 -- Type, Operators, and Expression</title>
+    <link href="https://zuowangdev.github.io/2024/10/20/Note/The_C_Programming_Language/Chapter2/"/>
+    <id>https://zuowangdev.github.io/2024/10/20/Note/The_C_Programming_Language/Chapter2/</id>
+    <published>2024-10-19T16:00:00.000Z</published>
+    <updated>2024-10-20T10:51:23.843Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>Variables and constants are the basic data objects manipulate in a program</p></blockquote><p>There are now <strong>signed</strong> and <strong>unsigned</strong> forms of all integer types.</p><h1 id="Variable-Names"><a href="#Variable-Names" class="headerlink" title="Variable Names"></a>Variable Names</h1><blockquote><p>Names are made up of letters, digits; the first character must be a letter. The underscore “_“ counts as a letter; it is sometimes useful forimproving the readability of long variable name.</p></blockquote><h1 id="Data-Types-and-Sizes"><a href="#Data-Types-and-Sizes" class="headerlink" title="Data Types and Sizes"></a>Data Types and Sizes</h1><ul><li>char: a single byte</li><li>int: integer</li><li>float: single precision floating point</li><li>double: double precision floating point</li></ul><p>number of quaifiers: short(16 bit), long(32 bit)</p><h1 id="Constants"><a href="#Constants" class="headerlink" title="Constants"></a>Constants</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;Variables and constants are the basic data objects manipulate in a program&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;There are now &lt;strong&gt;signed</summary>
+      
+    
+    
+    
+    <category term="The C Programming Language" scheme="https://zuowangdev.github.io/categories/The-C-Programming-Language/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Chapter 1 -- A Tutorial Introduction</title>
@@ -46,9 +71,9 @@
     <link href="https://zuowangdev.github.io/2024/10/17/Note/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/%E6%A0%87%E5%87%86%E5%8D%95%E5%85%83%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF/"/>
     <id>https://zuowangdev.github.io/2024/10/17/Note/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/%E6%A0%87%E5%87%86%E5%8D%95%E5%85%83%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF/</id>
     <published>2024-10-16T16:00:00.000Z</published>
-    <updated>2024-10-17T08:44:06.242Z</updated>
+    <updated>2024-10-20T12:33:03.853Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>时序单元和组合单元</p></blockquote><h1 id="CMOS工艺数字电路实现结构"><a href="#CMOS工艺数字电路实现结构" class="headerlink" title="CMOS工艺数字电路实现结构"></a>CMOS工艺数字电路实现结构</h1><h2 id="静态电路"><a href="#静态电路" class="headerlink" title="静态电路"></a>静态电路</h2><blockquote><p>抗噪声、低功耗<br>主要由上拉网络(PUN)和下拉网络(PDN)组成。<br><img src="/pic/DICBED-3-1.png"></p></blockquote><h2 id="伪NMOS电路"><a href="#伪NMOS电路" class="headerlink" title="伪NMOS电路"></a>伪NMOS电路</h2><blockquote><p>晶体管数量少，面积小；输出低电平不彻底，噪声容限低；静态功耗高。<br>减少晶体管数量(到N+1个)，降低了电路复杂性，减少了传播延迟，提高性能。<br>但是输：出低电压不是0V，降低了噪声容限(使用PMOS作为上拉负载的伪NMOS电路，输出电压摆幅和电路性能取决于NMOS和PMOS尺寸比)；输出为低电平时，Vdd和GND之间的电流通路会引起静态功耗。<br>由于其优秀的面积，常用于大扇入的电路设计中<br><img src="/pic/DICBED-3-2.png"></p></blockquote><h2 id="传输门电路"><a href="#传输门电路" class="headerlink" title="传输门电路"></a>传输门电路</h2><blockquote><p>强0，作为开关电路。<br>传输管结构允许输入同时驱动MOS的栅、源、漏实现逻辑功能<br><img src="/pic/DICBED-3-3.png"><br>单个N传输门结构可以产生强0输出，但是当上拉一个节点到Vdd时性能差，不能产生强1输出<br>可以采用互补MOS的结构：<br><img src="/pic/DICBED-3-4.png"><br>由B信号控制的开关。传输门电可以有效地构成一些复杂的逻辑电路：<br><img src="/pic/DICBED-3-5.png"><br>OUT &#x3D; A * S + B * S</p></blockquote><h2 id="动态电路实现"><a href="#动态电路实现" class="headerlink" title="动态电路实现"></a>动态电路实现</h2><blockquote><p>速度快，面积小；可靠性差，在长时间没有预充电时，会有信息泄露，功耗高，电路设计复杂，需要时钟驱动。<br>静态逻辑电路通过稳定输入确定管子状态，维持稳定的输出。动态电路通过时钟控制写入和读取，基本动态电路在一个时钟周期只能完成一次输入和读取。<br><img src="/pic/DICBED-3-6.png"></p></blockquote><ul><li>由于工艺尺寸减小，器件尺寸减小，电容减小，同时电源电压下降，节点电容存储电荷量下降，降低电路可靠性；</li><li>存在亚阈值漏流和电荷分享等；长时间没有进行预充电，会导致存储信息丢失；</li><li>每个时钟周期都有翻转，功耗消耗高；</li><li>动态电路需要时钟信号控制，设计复杂，要周期性刷新节点电容电压。</li></ul><h2 id="高扇入逻辑电路"><a href="#高扇入逻辑电路" class="headerlink" title="高扇入逻辑电路"></a>高扇入逻辑电路</h2><h3 id="CMOS静态电路"><a href="#CMOS静态电路" class="headerlink" title="CMOS静态电路"></a>CMOS静态电路</h3><p>为了保证速度，尽量不采用串联形式，而是采用树状结构。一般串联不超过四级。<br><img src="/pic/DICBED-3-7.png"></p><h3 id="伪NMOS电路-1"><a href="#伪NMOS电路-1" class="headerlink" title="伪NMOS电路"></a>伪NMOS电路</h3><p>减少晶体管数量；但是由于并联NMOS增多，导致并联电容增大，速度减慢，一般适用于<strong>24扇入</strong>以下的或(或非)门。不适合用于高扇入的与(与非)门。不能用于分级结构。<br><img src="/pic/DICBED-3-8.png"></p><h3 id="动态电路"><a href="#动态电路" class="headerlink" title="动态电路"></a>动态电路</h3><blockquote><p>高效高速，面积小。<br>或非门和与非门<br><img src="/pic/DICBED-3-9.png"><br><img src="/pic/DICBED-3-10.png"><br>P型动态电路慢于N型动态电路，但是P型动态电路的逻辑级数更少，器件数目更少。<br>随着扇入的数目增加，动态电路的节点电容增大，电路工作速度降低，电路对输入噪声更加敏感。单级电路扇入速度应该小于16，更多的扇入需要采用串联分块的方法。以下是实现高扇入逻辑电路的串联方法。</p></blockquote><h4 id="多米诺电路"><a href="#多米诺电路" class="headerlink" title="多米诺电路"></a>多米诺电路</h4><p><img src="/pic/DICBED-3-11.png"><br>考虑或非门增加反相器，或门之间可以级联。在电路设计时，可以考虑去除除第一级之后的尾管，速度大大提高，时钟负载减小，面积减小，但要保证预充电时，所有NMOS的输入都要为0，保证所有NMOS不导通，否则Vdd经过两个导通管，大电流短路。在PND到Vdd之间增加PMOS保持管，弥补由反偏二极管和电荷分享造成的电荷损失。<br><img src="/pic/DICBED-3-12.png"><br>对于单级多米诺电路，有以下问题：当输入数目增加，动态节点电容增大，速度变慢，可靠性降低。可以增大保持管的尺寸，但是增大保持管的尺寸会导致与NMOS网络的电容充放电加剧。必须考虑分级分块，使得每个保持管的尺寸不过大，不会产生剧烈的竞争，降低功耗，提高性能。</p><h4 id="组合多米诺电路"><a href="#组合多米诺电路" class="headerlink" title="组合多米诺电路"></a>组合多米诺电路</h4><p>通过nor + nand的方式实现or。<br><img src="/pic/DICBED-3-13.png"><br>每块只需要一个小尺寸的PMOS充电管，有效减少动态节点的电容。不过一般来说，如果采用静态CMOS的nand，一般其扇入不超过4(静态nand的延时随扇入增加较快)。<br>如果输入到达的时间有先后(路径长度不可忽略)，则将延时相近的放在一个多米诺电路，然后将后到达的连接与非门靠近输出的晶体管栅极。<br><img src="/pic/DICBED-3-14.png"></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>时序单元和组合单元</p></blockquote><h1 id="CMOS工艺数字电路实现结构"><a href="#CMOS工艺数字电路实现结构" class="headerlink" title="CMOS工艺数字电路实现结构"></a>CMOS工艺数字电路实现结构</h1><h2 id="静态电路"><a href="#静态电路" class="headerlink" title="静态电路"></a>静态电路</h2><blockquote><p>抗噪声、低功耗</p></blockquote><p>主要由上拉网络(PUN)和下拉网络(PDN)组成。<br><img src="/pic/DICBED-3-1.png"></p><h2 id="伪NMOS电路"><a href="#伪NMOS电路" class="headerlink" title="伪NMOS电路"></a>伪NMOS电路</h2><blockquote><p>晶体管数量少，面积小；输出低电平不彻底，噪声容限低；静态功耗高。</p></blockquote><p>减少晶体管数量(到N+1个)，降低了电路复杂性，减少了传播延迟，提高性能。<br>但是输：出低电压不是0V，降低了噪声容限(使用PMOS作为上拉负载的伪NMOS电路，输出电压摆幅和电路性能取决于NMOS和PMOS尺寸比)；输出为低电平时，Vdd和GND之间的电流通路会引起静态功耗。<br>由于其优秀的面积，常用于大扇入的电路设计中<br><img src="/pic/DICBED-3-2.png"></p><h2 id="传输门电路"><a href="#传输门电路" class="headerlink" title="传输门电路"></a>传输门电路</h2><blockquote><p>强0，作为开关电路。</p></blockquote><p>传输管结构允许输入同时驱动MOS的栅、源、漏实现逻辑功能<br><img src="/pic/DICBED-3-3.png"><br>单个N传输门结构可以产生强0输出，但是当上拉一个节点到Vdd时性能差，不能产生强1输出<br>可以采用互补MOS的结构：<br><img src="/pic/DICBED-3-4.png"><br>由B信号控制的开关。传输门电可以有效地构成一些复杂的逻辑电路：<br><img src="/pic/DICBED-3-5.png"><br>OUT &#x3D; A * S + B * S</p><h2 id="动态电路实现"><a href="#动态电路实现" class="headerlink" title="动态电路实现"></a>动态电路实现</h2><blockquote><p>速度快，面积小；可靠性差，在长时间没有预充电时，会有信息泄露，功耗高，电路设计复杂，需要时钟驱动。</p></blockquote><p>静态逻辑电路通过稳定输入确定管子状态，维持稳定的输出。动态电路通过时钟控制写入和读取，基本动态电路在一个时钟周期只能完成一次输入和读取。<br><img src="/pic/DICBED-3-6.png"></p><ul><li>由于工艺尺寸减小，器件尺寸减小，电容减小，同时电源电压下降，节点电容存储电荷量下降，降低电路可靠性；</li><li>存在亚阈值漏流和电荷分享等；长时间没有进行预充电，会导致存储信息丢失；</li><li>每个时钟周期都有翻转，功耗消耗高；</li><li>动态电路需要时钟信号控制，设计复杂，要周期性刷新节点电容电压。</li></ul><h2 id="高扇入逻辑电路"><a href="#高扇入逻辑电路" class="headerlink" title="高扇入逻辑电路"></a>高扇入逻辑电路</h2><h3 id="CMOS静态电路"><a href="#CMOS静态电路" class="headerlink" title="CMOS静态电路"></a>CMOS静态电路</h3><p>为了保证速度，尽量不采用串联形式，而是采用树状结构。一般串联不超过四级。<br><img src="/pic/DICBED-3-7.png"></p><h3 id="伪NMOS电路-1"><a href="#伪NMOS电路-1" class="headerlink" title="伪NMOS电路"></a>伪NMOS电路</h3><p>减少晶体管数量；但是由于并联NMOS增多，导致并联电容增大，速度减慢，一般适用于<strong>24扇入</strong>以下的或(或非)门。不适合用于高扇入的与(与非)门。不能用于分级结构。<br><img src="/pic/DICBED-3-8.png"></p><h3 id="动态电路"><a href="#动态电路" class="headerlink" title="动态电路"></a>动态电路</h3><blockquote><p>高效高速，面积小。</p></blockquote><p>或非门和与非门<br><img src="/pic/DICBED-3-9.png"><br><img src="/pic/DICBED-3-10.png"><br>P型动态电路慢于N型动态电路，但是P型动态电路的逻辑级数更少，器件数目更少。<br>随着扇入的数目增加，动态电路的节点电容增大，电路工作速度降低，电路对输入噪声更加敏感。单级电路扇入速度应该小于16，更多的扇入需要采用串联分块的方法。以下是实现高扇入逻辑电路的串联方法。</p><h4 id="多米诺电路"><a href="#多米诺电路" class="headerlink" title="多米诺电路"></a>多米诺电路</h4><p><img src="/pic/DICBED-3-11.png"><br>考虑或非门增加反相器，或门之间可以级联。在电路设计时，可以考虑去除除第一级之后的尾管，速度大大提高，时钟负载减小，面积减小，但要保证预充电时，所有NMOS的输入都要为0，保证所有NMOS不导通，否则Vdd经过两个导通管，大电流短路。在PND到Vdd之间增加PMOS保持管，弥补由反偏二极管和电荷分享造成的电荷损失。<br><img src="/pic/DICBED-3-12.png"><br>对于单级多米诺电路，有以下问题：当输入数目增加，动态节点电容增大，速度变慢，可靠性降低。可以增大保持管的尺寸，但是增大保持管的尺寸会导致与NMOS网络的电容充放电加剧。必须考虑分级分块，使得每个保持管的尺寸不过大，不会产生剧烈的竞争，降低功耗，提高性能。</p><h4 id="组合多米诺电路"><a href="#组合多米诺电路" class="headerlink" title="组合多米诺电路"></a>组合多米诺电路</h4><p>通过nor + nand的方式实现or。<br><img src="/pic/DICBED-3-13.png"><br>每块只需要一个小尺寸的PMOS充电管，有效减少动态节点的电容。不过一般来说，如果采用静态CMOS的nand，一般其扇入不超过4(静态nand的延时随扇入增加较快)。<br>如果输入到达的时间有先后(路径长度不可忽略)，则将延时相近的放在一个多米诺电路，然后将后到达的连接与非门靠近输出的晶体管栅极。<br><img src="/pic/DICBED-3-14.png"></p>]]></content>
     
     
       
@@ -437,29 +462,6 @@ Integers: Binary, G</summary>
   </entry>
   
   <entry>
-    <title>6.05 Chapter 5 Probability</title>
-    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_5%20Probability/"/>
-    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_5%20Probability/</id>
-    <published>2024-08-16T16:00:00.000Z</published>
-    <updated>2024-10-17T01:56:08.712Z</updated>
-    
-    <content type="html"><![CDATA[<p>联合事件和条件概型</p><h2 id="Information"><a href="#Information" class="headerlink" title="Information"></a>Information</h2><p>需要表示四个结果需要2bit，需要表示n个结果需要log(2)nbit<br>假设一个班有32个人，30男，如果被告知选中的是男，则获得的信息是：<br>$\log_2 32 - \log_2 30 &#x3D; \log_2 (\frac{1}{P})$<br>加权平均</p><h2 id="Eﬃcient-Source-Coding"><a href="#Eﬃcient-Source-Coding" class="headerlink" title="Eﬃcient Source Coding"></a>Eﬃcient Source Coding</h2><p><img src="/pic/6.05-1.png"></p><p>例如：为了表示30名男，需$\log_2 30$位，</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;联合事件和条件概型&lt;/p&gt;
-&lt;h2 id=&quot;Information&quot;&gt;&lt;a href=&quot;#Information&quot; class=&quot;headerlink&quot; title=&quot;Information&quot;&gt;&lt;/a&gt;Information&lt;/h2&gt;&lt;p&gt;需要表示四个结果需要2bit，需要</summary>
-      
-    
-    
-    
-    <category term="6.05" scheme="https://zuowangdev.github.io/categories/6-05/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>6.05 Chapter 7 Communications</title>
     <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_6%20Communications/"/>
     <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_6%20Communications/</id>
@@ -483,18 +485,19 @@ Integers: Binary, G</summary>
   </entry>
   
   <entry>
-    <title>6.05 Hamming Codes</title>
-    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Hamming%20Codes/"/>
-    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Hamming%20Codes/</id>
+    <title>6.05 Chapter 5 Probability</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_5%20Probability/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/Chapter_5%20Probability/</id>
     <published>2024-08-16T16:00:00.000Z</published>
-    <updated>2024-10-17T01:54:26.741Z</updated>
+    <updated>2024-10-17T01:56:08.712Z</updated>
     
-    <content type="html"><![CDATA[<p>将十进制化为二进制，任何二进制数都可以用power of 2的和表达：<br>6 -&gt; 110 -&gt; 2 + 4 -&gt; 010 + 100<br>实际上在进行奇偶校验时，Hamming Codes作出以下分组，<br>假设第n组<br>判断其二进制数是否在第n位上为1，若为1，则处于第n位的校验码对其进行校验。保证其1的数量满足奇偶性，在进行接收验证时，如果某组显示其校验错误，则证明错误发生在该组，说明错误位有这个校验位n的权重，将所有算得后，得到的就是错误位</p>]]></content>
+    <content type="html"><![CDATA[<p>联合事件和条件概型</p><h2 id="Information"><a href="#Information" class="headerlink" title="Information"></a>Information</h2><p>需要表示四个结果需要2bit，需要表示n个结果需要log(2)nbit<br>假设一个班有32个人，30男，如果被告知选中的是男，则获得的信息是：<br>$\log_2 32 - \log_2 30 &#x3D; \log_2 (\frac{1}{P})$<br>加权平均</p><h2 id="Eﬃcient-Source-Coding"><a href="#Eﬃcient-Source-Coding" class="headerlink" title="Eﬃcient Source Coding"></a>Eﬃcient Source Coding</h2><p><img src="/pic/6.05-1.png"></p><p>例如：为了表示30名男，需$\log_2 30$位，</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;将十进制化为二进制，任何二进制数都可以用power of 2的和表达：&lt;br&gt;6 -&amp;gt; 110 -&amp;gt; 2 + 4 -&amp;gt; 010 + 100&lt;br&gt;实际上在进行奇偶校验时，Hamming Codes作出以下分组，&lt;br&gt;假设第n组&lt;br&gt;判断其二进制数是否在</summary>
+    <summary type="html">&lt;p&gt;联合事件和条件概型&lt;/p&gt;
+&lt;h2 id=&quot;Information&quot;&gt;&lt;a href=&quot;#Information&quot; class=&quot;headerlink&quot; title=&quot;Information&quot;&gt;&lt;/a&gt;Information&lt;/h2&gt;&lt;p&gt;需要表示四个结果需要2bit，需要</summary>
       
     
     

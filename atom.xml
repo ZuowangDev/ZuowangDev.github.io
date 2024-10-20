@@ -6,7 +6,7 @@
   <link href="https://zuowangdev.github.io/atom.xml" rel="self"/>
   
   <link href="https://zuowangdev.github.io/"/>
-  <updated>2024-10-17T08:44:06.242Z</updated>
+  <updated>2024-10-20T04:58:54.067Z</updated>
   <id>https://zuowangdev.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Chapter 1 -- A Tutorial Introduction</title>
+    <link href="https://zuowangdev.github.io/2024/10/19/Note/The_C_Programming_Language/Chapter1/"/>
+    <id>https://zuowangdev.github.io/2024/10/19/Note/The_C_Programming_Language/Chapter1/</id>
+    <published>2024-10-18T16:00:00.000Z</published>
+    <updated>2024-10-20T04:58:54.067Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>C’s basic elements</p></blockquote><h1 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h1><p>The First Step: Print the words <em>hello, world</em></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    print(<span class="string">&quot;hello, world\n&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>It is time to explain about the program. The C Program is consisted by functions and variables(in other words, finction is also variable). The name <em>main</em> is special, because the C program is start with <em><strong>main function</strong></em>.</p><h1 id="Variable-and-Arithmetic-Expression"><a href="#Variable-and-Arithmetic-Expression" class="headerlink" title="Variable and Arithmetic Expression"></a>Variable and Arithmetic Expression</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> fahr, celsius;</span><br><span class="line">    <span class="type">int</span> lower, upper, step;</span><br><span class="line">    lower = <span class="number">0</span>;</span><br><span class="line">    upper = <span class="number">300</span>;</span><br><span class="line">    step= <span class="number">20</span>;</span><br><span class="line">    fahr = lower;</span><br><span class="line">    <span class="keyword">while</span> (fahr &lt;= upper)</span><br><span class="line">    &#123;</span><br><span class="line">        celsius = <span class="number">5</span> * (fahr <span class="number">-32</span>) / <span class="number">9</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\t%d\n&quot;</span>, fahr, celsius);</span><br><span class="line">        fahr = fahr + step;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* This is a comment */</span></span><br></pre></td></tr></table></figure><p>base data type:</p><ul><li>char</li><li>short</li><li>int</li><li>float</li><li>long</li><li>doublefor</li></ul><h1 id="The-For-Statement"><a href="#The-For-Statement" class="headerlink" title="The For Statement"></a>The For Statement</h1><p>for (init; condition; process)<br>{<br>    &#x2F;* block *&#x2F;<br>}</p><ol><li>init</li><li>condition?</li><li>act block</li><li>act process</li></ol><h1 id="Symbolic-Constants"><a href="#Symbolic-Constants" class="headerlink" title="Symbolic Constants"></a>Symbolic Constants</h1><p>#define {name} {replace name}<br><strong>Macro</strong>(In other words)</p><h1 id="Character-Input-and-Output"><a href="#Character-Input-and-Output" class="headerlink" title="Character Input and Output"></a>Character Input and Output</h1><blockquote><p>Text input or output, regardless of where it originates or where it goes to, is dealt with as <strong>streams of characters</strong>.</p></blockquote><p>The baisc <strong>IO Function</strong></p><ul><li>getchar()</li><li>putchar()</li></ul><h2 id="File-Copying"><a href="#File-Copying" class="headerlink" title="File Copying"></a>File Copying</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> c;</span><br><span class="line">    </span><br><span class="line">    c = getchar();</span><br><span class="line">    <span class="keyword">while</span> (c != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">putchar</span>(c);</span><br><span class="line">        c = getchar();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Character-Counting"><a href="#Character-Counting" class="headerlink" title="Character Counting"></a>Character Counting</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">long</span> nc;</span><br><span class="line">     nc = <span class="number">0</span></span><br><span class="line">     <span class="keyword">while</span> (getchar() != EOF</span><br><span class="line">        ++nc;</span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">&quot;%ld\n&quot;</span>, nc);</span><br><span class="line">&#125;</span><br><span class="line">```C</span><br><span class="line">## Line Counting</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> c, n1;</span><br><span class="line"></span><br><span class="line">    n1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ((c = getchar()) != EOF)</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">            ++n1;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, n1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="World-Counting"><a href="#World-Counting" class="headerlink" title="World Counting"></a>World Counting</h2><p>Finite State Machine</p><h1 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h1><blockquote><p>Count the number of occurences of each symbol</p></blockquote><h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">power</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span>;</span><br><span class="line"><span class="comment">/* function prototype */</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; ++i)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d %d %d\n&quot;</span>, i, power(<span class="number">2</span>, i), power(<span class="number">-3</span>, i));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">power</span><span class="params">(<span class="type">int</span> base, <span class="type">int</span> n)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i, p;</span><br><span class="line"></span><br><span class="line">    p = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; n; ++i)</span><br><span class="line">        p = p* base;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure><h1 id="Arguments-–-Call-by-Value"><a href="#Arguments-–-Call-by-Value" class="headerlink" title="Arguments – Call by Value"></a>Arguments – Call by Value</h1><blockquote><p>In C World, the called function cannot directly alter a variable in the calling function: all the operations display by <strong>called value</strong>.</p></blockquote><p>Write a program to remove trailing blanks and tabs from each<br>line of input, and to delete entirely blank lines.</p><h1 id="External-Variables-and-Scope"><a href="#External-Variables-and-Scope" class="headerlink" title="External Variables and Scope"></a>External Variables and Scope</h1><blockquote><p>local variables<br>external variables<br>After define the global variables, use <strong>extern</strong> to declare the type of variables in function<br>In certain circumstances, the <strong>extern</strong> declaration can be omitted.</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;C’s basic elements&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;Getting-Started&quot;&gt;&lt;a href=&quot;#Getting-Started&quot; class=&quot;headerlink&quot; title=&quot;Getting S</summary>
+      
+    
+    
+    
+    <category term="The C Programming Language" scheme="https://zuowangdev.github.io/categories/The-C-Programming-Language/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>标准单元电路设计技术</title>
@@ -194,53 +219,6 @@
   </entry>
   
   <entry>
-    <title>Lecture 1</title>
-    <link href="https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%201/"/>
-    <id>https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%201/</id>
-    <published>2024-08-16T16:00:00.000Z</published>
-    <updated>2024-10-17T03:18:21.359Z</updated>
-    
-    <content type="html"><![CDATA[<p>读完这篇《提问的智慧》后，我深受启发。这篇文章不仅为技术问题的提问提供了指导，更在更广泛的层面上教会了我们如何更有效地沟通和学习。</p><p>我们在提问之前应该先进行充分的自我探索和研究。这包括阅读相关的文档、搜索网络资源以及尝试自己解决问题。这个过程本身就是一种学习，能够帮助我们更深入地理解问题的本质。通过这种方式，我们不仅能够提升自己的解决问题的能力，还能够培养独立思考的习惯。依赖他人提供答案并不是长久之计，只有自己具备了解决问题的能力，才能够在面对更复杂的问题时游刃有余。</p><p>首先，文章强调了在提问前应该做的准备工作，比如搜索旧文章、上网搜索、阅读手册和常见问题解答等。这一点让我意识到，很多情况下，问题的答案已经存在于我们能够触及的地方，关键在于我们是否愿意投入时间和精力去寻找。</p><p>其次，文章提到了提问时应该选择正确的论坛或渠道，这让我认识到，找到合适的提问场所，不仅能够更快地得到答案，也是对他人时间和空间的尊重。</p><p>提问时的表达方式也很重要，比如使用清晰、准确、并且合乎语法的语言，以及提供易于阅读的文件格式。这些细节提醒了我，良好的表达能力是沟通的关键，无论是在技术社区还是日常生活中。</p><p>“话不在多而在精”的原则，让我反思了自己在日常沟通中是否过于啰嗦，没有抓住重点。学会精确地描述问题，不仅能帮助他人更快地理解并解决问题，也提高了沟通的效率。</p><p>文章中还提到了在提问时不应该要求私下回复，这一点让我理解到，知识的分享应该是开放和透明的，这有助于建立一个互帮互助的社区环境。</p><p>最后，文章提到的“问题解决后，加个简短的补充说明”，这不仅是对帮助者的尊重，也是对社区的贡献，让更多人能够从问题和答案中学习。以至于在帮助他人时，我们应该引导他们独立思考，而不是简单地提供答案。这种方式虽然在短期内可能会让求助者感到困难，但从长远来看，它能够帮助他们建立起解决问题的能力，为他们的职业生涯打下坚实的基础。</p><p>综上所述，这一课的阅读内容不仅教会了我如何科学地提问，更在如何成为一个合格的社区成员和有效沟通上给予了我宝贵的指导。这些原则和建议，我相信在任何需要提问和沟通的场合都是适用的。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;读完这篇《提问的智慧》后，我深受启发。这篇文章不仅为技术问题的提问提供了指导，更在更广泛的层面上教会了我们如何更有效地沟通和学习。&lt;/p&gt;
-&lt;p&gt;我们在提问之前应该先进行充分的自我探索和研究。这包括阅读相关的文档、搜索网络资源以及尝试自己解决问题。这个过程本身就是一种学习，</summary>
-      
-    
-    
-    
-    <category term="ysyx" scheme="https://zuowangdev.github.io/categories/ysyx/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Lecture 2</title>
-    <link href="https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%202/"/>
-    <id>https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%202/</id>
-    <published>2024-08-16T16:00:00.000Z</published>
-    <updated>2024-10-17T03:18:39.818Z</updated>
-    
-    <content type="html"><![CDATA[<p>在MAC上使用multipass + ubuntu + aptitude配置环境<br>图形界面使用mac系统进行操作，将ysyx-workbench挂载在VM下</p><p>sudo aptitude install bison flex</p><h2 id="Linux-101随笔"><a href="#Linux-101随笔" class="headerlink" title="Linux 101随笔"></a>Linux 101随笔</h2><p>cp -l -s : 创建硬链接和软链接<br>硬链接和软链接都指向文件本身：<br>硬链接是不同文件共用一个inode，修改一个文件会对另外的文件产生影响，而软链接是A文件的内容是B文件，读取A文件时会自动打开B文件，A、B有不同的inode。</p><p>搜索文件和目录：find option path expression<br>find . -name ‘report.pdf’在当前目录下搜索名为report.pdf的文件<br>find &#x2F; -sizw +1G全盘搜索大于1G的文件<br>通配符：<br>*: 任意字串；foo*: 以foo开头的字串；*x*: 包含x的字串<br>?: 一个字串</p><h3 id="进程、前后台、服务与-例行性任务"><a href="#进程、前后台、服务与-例行性任务" class="headerlink" title="进程、前后台、服务与 例行性任务"></a>进程、前后台、服务与 例行性任务</h3><blockquote><p>进程就是正在进行的程序；当启动一个程序时，操作系统就会从硬盘中读取程序文件，将程序内容载入内存，之后CPU就会执行这个程序</p></blockquote><p>进程标识符（PID）是进程的唯一标识<br>进程的优先级与Priority（PRI）和nice（NI）值有关<br>nice值与用户更相关，nice值在-20到19之间，default &#x3D; 0<br>nice -n 10 : vim以10为nice运行vim<br>renice -n 10 -p 12345: 设置PID为12345的进程nice值为10</p><p><code>PRI = nice + 20</code>。这对于普通进程是成立的——普通进程的 PRI 会被映射到一个非负整数。</p><p>但在正常运行的 Linux 系统中，我们可能会发现有些进程的 PRI 值是 RT，或者是负数。这表明对应的进程有更高的实时性要求（例如内核进程、音频相关进程等），采用了与普通进程不同的调度策略，优先级也相应更高。</p><h4 id="进程状态"><a href="#进程状态" class="headerlink" title="进程状态"></a>进程状态</h4><ul><li>正在运行的程序（running）</li><li>可以运行但正在排队等待的程序（ready）</li><li>正在等待其他资源（blocked）</li></ul><p>实际的linux系统中，进程的状态更复杂：<br>Status: R: running; S: sleeping; T: traced&#x2F;stopped; Z: zombie; D: disk sleep</p><p>shell前后台<br>默认情况下，shell命令都是在前台运行，如果需要在后台运行，需要在最后加上&amp;</p><p>终端一旦被关闭会向其中每个进程发送 SIGHUP（Signal hangup），而 SIGHUP 的默认动作即退出程序运行。</p><h2 id="The-Missing-Semester-of-Your-CS-Education"><a href="#The-Missing-Semester-of-Your-CS-Education" class="headerlink" title="The Missing Semester of Your CS Education"></a>The Missing Semester of Your CS Education</h2><h3 id="课程概览与shell"><a href="#课程概览与shell" class="headerlink" title="课程概览与shell"></a>课程概览与shell</h3><p><img src="/pic/ysyx-Lecture2-1.png"><br><img src="/pic/ysyx-Lecture2-2.png"><br><img src="/pic/ysyx-Lecture2-3.png"></p><h3 id="Shell工具和脚本"><a href="#Shell工具和脚本" class="headerlink" title="Shell工具和脚本"></a>Shell工具和脚本</h3><p>“”中的变量会进行转义，’’中的不会</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">mcd</span></span>()&#123;</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>$1是脚本的第一个参数；<br>$0: 脚本名；<br>$@: 所有参数；<br>$#: 参数个数；<br>$?: 前一个命令的返回值；<br>$$: 当前脚本的进程识别码；<br>$\star$ !!: 上一条完整的命令，包括参数，常见应用：sudo !!；<br>$_: 上一个命令的最后一个参数；</p><p>命令通常使用STDOUT返回输出值，使用STDERR返回错误及错误码</p><p>与操作符和或操作符：&amp;&amp;  ||<br>shell在执行时，先执行第一个程序，如果执行的结果为flase，再确定执不执行之后的程序<br>$(CMD)会执行CMD这个命令后，将输出结果替换CMD<br>通配符与{}<br><img src="/pic/ysyx-Lecture2-4.png"><img src="/pic/ysyx-Lecture2-5.png"><img src="/pic/ysyx-Lecture2-6.png"><img src="/pic/ysyx-Lecture2-7.png"><img src="/pic/ysyx-Lecture2-8.png"><br><img src="/pic/ysyx-Lecture2-9.png"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> f -name <span class="string">&quot;*.html&quot;</span> | xargs -d <span class="string">&#x27;\n&#x27;</span> tar -cvzf html.zip</span><br><span class="line"></span><br><span class="line">find . -<span class="built_in">type</span> f -mmin -60 -print0 | xargs -0 <span class="built_in">ls</span> -lt | <span class="built_in">head</span> -10</span><br></pre></td></tr></table></figure><h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><dl><dt>vim: :%s&#x2F;old&#x2F;new&#x2F;g全局替换</dt><dd>g&#x2F;partern&#x2F;s&#x2F;old&#x2F;new&#x2F;g: 查找有partern的行进行替换（如果查找项与被替换项目一致，就不用再写被替换项）![[截屏2024-09-08 17.36.08.png]]</dd></dl><h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><ol start="2"><li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cat words | tr A-Z a-z | grep -E &#x27;^(\[^a]*a)&#123;3&#125;&#x27; | grep -v &quot;&#x27;s$&quot; | wc -l</span><br><span class="line"></span><br><span class="line">cat words | tr A-Z a-z | grep -E &#x27;^[^a]*a)&#123;3&#125;&#x27; | grep -v &quot;&#x27;s$&quot; | sed -E &quot;s/.*([a-z]&#123;2&#125;)/\1/&quot; | sort | uniq -c | sort -rn | head -3</span><br><span class="line"></span><br><span class="line">cat words | tr A-Z a-z | grep -E &#x27;^([^a]*a)&#123;3&#125;&#x27; | grep -v &quot;&#x27;s$&quot; | sed -E &quot;s/.*([a-z]&#123;2&#125;)$/\1/&quot; | sort | uniq | wc -l</span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line"> </span><br><span class="line">for i in &#123;a..z&#125;</span><br><span class="line">do</span><br><span class="line">for j in &#123;a..z&#125;</span><br><span class="line">do</span><br><span class="line">echo &quot;$i$j&quot;</span><br><span class="line">done</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">comm -23 report.txt part.txt</span><br></pre></td></tr></table></figure></li><li><ol><li><strong>数据丢失</strong>：如果 <code>sed</code> 命令执行过程中发生错误，或者输入文件在处理过程中被意外删除或损坏，那么原始数据可能会丢失，而且没有备份。</li><li><strong>不可预测性</strong>：原地替换可能会在文件系统中产生临时文件，这可能会影响文件的权限、所有权、时间戳等属性。</li><li><strong>并发问题</strong>：如果有多个进程试图同时对同一个文件进行原地替换，可能会导致数据不一致或文件损坏。</li><li><strong>备份问题</strong>：在某些情况下，你可能希望保留原始文件的副本，以便在出现问题时可以恢复。原地替换不会自动为你创建这样的备份。</li><li><strong>文件锁定</strong>：在某些操作系统上，原地替换可能会导致文件被锁定，这可能会阻止其他进程访问该文件。<br> sed -i.bak ‘s&#x2F;REGEX&#x2F;SUBSTITUTION&#x2F;‘ input.txt</li></ol></li><li></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;在MAC上使用multipass + ubuntu + aptitude配置环境&lt;br&gt;图形界面使用mac系统进行操作，将ysyx-workbench挂载在VM下&lt;/p&gt;
-&lt;p&gt;sudo aptitude install bison flex&lt;/p&gt;
-&lt;h2 id=&quot;Lin</summary>
-      
-    
-    
-    
-    <category term="ysyx" scheme="https://zuowangdev.github.io/categories/ysyx/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>8-17-firstmeeting</title>
     <link href="https://zuowangdev.github.io/2024/08/17/Project_Note/8-17-firstmeeting/"/>
     <id>https://zuowangdev.github.io/2024/08/17/Project_Note/8-17-firstmeeting/</id>
@@ -303,6 +281,53 @@
     
     
     <category term="Porject Note" scheme="https://zuowangdev.github.io/categories/Porject-Note/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Lecture 1</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%201/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%201/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T03:18:21.359Z</updated>
+    
+    <content type="html"><![CDATA[<p>读完这篇《提问的智慧》后，我深受启发。这篇文章不仅为技术问题的提问提供了指导，更在更广泛的层面上教会了我们如何更有效地沟通和学习。</p><p>我们在提问之前应该先进行充分的自我探索和研究。这包括阅读相关的文档、搜索网络资源以及尝试自己解决问题。这个过程本身就是一种学习，能够帮助我们更深入地理解问题的本质。通过这种方式，我们不仅能够提升自己的解决问题的能力，还能够培养独立思考的习惯。依赖他人提供答案并不是长久之计，只有自己具备了解决问题的能力，才能够在面对更复杂的问题时游刃有余。</p><p>首先，文章强调了在提问前应该做的准备工作，比如搜索旧文章、上网搜索、阅读手册和常见问题解答等。这一点让我意识到，很多情况下，问题的答案已经存在于我们能够触及的地方，关键在于我们是否愿意投入时间和精力去寻找。</p><p>其次，文章提到了提问时应该选择正确的论坛或渠道，这让我认识到，找到合适的提问场所，不仅能够更快地得到答案，也是对他人时间和空间的尊重。</p><p>提问时的表达方式也很重要，比如使用清晰、准确、并且合乎语法的语言，以及提供易于阅读的文件格式。这些细节提醒了我，良好的表达能力是沟通的关键，无论是在技术社区还是日常生活中。</p><p>“话不在多而在精”的原则，让我反思了自己在日常沟通中是否过于啰嗦，没有抓住重点。学会精确地描述问题，不仅能帮助他人更快地理解并解决问题，也提高了沟通的效率。</p><p>文章中还提到了在提问时不应该要求私下回复，这一点让我理解到，知识的分享应该是开放和透明的，这有助于建立一个互帮互助的社区环境。</p><p>最后，文章提到的“问题解决后，加个简短的补充说明”，这不仅是对帮助者的尊重，也是对社区的贡献，让更多人能够从问题和答案中学习。以至于在帮助他人时，我们应该引导他们独立思考，而不是简单地提供答案。这种方式虽然在短期内可能会让求助者感到困难，但从长远来看，它能够帮助他们建立起解决问题的能力，为他们的职业生涯打下坚实的基础。</p><p>综上所述，这一课的阅读内容不仅教会了我如何科学地提问，更在如何成为一个合格的社区成员和有效沟通上给予了我宝贵的指导。这些原则和建议，我相信在任何需要提问和沟通的场合都是适用的。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;读完这篇《提问的智慧》后，我深受启发。这篇文章不仅为技术问题的提问提供了指导，更在更广泛的层面上教会了我们如何更有效地沟通和学习。&lt;/p&gt;
+&lt;p&gt;我们在提问之前应该先进行充分的自我探索和研究。这包括阅读相关的文档、搜索网络资源以及尝试自己解决问题。这个过程本身就是一种学习，</summary>
+      
+    
+    
+    
+    <category term="ysyx" scheme="https://zuowangdev.github.io/categories/ysyx/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Lecture 2</title>
+    <link href="https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%202/"/>
+    <id>https://zuowangdev.github.io/2024/08/17/ysyx/Lecture%202/</id>
+    <published>2024-08-16T16:00:00.000Z</published>
+    <updated>2024-10-17T03:18:39.818Z</updated>
+    
+    <content type="html"><![CDATA[<p>在MAC上使用multipass + ubuntu + aptitude配置环境<br>图形界面使用mac系统进行操作，将ysyx-workbench挂载在VM下</p><p>sudo aptitude install bison flex</p><h2 id="Linux-101随笔"><a href="#Linux-101随笔" class="headerlink" title="Linux 101随笔"></a>Linux 101随笔</h2><p>cp -l -s : 创建硬链接和软链接<br>硬链接和软链接都指向文件本身：<br>硬链接是不同文件共用一个inode，修改一个文件会对另外的文件产生影响，而软链接是A文件的内容是B文件，读取A文件时会自动打开B文件，A、B有不同的inode。</p><p>搜索文件和目录：find option path expression<br>find . -name ‘report.pdf’在当前目录下搜索名为report.pdf的文件<br>find &#x2F; -sizw +1G全盘搜索大于1G的文件<br>通配符：<br>*: 任意字串；foo*: 以foo开头的字串；*x*: 包含x的字串<br>?: 一个字串</p><h3 id="进程、前后台、服务与-例行性任务"><a href="#进程、前后台、服务与-例行性任务" class="headerlink" title="进程、前后台、服务与 例行性任务"></a>进程、前后台、服务与 例行性任务</h3><blockquote><p>进程就是正在进行的程序；当启动一个程序时，操作系统就会从硬盘中读取程序文件，将程序内容载入内存，之后CPU就会执行这个程序</p></blockquote><p>进程标识符（PID）是进程的唯一标识<br>进程的优先级与Priority（PRI）和nice（NI）值有关<br>nice值与用户更相关，nice值在-20到19之间，default &#x3D; 0<br>nice -n 10 : vim以10为nice运行vim<br>renice -n 10 -p 12345: 设置PID为12345的进程nice值为10</p><p><code>PRI = nice + 20</code>。这对于普通进程是成立的——普通进程的 PRI 会被映射到一个非负整数。</p><p>但在正常运行的 Linux 系统中，我们可能会发现有些进程的 PRI 值是 RT，或者是负数。这表明对应的进程有更高的实时性要求（例如内核进程、音频相关进程等），采用了与普通进程不同的调度策略，优先级也相应更高。</p><h4 id="进程状态"><a href="#进程状态" class="headerlink" title="进程状态"></a>进程状态</h4><ul><li>正在运行的程序（running）</li><li>可以运行但正在排队等待的程序（ready）</li><li>正在等待其他资源（blocked）</li></ul><p>实际的linux系统中，进程的状态更复杂：<br>Status: R: running; S: sleeping; T: traced&#x2F;stopped; Z: zombie; D: disk sleep</p><p>shell前后台<br>默认情况下，shell命令都是在前台运行，如果需要在后台运行，需要在最后加上&amp;</p><p>终端一旦被关闭会向其中每个进程发送 SIGHUP（Signal hangup），而 SIGHUP 的默认动作即退出程序运行。</p><h2 id="The-Missing-Semester-of-Your-CS-Education"><a href="#The-Missing-Semester-of-Your-CS-Education" class="headerlink" title="The Missing Semester of Your CS Education"></a>The Missing Semester of Your CS Education</h2><h3 id="课程概览与shell"><a href="#课程概览与shell" class="headerlink" title="课程概览与shell"></a>课程概览与shell</h3><p><img src="/pic/ysyx-Lecture2-1.png"><br><img src="/pic/ysyx-Lecture2-2.png"><br><img src="/pic/ysyx-Lecture2-3.png"></p><h3 id="Shell工具和脚本"><a href="#Shell工具和脚本" class="headerlink" title="Shell工具和脚本"></a>Shell工具和脚本</h3><p>“”中的变量会进行转义，’’中的不会</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">mcd</span></span>()&#123;</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>$1是脚本的第一个参数；<br>$0: 脚本名；<br>$@: 所有参数；<br>$#: 参数个数；<br>$?: 前一个命令的返回值；<br>$$: 当前脚本的进程识别码；<br>$\star$ !!: 上一条完整的命令，包括参数，常见应用：sudo !!；<br>$_: 上一个命令的最后一个参数；</p><p>命令通常使用STDOUT返回输出值，使用STDERR返回错误及错误码</p><p>与操作符和或操作符：&amp;&amp;  ||<br>shell在执行时，先执行第一个程序，如果执行的结果为flase，再确定执不执行之后的程序<br>$(CMD)会执行CMD这个命令后，将输出结果替换CMD<br>通配符与{}<br><img src="/pic/ysyx-Lecture2-4.png"><img src="/pic/ysyx-Lecture2-5.png"><img src="/pic/ysyx-Lecture2-6.png"><img src="/pic/ysyx-Lecture2-7.png"><img src="/pic/ysyx-Lecture2-8.png"><br><img src="/pic/ysyx-Lecture2-9.png"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> f -name <span class="string">&quot;*.html&quot;</span> | xargs -d <span class="string">&#x27;\n&#x27;</span> tar -cvzf html.zip</span><br><span class="line"></span><br><span class="line">find . -<span class="built_in">type</span> f -mmin -60 -print0 | xargs -0 <span class="built_in">ls</span> -lt | <span class="built_in">head</span> -10</span><br></pre></td></tr></table></figure><h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><dl><dt>vim: :%s&#x2F;old&#x2F;new&#x2F;g全局替换</dt><dd>g&#x2F;partern&#x2F;s&#x2F;old&#x2F;new&#x2F;g: 查找有partern的行进行替换（如果查找项与被替换项目一致，就不用再写被替换项）![[截屏2024-09-08 17.36.08.png]]</dd></dl><h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><ol start="2"><li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cat words | tr A-Z a-z | grep -E &#x27;^(\[^a]*a)&#123;3&#125;&#x27; | grep -v &quot;&#x27;s$&quot; | wc -l</span><br><span class="line"></span><br><span class="line">cat words | tr A-Z a-z | grep -E &#x27;^[^a]*a)&#123;3&#125;&#x27; | grep -v &quot;&#x27;s$&quot; | sed -E &quot;s/.*([a-z]&#123;2&#125;)/\1/&quot; | sort | uniq -c | sort -rn | head -3</span><br><span class="line"></span><br><span class="line">cat words | tr A-Z a-z | grep -E &#x27;^([^a]*a)&#123;3&#125;&#x27; | grep -v &quot;&#x27;s$&quot; | sed -E &quot;s/.*([a-z]&#123;2&#125;)$/\1/&quot; | sort | uniq | wc -l</span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line"> </span><br><span class="line">for i in &#123;a..z&#125;</span><br><span class="line">do</span><br><span class="line">for j in &#123;a..z&#125;</span><br><span class="line">do</span><br><span class="line">echo &quot;$i$j&quot;</span><br><span class="line">done</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">comm -23 report.txt part.txt</span><br></pre></td></tr></table></figure></li><li><ol><li><strong>数据丢失</strong>：如果 <code>sed</code> 命令执行过程中发生错误，或者输入文件在处理过程中被意外删除或损坏，那么原始数据可能会丢失，而且没有备份。</li><li><strong>不可预测性</strong>：原地替换可能会在文件系统中产生临时文件，这可能会影响文件的权限、所有权、时间戳等属性。</li><li><strong>并发问题</strong>：如果有多个进程试图同时对同一个文件进行原地替换，可能会导致数据不一致或文件损坏。</li><li><strong>备份问题</strong>：在某些情况下，你可能希望保留原始文件的副本，以便在出现问题时可以恢复。原地替换不会自动为你创建这样的备份。</li><li><strong>文件锁定</strong>：在某些操作系统上，原地替换可能会导致文件被锁定，这可能会阻止其他进程访问该文件。<br> sed -i.bak ‘s&#x2F;REGEX&#x2F;SUBSTITUTION&#x2F;‘ input.txt</li></ol></li><li></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在MAC上使用multipass + ubuntu + aptitude配置环境&lt;br&gt;图形界面使用mac系统进行操作，将ysyx-workbench挂载在VM下&lt;/p&gt;
+&lt;p&gt;sudo aptitude install bison flex&lt;/p&gt;
+&lt;h2 id=&quot;Lin</summary>
+      
+    
+    
+    
+    <category term="ysyx" scheme="https://zuowangdev.github.io/categories/ysyx/"/>
     
     
   </entry>
@@ -470,31 +495,6 @@ Integers: Binary, G</summary>
       
       
     <summary type="html">&lt;p&gt;将十进制化为二进制，任何二进制数都可以用power of 2的和表达：&lt;br&gt;6 -&amp;gt; 110 -&amp;gt; 2 + 4 -&amp;gt; 010 + 100&lt;br&gt;实际上在进行奇偶校验时，Hamming Codes作出以下分组，&lt;br&gt;假设第n组&lt;br&gt;判断其二进制数是否在</summary>
-      
-    
-    
-    
-    <category term="6.05" scheme="https://zuowangdev.github.io/categories/6-05/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>LZW Algorithm</title>
-    <link href="https://zuowangdev.github.io/2024/08/17/Note/6.05/LZW%20Algorithm/"/>
-    <id>https://zuowangdev.github.io/2024/08/17/Note/6.05/LZW%20Algorithm/</id>
-    <published>2024-08-16T16:00:00.000Z</published>
-    <updated>2024-10-17T01:54:48.107Z</updated>
-    
-    <content type="html"><![CDATA[<p>（1）步骤一：开始时词典包含所有可能的根，当前前缀字符串P 和 当前字符均为空；</p><p>（2）步骤二：读入新的字符C，与P合并形成字符串P+C；</p><p>（3）步骤三：判断P+C是否在字典中</p><pre><code>                    如果“是”：                            P = P + C；                             返回步骤二；                    如果“否”：                            输出P的映射；                             P = P+C ；                            把前缀字符串P添加到字典，建立映射;                            令P = C //(现在的P仅包含一个字符C);</code></pre><p>（4）步骤四： 判断码字流中是否还有码字要译</p><pre><code>                     如果“是”：                          返回步骤二；                     如果“否”：                        把代表当前前缀P的码字输出到码字流;                        结束。</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;（1）步骤一：开始时词典包含所有可能的根，当前前缀字符串P 和 当前字符均为空；&lt;/p&gt;
-&lt;p&gt;（2）步骤二：读入新的字符C，与P合并形成字符串P+C；&lt;/p&gt;
-&lt;p&gt;（3）步骤三：判断P+C是否在字典中&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;                   </summary>
       
     
     

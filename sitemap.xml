@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zuowangdev.github.io/2024/10/19/Note/The_C_Programming_Language/Chapter1/</loc>
+    
+    <lastmod>2024-10-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zuowangdev.github.io/2024/10/17/Note/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8EShell%E7%BC%96%E7%A8%8B/U3/</loc>
     
     <lastmod>2024-10-17</lastmod>
@@ -238,7 +247,7 @@
 
   <url>
     <loc>https://zuowangdev.github.io/</loc>
-    <lastmod>2024-10-19</lastmod>
+    <lastmod>2024-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -247,57 +256,64 @@
 
   
   <url>
-    <loc>https://zuowangdev.github.io/categories/ysyx/</loc>
-    <lastmod>2024-10-19</lastmod>
+    <loc>https://zuowangdev.github.io/categories/Porject-Note/</loc>
+    <lastmod>2024-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zuowangdev.github.io/categories/Porject-Note/</loc>
-    <lastmod>2024-10-19</lastmod>
+    <loc>https://zuowangdev.github.io/categories/ysyx/</loc>
+    <lastmod>2024-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zuowangdev.github.io/categories/6-05/</loc>
-    <lastmod>2024-10-19</lastmod>
+    <lastmod>2024-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zuowangdev.github.io/categories/CMOS%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1/</loc>
-    <lastmod>2024-10-19</lastmod>
+    <lastmod>2024-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zuowangdev.github.io/categories/Linux/</loc>
-    <lastmod>2024-10-19</lastmod>
+    <lastmod>2024-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zuowangdev.github.io/categories/SICP/</loc>
-    <lastmod>2024-10-19</lastmod>
+    <lastmod>2024-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zuowangdev.github.io/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6/</loc>
-    <lastmod>2024-10-19</lastmod>
+    <lastmod>2024-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zuowangdev.github.io/categories/The-C-Programming-Language/</loc>
+    <lastmod>2024-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zuowangdev.github.io/categories/%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E7%89%88%E5%9B%BE%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2024-10-19</lastmod>
+    <lastmod>2024-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

@@ -1,0 +1,346 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>PT report | ZuowangDev's Blog</title><meta name="author" content="Zuowang"><meta name="copyright" content="Zuowang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Global Timing Summary Report command: report_global_timing: Top Level Summary of the timing report Worst negative slack(WNS) among all endpoints Total negative slack(TNS) of all endpoints Number of vi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PT report">
+<meta property="og:url" content="https://zuowangdev.github.io/2024/08/17/Project_Note/PT%20report/index.html">
+<meta property="og:site_name" content="ZuowangDev&#39;s Blog">
+<meta property="og:description" content="Global Timing Summary Report command: report_global_timing: Top Level Summary of the timing report Worst negative slack(WNS) among all endpoints Total negative slack(TNS) of all endpoints Number of vi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zuowangdev.github.io/img/avatar.png">
+<meta property="article:published_time" content="2024-08-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-10-17T01:26:54.680Z">
+<meta property="article:author" content="Zuowang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zuowangdev.github.io/img/avatar.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zuowangdev.github.io/2024/08/17/Project_Note/PT%20report/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'PT report',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/background.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ZuowangDev's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">PT report</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">PT report</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-16T16:00:00.000Z" title="发表于 2024-08-17 00:00:00">2024-08-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-17T01:26:54.680Z" title="更新于 2024-10-17 09:26:54">2024-10-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Porject-Note/">Porject Note</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="Global-Timing-Summary-Report"><a href="#Global-Timing-Summary-Report" class="headerlink" title="Global Timing Summary Report"></a>Global Timing Summary Report</h2><ul>
+<li>command: report_global_timing: Top Level Summary of the timing report<ul>
+<li>Worst negative slack(WNS) among all endpoints</li>
+<li>Total negative slack(TNS) of all endpoints</li>
+<li>Number of violating endpoints</li>
+</ul>
+</li>
+</ul>
+<h2 id="Path-Timing-Report"><a href="#Path-Timing-Report" class="headerlink" title="Path Timing Report"></a>Path Timing Report</h2><p>report timing provides detailed timing information about any number of requested paths.</p>
+<ul>
+<li><p>Gate levels in the logic path</p>
+</li>
+<li><p>Incremental delay value of each gate level</p>
+</li>
+<li><p>Sum of the total path delays</p>
+</li>
+<li><p>Amount of slack in the path</p>
+</li>
+<li><p>Source and destination clock name, latency, and uncertainty</p>
+</li>
+<li><p>On-chip variation (OCV) with clock reconvergence pessimism removed</p>
+</li>
+</ul>
+<h3 id="report-timing"><a href="#report-timing" class="headerlink" title="report_timing"></a><em>report_timing</em></h3><ol start="0">
+<li>-significant_digits: 显示的</li>
+<li>当-max_paths设置为大于1的任何值时，命令仅报告具有负松弛的路径。要在多路径报告中包含正松弛路径，请使用-slack_lesser_than选项。</li>
+<li>可以在单个命令中使用多个-through选项来指定穿越多个点的路径：<code>report_timing -from A1 -through B1 -through C1 \ -to D1</code></li>
+<li><code>report_timing -transition_time -capacitance</code>:report transition time and capacitance</li>
+</ol>
+<h3 id="Report-Normalized-Slack"><a href="#Report-Normalized-Slack" class="headerlink" title="Report Normalized Slack"></a>Report Normalized Slack</h3><p>路径的最大频率取决于路径的传播延迟和路径所需的时钟周期数。要确定现有设计的可实现频率，您需要找到限制频率的计时路径，并专注于优化这些路径。PrimeTime通过计算归一化松弛（计时路径的度量）来找到对时钟频率影响最大的路径。PrimeTime使用以下方程计算路径的归一化松弛：<br>$[Normalized slack] &#x3D; [Path slack] &#x2F; [Allowed propagation delay for path]$</p>
+<p>要启用规范化松弛分析，请在运行定时分析之前将timing_enable_normalized_slack变量设置为true。启用规范化的松弛分析后，report_timing命令会报告规范化的松弛数据。该工具还可以按归一化松弛对路径进行排序，并找到归一化松弛最差的路径。要报告最糟糕的标准化松弛，请输入<code>report_timing -normalized_slack</code></p>
+<h3 id="Setting-Limits-for-Normalized-Slack-Analysis"><a href="#Setting-Limits-for-Normalized-Slack-Analysis" class="headerlink" title="Setting Limits for Normalized Slack Analysis"></a>Setting Limits for Normalized Slack Analysis</h3><p>可以通过将沿路径允许的传播延迟限制在时钟周期的指定倍数来减少效果。要指定此倍数，设置timing_max_normalization_cycles变量, The default is four clock cycles.</p>
+<p>-exclude 排除路径: 将pin、port、cell等指定part排除，优先级高于-from -to</p>
+<h2 id="Quality-of-Result-Report"><a href="#Quality-of-Result-Report" class="headerlink" title="Quality of Result Report"></a>Quality of Result Report</h2><ul>
+<li><p>Length of the worst paths (shown as “Critical Path Length” in the report, which represents the arrival time of the signal at the path’s endpoint)</p>
+</li>
+<li><p>Total negative slack (TNS)</p>
+</li>
+<li><p>Minimum delay and hold</p>
+</li>
+<li><p>Detailed design rule constraints summary</p>
+</li>
+</ul>
+<p>Total negative slack (TNS) kinds</p>
+<ul>
+<li><p>Union TNS mode (default) – The tool adds up the worst slack for all endpoints with negative slack, taking the worst-slack values across all path groups, across all scenarios. Each endpoint with negative slack contributes only once to the TNS, even if that endpoint has negative slack in multiple path groups (for example, when two clocks reach the same endpoint).</p>
+</li>
+<li><p>Every-group TNS mode – The tool adds up the worst slack for all endpoints with negative slack per path group, across all scenarios. If a given endpoint exists in two path groups and the endpoint has negative slack in both groups, it contributes twice to the TNS.</p>
+</li>
+</ul>
+<p>You select the mode by setting the timing_report_union_tns variable to true for the union mode (the default) or false for the every-group mode.</p>
+<h2 id="Constraint-Reports"><a href="#Constraint-Reports" class="headerlink" title="Constraint Reports"></a>Constraint Reports</h2><p><code>report_constraint</code>report the constraint violations<br>PT can report the maximum area of a design and certain timing constraints</p>
+<p>The followings are some kinds of constraints:</p>
+<h3 id="Timing-Constraints"><a href="#Timing-Constraints" class="headerlink" title="Timing Constraints"></a>Timing Constraints</h3><ul>
+<li><p>Maximum path delay and setup</p>
+</li>
+<li><p>Minimum path delay and hold</p>
+</li>
+<li><p>Recovery time, the minimum amount of time required between an asynchronous control signal (such as the asynchronous clear input of a flip-flop) going inactive and a subsequent active clock edge</p>
+</li>
+<li><p>Removal time, the minimum amount of time required between a clock edge that occurs while an asynchronous input is active and the subsequent removal of the asserted asynchronous control signal</p>
+</li>
+<li><p>Clock-gating setup and hold</p>
+</li>
+<li><p>Minimum pulse width high or low at one or several clock pins in the network</p>
+</li>
+<li><p>Minimum period at a clock pin</p>
+</li>
+<li><p>Maximum skew between two clock pins of a cell</p>
+</li>
+</ul>
+<h3 id="Design-Rule-Constraints"><a href="#Design-Rule-Constraints" class="headerlink" title="Design Rule Constraints"></a>Design Rule Constraints</h3><ol start="0">
+<li>to ensure that the netlist meets the design rules defined by the ASIC vendor and specified in the design library.</li>
+<li>can also set the important parameter such as set_max_capacitance.</li>
+</ol>
+<ul>
+<li><p>Total net capacitance (minimum and maximum limits)</p>
+</li>
+<li><p>Pin transition time (minimum and maximum limits)</p>
+</li>
+<li><p>Sum of fanout load attributes on net (minimum and maximum limits)<br>That are default generation, can also set the design rule constraint separately for rising and falling transitions, capacitance, and different clock domains and data paths for these clock domains.</p>
+</li>
+</ul>
+<h3 id="Reporting-Violations"><a href="#Reporting-Violations" class="headerlink" title="Reporting Violations"></a>Reporting Violations</h3><p>To report all instances of constraint violations, use the report_constraint -all_violators command, as shown in the following example</p>
+<p>To show detailed information about the violations, use the report_constraint -verbose</p>
+<h3 id="Maximum-Skew-Checks"><a href="#Maximum-Skew-Checks" class="headerlink" title="Maximum Skew Checks"></a>Maximum Skew Checks</h3><p>there are two key words to express the type og Skew checks :</p>
+<ul>
+<li>skew_rising</li>
+<li>skew_falling<br> this key word can be set in Library Compiler</li>
+<li>skew_rising: intrinsic_rise: maximum skew time between ref pin rising to the constrained pin rising; intrinsic_fall: maximum skew time between the reference pin rising to the constrained pin falling.</li>
+<li>skew_falling: intrinsic_rise: the maximum skew time between the reference pin falling to the constrained pin rising; intrinsic_fall: the maximum skew time between the reference pin falling to the constrained pin falling.<br>PT: report_constraint -max_skew<br>report all the violators of max skew: report_constraint -max_skew -all_violators</li>
+</ul>
+<h3 id="No-Change-Timing-Check"><a href="#No-Change-Timing-Check" class="headerlink" title="No-Change Timing Check"></a>No-Change Timing Check</h3><p>Sertain signals need no-change timing checks to make sure that they do not switch during the active interval of a periodic signal such as a clock</p>
+<h3 id="Mininum-Pulse-Width-Report"><a href="#Mininum-Pulse-Width-Report" class="headerlink" title="Mininum Pulse Width Report"></a>Mininum Pulse Width Report</h3><p>report_min_pulse_width: set_timing_derate -late 2.0 -cell_check<br>                        report_min_pulse_width -all_violators -path_type full_clock -derate</p>
+<h3 id="Minimum-Period-Report"><a href="#Minimum-Period-Report" class="headerlink" title="Minimum Period Report"></a>Minimum Period Report</h3><p>report_min_period<br>If there is a minimum period violation, you can debug the problem by reporting the full clock path:<br>report_min_period -path_type full_clock_expanded</p>
+<h2 id="Bottleneck-Report"><a href="#Bottleneck-Report" class="headerlink" title="Bottleneck Report"></a>Bottleneck Report</h2><ul>
+<li>report_bottleneck<ul>
+<li><ol start="0">
+<li>If you use the report_bottleneck command in your flow, set the timing_save_pin_arrival_and_slack variable to true before your first timing update.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Global-Slack-Report"><a href="#Global-Slack-Report" class="headerlink" title="Global Slack Report"></a>Global Slack Report</h2><p>report_global_slack:Before using this command, time the design with the timing_save_pin_arrival_and_slack variable set to true.</p>
+<h2 id="Analysis-Coverage-Report"><a href="#Analysis-Coverage-Report" class="headerlink" title="Analysis Coverage Report"></a>Analysis Coverage Report</h2><p>report_analysis_coverage: Generating information about timing checks is most critical for new designs<br>Analysis coverage checks are critical for sign-off. Follow this basic flow:</p>
+<ol>
+<li>Runlink_design and resolve link errors.  </li>
+<li>Runcheck_timing and resolve timing check errors.  </li>
+<li>Run report_analysis_coverage and resolve untested issues.  </li>
+<li>Perform the rest of the analysis.</li>
+</ol>
+<p>report_analysis_coverage:</p>
+<ul>
+<li><p>Setup</p>
+</li>
+<li><p>Hold</p>
+</li>
+<li><p>No-change</p>
+</li>
+<li><p>Minimum period</p>
+</li>
+<li><p>Recovery</p>
+</li>
+<li><p>Removal</p>
+</li>
+<li><p>Minimum pulse width</p>
+</li>
+<li><p>Clock separation (master-slave)</p>
+</li>
+<li><p>Clock-gating setup</p>
+</li>
+<li><p>Clock-gating hold</p>
+</li>
+<li><p>Output setup</p>
+</li>
+<li><p>Output hold</p>
+</li>
+<li><p>Maximum skew</p>
+</li>
+</ul>
+<h2 id="Clock-Network-Timing-Report"><a href="#Clock-Network-Timing-Report" class="headerlink" title="Clock Network Timing Report"></a>Clock Network Timing Report</h2><p>timing characteristics of the clock network: report_clock_timing</p>
+<h3 id="Latency-and-Transition-time-Reporting"><a href="#Latency-and-Transition-time-Reporting" class="headerlink" title="Latency and Transition time Reporting"></a>Latency and Transition time Reporting</h3><p>The clock latency at a particular pin depends on the followings analysis conditions:</p>
+<ul>
+<li><p>Constraint type: setup or hold</p>
+</li>
+<li><p>Timing path role: launch or capture</p>
+</li>
+<li><p>Transition type: rise or fall</p>
+</li>
+</ul>
+<h3 id="Skew-Reporting"><a href="#Skew-Reporting" class="headerlink" title="Skew Reporting"></a>Skew Reporting</h3><ul>
+<li>single clock: report_clock_timing -type skew</li>
+<li>different clocks: report_clock_timing -type interclock_skew</li>
+</ul>
+<p>PT considers the following conditions at each pin:</p>
+<ul>
+<li><p>Type of sequential device involved: rising or falling edge-sensitive; or high or low level-sensitive</p>
+</li>
+<li><p>Type of constraint: setup or hold (which determines the path type, transition type, and library)</p>
+</li>
+<li><p>Role of the sequential device in the constraint relationship: launch or capture</p>
+</li>
+</ul>
+<h3 id="Interclock-Skew-Reporting"><a href="#Interclock-Skew-Reporting" class="headerlink" title="Interclock Skew Reporting"></a>Interclock Skew Reporting</h3><p>To report skew between pins clocked by different clocks as well as by the same clock, use the report_clock_timing -type interclock_skew</p>
+<ul>
+<li><p>Skew between pin A (clocked by CLK1) and pin B (clocked by CLK2)</p>
+</li>
+<li><p>Worst local skew between all sequential devices clocked by CLK1 and all sequential devices clocked by CLK2</p>
+</li>
+<li><p>Ten worst skews to all devices that communicate with pin A, irrespective of their domain</p>
+</li>
+</ul>
+<h3 id="Clock-Timing-Reporting-Options"><a href="#Clock-Timing-Reporting-Options" class="headerlink" title="Clock Timing Reporting Options"></a>Clock Timing Reporting Options</h3><p>report_clock_timing -type:</p>
+<ul>
+<li>summary: minimum and maximum values for each clock</li>
+<li>skew -nworst 5: Skew report, pin pairs and associated skew, one clock per pair</li>
+<li>interclock_skew –nworst 5: Interclock skew report (pin pairs and associated skew, any clocks)</li>
+<li>transition –nworst 5: Pin report (single pins and associated latency, transition time)</li>
+<li>report_clock_timing -from U1&#x2F;CP -to U5&#x2F;CP -verbose -type skew: Verbose report (detailed timing along clock paths)</li>
+</ul>
+<h2 id="Summary-Rreport"><a href="#Summary-Rreport" class="headerlink" title="Summary Rreport"></a>Summary Rreport</h2><p>A summary report shows a list of the minimum and maximum latency, transition time, and clock skew values found in the requested scope of the clock network.</p>
+<ul>
+<li><p>Pins at which the minimum or maximum value occurred</p>
+</li>
+<li><p>Minimum or maximum time value</p>
+</li>
+<li><p>Conditions under which the minimum or maximum time value occurred</p>
+</li>
+</ul>
+<h3 id="List-Report"><a href="#List-Report" class="headerlink" title="List Report"></a>List Report</h3><p>A list report provides latency, transition time, and skew information in greater detail than a summary report.</p>
+<ul>
+<li>skew report</li>
+<li>pin report</li>
+</ul>
+<p>eg: report_clock_timing -type interclock_skew \ –nworst 12 -setup -include_uncertainty_in_skew<br>The report shows the 12 largest skew values between clock pins, whether clocked by the same clock or by different clocks.</p>
+<h3 id="Verbose-Path-Based-Report"><a href="#Verbose-Path-Based-Report" class="headerlink" title="Verbose Path-Based Report"></a>Verbose Path-Based Report</h3><p>The most detailed type of clock network timing report is the verbose, path-based report. This type of report shows the calculation of skew, latency, and transition times along the clock path.<br>report_clock_timing \  -from f3_3&#x2F;CP -to f2_2&#x2F;CP -verbose -hold -type skew -include_uncertainty_in_skew<br>This command produces a report showing the transition time, incremental delay, and total latency along the clock paths to the specified pins; and the clock skew between the two pins</p>
+<h3 id="Limitations-of-Clock-Network-Reporting"><a href="#Limitations-of-Clock-Network-Reporting" class="headerlink" title="Limitations of Clock Network Reporting"></a>Limitations of Clock Network Reporting</h3><p>report_clock_timing</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://ZuowangDev.github.io">Zuowang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zuowangdev.github.io/2024/08/17/Project_Note/PT%20report/">https://zuowangdev.github.io/2024/08/17/Project_Note/PT report/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://ZuowangDev.github.io" target="_blank">ZuowangDev's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/avatar.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/08/17/Project_Note/8-17-firstmeeting/" title="8-17-firstmeeting"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">8-17-firstmeeting</div></div><div class="info-2"><div class="info-item-1">digital IC flow:RTL &#x3D;&gt; [[DC(synthesis)]] &#x3D;&gt; netlist(.v) &#x3D;&gt; instance(inst) &#x3D;&gt; [[floor plan]] &#x3D;&gt; place &#x3D;&gt; timing&#x2F;congestion &#x3D;&gt; cts(clock tree synthesis) &#x3D;&gt; timming Opt &#x3D;&gt; route ··&gt;timing ECO &#x3D;&gt; drc ··&gt; [[timing ECO]] cell &#x3D; ‘’.join(map(str, cell_content))  netlist(.v) (✅) liberty(.lib)(✅) DEF(.def) LEF(.lef) tech file pt  flow plan: certain the pin location, where is the clock tree, How much area...</div></div></div></a><a class="pagination-related" href="/2024/08/17/Note/6.05/Chapter_1%20Bit/" title="6.05 Chapter 1 Bit"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">6.05 Chapter 1 Bit</div></div><div class="info-2"><div class="info-item-1"> Boolean Bit Circuit Bit Physical Bit Quantum Bit Classical Bit  There are some important rules about Bits  information can be acquired by observation, experiment and measurement subjective  the uncertain will up and down information can be lost through coding or itself physical information is localized on space and time  Boolean Bit: FunctionCircuit Bit: Combinational logic circuitsControl Bit: Computer ProgramePhysical Bit: Dot to store Quantum BitThere are two states of a small object,...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Zuowang</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ZuowangDev"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ZuowangDev" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/tianyixv@icloud.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">ZuowangDev's Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Global-Timing-Summary-Report"><span class="toc-number">1.</span> <span class="toc-text">Global Timing Summary Report</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Path-Timing-Report"><span class="toc-number">2.</span> <span class="toc-text">Path Timing Report</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#report-timing"><span class="toc-number">2.1.</span> <span class="toc-text">report_timing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Report-Normalized-Slack"><span class="toc-number">2.2.</span> <span class="toc-text">Report Normalized Slack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setting-Limits-for-Normalized-Slack-Analysis"><span class="toc-number">2.3.</span> <span class="toc-text">Setting Limits for Normalized Slack Analysis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quality-of-Result-Report"><span class="toc-number">3.</span> <span class="toc-text">Quality of Result Report</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Constraint-Reports"><span class="toc-number">4.</span> <span class="toc-text">Constraint Reports</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Timing-Constraints"><span class="toc-number">4.1.</span> <span class="toc-text">Timing Constraints</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Design-Rule-Constraints"><span class="toc-number">4.2.</span> <span class="toc-text">Design Rule Constraints</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reporting-Violations"><span class="toc-number">4.3.</span> <span class="toc-text">Reporting Violations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maximum-Skew-Checks"><span class="toc-number">4.4.</span> <span class="toc-text">Maximum Skew Checks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#No-Change-Timing-Check"><span class="toc-number">4.5.</span> <span class="toc-text">No-Change Timing Check</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mininum-Pulse-Width-Report"><span class="toc-number">4.6.</span> <span class="toc-text">Mininum Pulse Width Report</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Minimum-Period-Report"><span class="toc-number">4.7.</span> <span class="toc-text">Minimum Period Report</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bottleneck-Report"><span class="toc-number">5.</span> <span class="toc-text">Bottleneck Report</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Global-Slack-Report"><span class="toc-number">6.</span> <span class="toc-text">Global Slack Report</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Analysis-Coverage-Report"><span class="toc-number">7.</span> <span class="toc-text">Analysis Coverage Report</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Clock-Network-Timing-Report"><span class="toc-number">8.</span> <span class="toc-text">Clock Network Timing Report</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Latency-and-Transition-time-Reporting"><span class="toc-number">8.1.</span> <span class="toc-text">Latency and Transition time Reporting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Skew-Reporting"><span class="toc-number">8.2.</span> <span class="toc-text">Skew Reporting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Interclock-Skew-Reporting"><span class="toc-number">8.3.</span> <span class="toc-text">Interclock Skew Reporting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Clock-Timing-Reporting-Options"><span class="toc-number">8.4.</span> <span class="toc-text">Clock Timing Reporting Options</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary-Rreport"><span class="toc-number">9.</span> <span class="toc-text">Summary Rreport</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#List-Report"><span class="toc-number">9.1.</span> <span class="toc-text">List Report</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Verbose-Path-Based-Report"><span class="toc-number">9.2.</span> <span class="toc-text">Verbose Path-Based Report</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Limitations-of-Clock-Network-Reporting"><span class="toc-number">9.3.</span> <span class="toc-text">Limitations of Clock Network Reporting</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/26/Note/tcl-tk/tcl-tk1/" title="无标题">无标题</a><time datetime="2024-11-25T16:00:00.000Z" title="发表于 2024-11-26 00:00:00">2024-11-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/26/Note/tcl-tk/tcl-tk2/" title="Tcl Tk 2">Tcl Tk 2</a><time datetime="2024-11-25T16:00:00.000Z" title="发表于 2024-11-26 00:00:00">2024-11-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/19/Note/DeepLearning/CNN/" title="CNN">CNN</a><time datetime="2024-11-18T16:00:00.000Z" title="发表于 2024-11-19 00:00:00">2024-11-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/15/Project_Note/note/" title="无标题">无标题</a><time datetime="2024-11-15T07:08:18.100Z" title="发表于 2024-11-15 15:08:18">2024-11-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/12/Note/DeepLearning/LearningSkill/" title="LearningSkill">LearningSkill</a><time datetime="2024-11-11T16:00:00.000Z" title="发表于 2024-11-12 00:00:00">2024-11-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By Zuowang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script src="/js/universe.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

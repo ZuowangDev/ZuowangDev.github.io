@@ -1,0 +1,158 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ZuowangDev's Blog | ZuowangDev's Blog</title><meta name="author" content="Zuowang"><meta name="copyright" content="Zuowang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数据准备: design: netlist          physical: technology lef, cell lef, def(描述单元位置和金属走线)          timing: lib, rc tech file(金属线延迟), sdcnetlist门级描述 LEF - Cell LEF  standard cell IO Hard MacroPhysical 形状 pin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ZuowangDev&#39;s Blog">
+<meta property="og:url" content="https://zuowangdev.github.io/2024/11/15/Project_Note/note/index.html">
+<meta property="og:site_name" content="ZuowangDev&#39;s Blog">
+<meta property="og:description" content="数据准备: design: netlist          physical: technology lef, cell lef, def(描述单元位置和金属走线)          timing: lib, rc tech file(金属线延迟), sdcnetlist门级描述 LEF - Cell LEF  standard cell IO Hard MacroPhysical 形状 pin">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zuowangdev.github.io/img/avatar.png">
+<meta property="article:published_time" content="2024-11-15T07:08:18.100Z">
+<meta property="article:modified_time" content="2024-11-15T07:08:18.100Z">
+<meta property="article:author" content="Zuowang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zuowangdev.github.io/img/avatar.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zuowangdev.github.io/2024/11/15/Project_Note/note/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ZuowangDev\'s Blog',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/background.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ZuowangDev's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">ZuowangDev's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">无标题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-15T07:08:18.100Z" title="发表于 2024-11-15 15:08:18">2024-11-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-15T07:08:18.100Z" title="更新于 2024-11-15 15:08:18">2024-11-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>数据准备: design: netlist<br>          physical: technology lef, cell lef, def(描述单元位置和金属走线)<br>          timing: lib, rc tech file(金属线延迟), sdc<br>netlist门级描述</p>
+<p>LEF - Cell LEF</p>
+<ul>
+<li>standard cell</li>
+<li>IO</li>
+<li>Hard Macro<br>Physical<br> 形状<br> pin位置<br> 方向<br>LEF MACRO<br>CLASS CORE; &#x2F; CLASS BLACKBOX;</li>
+</ul>
+<p>OBS阻挡层</p>
+<p>lib，库的基本信息<br>二维表</p>
+<p>RC tech file</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://ZuowangDev.github.io">Zuowang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zuowangdev.github.io/2024/11/15/Project_Note/note/">https://zuowangdev.github.io/2024/11/15/Project_Note/note/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://ZuowangDev.github.io" target="_blank">ZuowangDev's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/avatar.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/11/19/Note/DeepLearning/CNN/" title="CNN"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">CNN</div></div><div class="info-2"><div class="info-item-1">卷积神经网络全连接层的问题：数据的一些形状信息被忽略了 卷积层 卷积层的输入输出信息称为特征图。  卷积运算 相当于图像处理中的滤波器运算  权重 + 偏置 进行边缘填充：在输入数据边缘填充0，进而改变输入数据的大小 步幅：滤波器窗口的移动间隔 假设输入大小为(H, W)，滤波器大小为(FH, FW)，输出大小为(OH, OW)，填充为P，步幅为S，有：OH &#x3D; (H + 2P - FH) &#x2F; S + 1OW &#x3D; (H + 2P - FW) &#x2F; S + 1 三维数据的卷积运算 方块滤波器处理方块数据，生成平面数据  批处理在mini-batch中，将输入保存为4维 池化层 没有要学习的参数 输入输出通道数相同  当输入数据发生微小偏差时，池化层仍会返回相同结果，针对微小偏差具有鲁棒性 </div></div></div></a><a class="pagination-related" href="/2024/11/12/Note/DeepLearning/LearningSkill/" title="LearningSkill"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">LearningSkill</div></div><div class="info-2"><div class="info-item-1">参数更新策略SGD 在反向梯度的方向更新缺点：梯度的方向不一定是loss最小值的方向  Momentum 通过对过往的梯度进行加权平均，得到参数更新量V-n &#x3D; k * V-(n - 1) - lr * gradk: 衰减因子，lr: 学习率W &#x3D; W + V-n模拟小球滚动，k为受到的阻力的  123456789101112131415class Momentum:    def __init__(self, lr=0.01, momentum=0.9):        self.lr = lr        self.momentum = momentum        self.v = None    def update(self, params: dict, grads: dict):        if self.v is None:            self.v = &#123;&#125;            for key, val in params.items():                self.v[key] =...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Zuowang</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ZuowangDev"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ZuowangDev" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/tianyixv@icloud.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">ZuowangDev's Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/26/Note/tcl-tk/tcl-tk1/" title="无标题">无标题</a><time datetime="2024-11-25T16:00:00.000Z" title="发表于 2024-11-26 00:00:00">2024-11-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/26/Note/tcl-tk/tcl-tk2/" title="Tcl Tk 2">Tcl Tk 2</a><time datetime="2024-11-25T16:00:00.000Z" title="发表于 2024-11-26 00:00:00">2024-11-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/19/Note/DeepLearning/CNN/" title="CNN">CNN</a><time datetime="2024-11-18T16:00:00.000Z" title="发表于 2024-11-19 00:00:00">2024-11-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/15/Project_Note/note/" title="无标题">无标题</a><time datetime="2024-11-15T07:08:18.100Z" title="发表于 2024-11-15 15:08:18">2024-11-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/12/Note/DeepLearning/LearningSkill/" title="LearningSkill">LearningSkill</a><time datetime="2024-11-11T16:00:00.000Z" title="发表于 2024-11-12 00:00:00">2024-11-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By Zuowang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script src="/js/universe.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

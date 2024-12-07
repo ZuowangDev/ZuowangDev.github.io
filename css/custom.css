@@ -383,6 +383,7 @@ div#category {
     pointer-events: none;
     z-index: 1;
 }
+
 .pace {
   -webkit-pointer-events: none;
   pointer-events: none;
@@ -447,8 +448,4 @@ div#category {
   100% {
     background-position: 0% 50%;
   }
-}
-.loading-img {
-  background: (/img/avatar.png) no-repeat center center;
-  background-size: cover;
 }

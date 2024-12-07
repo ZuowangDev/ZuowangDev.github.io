@@ -383,4 +383,7 @@ div#category {
     pointer-events: none;
     z-index: 1;
 }
-
+.loading-img {
+  background: (/pic/avatar.png) no-repeat center center;
+  background-size: cover;
+}

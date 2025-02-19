@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>LearningSkill | ZuowangDev's Blog</title><meta name="author" content="Zuowang"><meta name="copyright" content="Zuowang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="参数更新策略SGD 在反向梯度的方向更新缺点：梯度的方向不一定是loss最小值的方向  Momentum 通过对过往的梯度进行加权平均，得到参数更新量V-n &#x3D; k * V-(n - 1) - lr * gradk: 衰减因子，lr: 学习率W &#x3D; W + V-n模拟小球滚动，k为受到的阻力的  123456789101112131415class Momentum:    d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LearningSkill">
+<meta property="og:url" content="https://zuowangdev.github.io/2024/11/12/Note/DeepLearning/LearningSkill/index.html">
+<meta property="og:site_name" content="ZuowangDev&#39;s Blog">
+<meta property="og:description" content="参数更新策略SGD 在反向梯度的方向更新缺点：梯度的方向不一定是loss最小值的方向  Momentum 通过对过往的梯度进行加权平均，得到参数更新量V-n &#x3D; k * V-(n - 1) - lr * gradk: 衰减因子，lr: 学习率W &#x3D; W + V-n模拟小球滚动，k为受到的阻力的  123456789101112131415class Momentum:    d">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zuowangdev.github.io/img/avatar.png">
+<meta property="article:published_time" content="2024-11-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-11-19T04:56:37.470Z">
+<meta property="article:author" content="Zuowang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zuowangdev.github.io/img/avatar.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zuowangdev.github.io/2024/11/12/Note/DeepLearning/LearningSkill/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'LearningSkill',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/preload_bar.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 7.3.0"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="/css/process_bar.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg" style="background-image: url(/img/background.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">58</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">20</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ZuowangDev's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">LearningSkill</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">LearningSkill</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-11T16:00:00.000Z" title="发表于 2024-11-12 00:00:00">2024-11-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-19T04:56:37.470Z" title="更新于 2024-11-19 12:56:37">2024-11-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/DeepLearning/">DeepLearning</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="参数更新策略"><a href="#参数更新策略" class="headerlink" title="参数更新策略"></a>参数更新策略</h2><h3 id="SGD"><a href="#SGD" class="headerlink" title="SGD"></a>SGD</h3><blockquote>
+<p>在反向梯度的方向更新<br>缺点：梯度的方向不一定是<em>loss</em>最小值的方向</p>
+</blockquote>
+<h3 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h3><blockquote>
+<p>通过对过往的梯度进行加权平均，得到参数更新量<br>V-n &#x3D; k * V-(n - 1) - lr * grad<br>k: 衰减因子，lr: 学习率<br>W &#x3D; W + V-n<br>模拟小球滚动，k为受到的阻力的</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Momentum</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, lr=<span class="number">0.01</span>, momentum=<span class="number">0.9</span></span>):</span><br><span class="line">        <span class="variable language_">self</span>.lr = lr</span><br><span class="line">        <span class="variable language_">self</span>.momentum = momentum</span><br><span class="line">        <span class="variable language_">self</span>.v = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">update</span>(<span class="params">self, params: <span class="built_in">dict</span>, grads: <span class="built_in">dict</span></span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.v <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="variable language_">self</span>.v = &#123;&#125;</span><br><span class="line">            <span class="keyword">for</span> key, val <span class="keyword">in</span> params.items():</span><br><span class="line">                <span class="variable language_">self</span>.v[key] = numpy.zeros_like(val)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> key <span class="keyword">in</span> params.keys():</span><br><span class="line">            <span class="variable language_">self</span>.v[key] = <span class="variable language_">self</span>.[key] * <span class="variable language_">self</span>.momentum - <span class="variable language_">self</span>.lr * grads[key]</span><br><span class="line">            params[key] = params[key] + <span class="variable language_">self</span>.v[key]</span><br></pre></td></tr></table></figure>
+
+<h3 id="AdaGrad"><a href="#AdaGrad" class="headerlink" title="AdaGrad"></a>AdaGrad</h3><blockquote>
+<p>Adaptive Grad (come from learning rate decay)</p>
+</blockquote>
+<p>h &#x3D; h + grad ^ 2<br>W &#x3D; W - lr * (1 &#x2F;  ^ 0.5) * grad</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">AdaGrad</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, lr=<span class="number">0.01</span></span>):</span><br><span class="line">        <span class="variable language_">self</span>.lr = lr</span><br><span class="line">        <span class="variable language_">self</span>.h = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">update</span>(<span class="params">self, params, grads</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.h <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="variable language_">self</span>.h = &#123;&#125;</span><br><span class="line">            <span class="keyword">for</span> key, val <span class="keyword">in</span> params.items():</span><br><span class="line">                <span class="variable language_">self</span>.h[key] = numpy.zeros_like(val)</span><br><span class="line">        <span class="keyword">for</span> key <span class="keyword">in</span> params.keys():</span><br><span class="line">            <span class="variable language_">self</span>.h[key] += grads[key] * grads[key]</span><br><span class="line">            params[key] -= <span class="variable language_">self</span>.lr * grads[key] / (numpy.sart(<span class="variable language_">self</span>.h[key]) + <span class="number">1e-7</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Adam"><a href="#Adam" class="headerlink" title="Adam"></a>Adam</h3><blockquote>
+<p>融合AdaGrad 和 Momentum，结合两个方法的优点，实现参数空间的高效搜索</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">self</span>.m[key] += (<span class="number">1</span> - <span class="variable language_">self</span>.beta1) * (grads[key] - <span class="variable language_">self</span>.m[key])</span><br><span class="line"><span class="variable language_">self</span>.v[key] += (<span class="number">1</span> - <span class="variable language_">self</span>.beta2) * (grads[key]**<span class="number">2</span> - <span class="variable language_">self</span>.v[key])</span><br><span class="line"></span><br><span class="line">params[key] -= lr_t * <span class="variable language_">self</span>.m[key] / (np.sqrt(<span class="variable language_">self</span>.v[key]) + <span class="number">1e-7</span>)</span><br></pre></td></tr></table></figure>
+<p>AdaGrad下降速度快，SGD明显下降速度最慢</p>
+<h2 id="权重初始值"><a href="#权重初始值" class="headerlink" title="权重初始值"></a>权重初始值</h2><h3 id="0值？"><a href="#0值？" class="headerlink" title="0值？"></a>0值？</h3><blockquote>
+<p>提高泛化能力的技巧：将权重设置为较小值</p>
+</blockquote>
+<p>但是不能设置成0，将导致无法正确学习假设W都一样，在进行前向传播时，所有的预测输出都一样，在进行损失函数求导时，以MSE为例，大部份的对于倒数第二层的导数都一样，使得神经网络的许多不同权重失去意义<br><strong>防止权重均一化，必须随机生成初始值</strong></p>
+<h3 id="隐藏层的激活值分布"><a href="#隐藏层的激活值分布" class="headerlink" title="隐藏层的激活值分布"></a>隐藏层的激活值分布</h3><blockquote>
+<p>初始权重在设置时，如normal分布，存在设置上的固定特征，会影响系统的训练质量。<br><em>Xavier初始值</em>: 被Caffee框架作为标准使用<br>保证前后层在进行前向传播时，方差保持不变，折中的结果是在进行权重初始化时，前一层的节点数为 n ，使用标准差为 1 &#x2F; (n ^ 0.5) 的分布（简化）</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node_num = <span class="number">100</span></span><br><span class="line">w = np.random.randn(node_num, node_num) / np.sqrt(node_num)</span><br><span class="line"><span class="comment"># 生成标准差为 1 的 node_num * node_num 的矩阵，再除以 np.sqrt(node_num)</span></span><br></pre></td></tr></table></figure>
+<p><em>Xavier初始值</em>适合激活函数在分布内线性或近似线性的，eg. sigmoid, tanh</p>
+<p><em>RELU</em>需要设置特定的权重初始值</p>
+<h3 id="RELU的权重初始值"><a href="#RELU的权重初始值" class="headerlink" title="RELU的权重初始值"></a>RELU的权重初始值</h3><blockquote>
+<p><em>Xavier</em>的推导是在假设激活函数为线性时候推导而来的(f’(si) ≈ 1)，而<em>RELU</em>在0附近存在跳变。使用<em>HE初始值</em>进行初始化</p>
+</blockquote>
+<p>当前一层的节点数为 n 时，HE初始值使用标准差为 (2 &#x2F; n) ^ 0.5 的高斯分布，可以理解为，在分布域上减半，标准差需要翻倍。</p>
+<blockquote>
+<p>*<em>目前最优的实践结果是，激活函数为RELU时，使用</em>HE<em>进行初始化权重；当激活函数为线性或近似线性时，使用</em>Xavier*进行初始化权重</p>
+</blockquote>
+<h2 id="Batch-Normalization"><a href="#Batch-Normalization" class="headerlink" title="Batch Normalization"></a>Batch Normalization</h2><blockquote>
+<p>“强制性”调整激活值的分布</p>
+</blockquote>
+<h3 id="Batch-Normalizaion"><a href="#Batch-Normalizaion" class="headerlink" title="Batch Normalizaion"></a>Batch Normalizaion</h3><ul>
+<li>增大学习率，加速网络训练</li>
+<li>对初始值设置不敏感</li>
+<li>抑制过拟合</li>
+</ul>
+<p>将上一层的输出数据，在经历激活函数之前，做仿射变换：满足结果是均值为0，方差为1的数据，在输入激活函数后，会使激活值也满足正规化分布。<br>yi &#x3D; k * xi + b, k, b的值会随输入的数据集变化，并不是线性函数。</p>
+<h2 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h2><blockquote>
+<p>复杂的网络会带来表现力过强，产生过拟合的问题</p>
+</blockquote>
+<h3 id="过拟合"><a href="#过拟合" class="headerlink" title="过拟合"></a>过拟合</h3><ul>
+<li>模型参数多</li>
+<li>训练数据少</li>
+</ul>
+<h3 id="权值衰减"><a href="#权值衰减" class="headerlink" title="权值衰减"></a>权值衰减</h3><p>在计算损失函数时，针对权重W，在损失函数增加一惩罚值 1&#x2F;2 k W^2，权重过大时，抑制损失函数减小，反向传播会抑制权重过大。</p>
+<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><ol>
+<li>设置删除率</li>
+<li>生成随机的mask，选择删除位置</li>
+<li>随机删除神经元：前向传播</li>
+</ol>
+<p>Dropout会导致网络训练速度下降，但能抑制复杂网络的过拟合。</p>
+<h2 id="超参数验证"><a href="#超参数验证" class="headerlink" title="超参数验证"></a>超参数验证</h2><blockquote>
+<p>神经元数量 batch输入量 学习率 权值衰减</p>
+</blockquote>
+<h3 id="验证数据"><a href="#验证数据" class="headerlink" title="验证数据"></a>验证数据</h3><blockquote>
+<p>专门用来确认超参数的数据<br>训练数据、验证数据、测试数据<br>可以事先从训练数据割下部分作为验证数据</p>
+</blockquote>
+<h3 id="超参数最优化"><a href="#超参数最优化" class="headerlink" title="超参数最优化"></a>超参数最优化</h3><blockquote>
+<p>先大致指定一个范围，在范围中随机选择一个超参数进行评估，逐步缩小好值的范围</p>
+</blockquote>
+<p>可以考虑采用贝叶斯最优化的方法</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://ZuowangDev.github.io">Zuowang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zuowangdev.github.io/2024/11/12/Note/DeepLearning/LearningSkill/">https://zuowangdev.github.io/2024/11/12/Note/DeepLearning/LearningSkill/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://ZuowangDev.github.io" target="_blank">ZuowangDev's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/avatar.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/11/19/Note/DeepLearning/CNN/" title="CNN"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">CNN</div></div><div class="info-2"><div class="info-item-1">卷积神经网络全连接层的问题：数据的一些形状信息被忽略了 卷积层 卷积层的输入输出信息称为特征图。  卷积运算 相当于图像处理中的滤波器运算  权重 + 偏置 进行边缘填充：在输入数据边缘填充0，进而改变输入数据的大小 步幅：滤波器窗口的移动间隔 假设输入大小为(H, W)，滤波器大小为(FH, FW)，输出大小为(OH, OW)，填充为P，步幅为S，有：OH &#x3D; (H + 2P - FH) &#x2F; S + 1OW &#x3D; (H + 2P - FW) &#x2F; S + 1 三维数据的卷积运算 方块滤波器处理方块数据，生成平面数据  批处理在mini-batch中，将输入保存为4维 池化层 没有要学习的参数 输入输出通道数相同  当输入数据发生微小偏差时，池化层仍会返回相同结果，针对微小偏差具有鲁棒性 </div></div></div></a><a class="pagination-related" href="/2024/11/09/Note/DeepLearning/Overview/" title="Chapter_1_Overview"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Chapter_1_Overview</div></div><div class="info-2"><div class="info-item-1"> data model objective function algorithm   Garbage in, garbage out   监督学习擅长给定输入特征的情况下预测标签回归问题：预测数值分类：预测类别标记：多标签分类搜索：返回数据集推荐系统、序列学习  无监督学习聚类：没有标签的情况下进行分类主成分分析：根据少量的参数确定数据的线性关系因果关系和概率图模型：数据之间的因果关系生成对抗网络：合成数据   强化学习：任何监督学习都可以转化为强化学习 </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Zuowang</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">58</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">20</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ZuowangDev"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ZuowangDev" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/tianyixv@icloud.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">ZuowangDev's Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5"><span class="toc-number">1.</span> <span class="toc-text">参数更新策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SGD"><span class="toc-number">1.1.</span> <span class="toc-text">SGD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Momentum"><span class="toc-number">1.2.</span> <span class="toc-text">Momentum</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AdaGrad"><span class="toc-number">1.3.</span> <span class="toc-text">AdaGrad</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Adam"><span class="toc-number">1.4.</span> <span class="toc-text">Adam</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%83%E9%87%8D%E5%88%9D%E5%A7%8B%E5%80%BC"><span class="toc-number">2.</span> <span class="toc-text">权重初始值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0%E5%80%BC%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">0值？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E5%B1%82%E7%9A%84%E6%BF%80%E6%B4%BB%E5%80%BC%E5%88%86%E5%B8%83"><span class="toc-number">2.2.</span> <span class="toc-text">隐藏层的激活值分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RELU%E7%9A%84%E6%9D%83%E9%87%8D%E5%88%9D%E5%A7%8B%E5%80%BC"><span class="toc-number">2.3.</span> <span class="toc-text">RELU的权重初始值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Batch-Normalization"><span class="toc-number">3.</span> <span class="toc-text">Batch Normalization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Batch-Normalizaion"><span class="toc-number">3.1.</span> <span class="toc-text">Batch Normalizaion</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E5%8C%96"><span class="toc-number">4.</span> <span class="toc-text">正则化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88"><span class="toc-number">4.1.</span> <span class="toc-text">过拟合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%83%E5%80%BC%E8%A1%B0%E5%87%8F"><span class="toc-number">4.2.</span> <span class="toc-text">权值衰减</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dropout"><span class="toc-number">4.3.</span> <span class="toc-text">Dropout</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E5%8F%82%E6%95%B0%E9%AA%8C%E8%AF%81"><span class="toc-number">5.</span> <span class="toc-text">超参数验证</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E6%95%B0%E6%8D%AE"><span class="toc-number">5.1.</span> <span class="toc-text">验证数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%85%E5%8F%82%E6%95%B0%E6%9C%80%E4%BC%98%E5%8C%96"><span class="toc-number">5.2.</span> <span class="toc-text">超参数最优化</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/19/Note/PythonTool/Pandas/Pandas_2/" title="Pandas 2">Pandas 2</a><time datetime="2025-02-18T16:00:00.000Z" title="发表于 2025-02-19 00:00:00">2025-02-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/18/Note/PythonTool/Pandas/Pandas_1/" title="Pandas 1">Pandas 1</a><time datetime="2025-02-17T16:00:00.000Z" title="发表于 2025-02-18 00:00:00">2025-02-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/17/Note/DeepLearning/SC/" title="Silhouette Coefficient">Silhouette Coefficient</a><time datetime="2025-02-16T16:00:00.000Z" title="发表于 2025-02-17 00:00:00">2025-02-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/17/Note/ReinforcementLearning/Basic/" title="Basic">Basic</a><time datetime="2025-02-16T16:00:00.000Z" title="发表于 2025-02-17 00:00:00">2025-02-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/23/Note/ReinforcementLearning/RL/" title="RL ?">RL ?</a><time datetime="2025-01-22T16:00:00.000Z" title="发表于 2025-01-23 00:00:00">2025-01-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2025 By Zuowang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script src="/js/universe.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

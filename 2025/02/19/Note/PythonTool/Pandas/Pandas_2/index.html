@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Pandas 2 | ZuowangDev's Blog</title><meta name="author" content="ZuowangDev"><meta name="copyright" content="ZuowangDev"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基本操作 操作Series和DataFrame的基本手段  重新索引 reindex(list): 根据索引list进行重排.  1234obj &#x3D; pd.Series([4.5, 7.2, -5.3, 3.6], index&#x3D;[&#x27;d&#x27;, &#x27;b&#x27;, &#x27;a&#x27;, &#x27;c&#x27;])obj0 &#x3D; obj.reindex([&amp;#x27">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pandas 2">
+<meta property="og:url" content="https://zuowangdev.github.io/2025/02/19/Note/PythonTool/Pandas/Pandas_2/index.html">
+<meta property="og:site_name" content="ZuowangDev&#39;s Blog">
+<meta property="og:description" content="基本操作 操作Series和DataFrame的基本手段  重新索引 reindex(list): 根据索引list进行重排.  1234obj &#x3D; pd.Series([4.5, 7.2, -5.3, 3.6], index&#x3D;[&#x27;d&#x27;, &#x27;b&#x27;, &#x27;a&#x27;, &#x27;c&#x27;])obj0 &#x3D; obj.reindex([&amp;#x27">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zuowangdev.github.io/img/avatar.png">
+<meta property="article:published_time" content="2025-02-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-02-21T05:01:38.203Z">
+<meta property="article:author" content="ZuowangDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zuowangdev.github.io/img/avatar.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Pandas 2",
+  "url": "https://zuowangdev.github.io/2025/02/19/Note/PythonTool/Pandas/Pandas_2/",
+  "image": "https://zuowangdev.github.io/img/avatar.png",
+  "datePublished": "2025-02-18T16:00:00.000Z",
+  "dateModified": "2025-02-21T05:01:38.203Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "ZuowangDev",
+      "url": "https://zuowangdev.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zuowangdev.github.io/2025/02/19/Note/PythonTool/Pandas/Pandas_2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Pandas 2',
+  isHighlightShrink: true,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(./img/background);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">21</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ZuowangDev's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Pandas 2</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Pandas 2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-02-18T16:00:00.000Z" title="发表于 2025-02-19 00:00:00">2025-02-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-21T05:01:38.203Z" title="更新于 2025-02-21 13:01:38">2025-02-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python-Tools/">Python Tools</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><blockquote>
+<p><strong>操作Series和DataFrame的基本手段</strong></p>
+</blockquote>
+<h2 id="重新索引"><a href="#重新索引" class="headerlink" title="重新索引"></a>重新索引</h2><ul>
+<li>reindex(<em>list</em>): 根据索引<em>list</em>进行重排.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">obj = pd.Series([<span class="number">4.5</span>, <span class="number">7.2</span>, -<span class="number">5.3</span>, <span class="number">3.6</span>], index=[<span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;c&#x27;</span>])</span><br><span class="line">obj0 = obj.reindex([<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;e&#x27;</span>])</span><br><span class="line"></span><br><span class="line">frame = pd.DataFrame(np.arrange(<span class="number">9</span>).reshape((<span class="number">3</span>, <span class="number">3</span>)), index=[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>], columns=[<span class="string">&#x27;Ohio&#x27;</span>, <span class="string">&#x27;Texas&#x27;</span>, <span class="string">&#x27;California&#x27;</span>])</span><br></pre></td></tr></table></figure>
+<p><img src="/./pic/Pandas2-1.png"></p>
+<ul>
+<li><p>drop: 删除指定索引的值, 默认axis&#x3D;0(删除行), 指定asix&#x3D;1删除特定列.</p>
+</li>
+<li><p>索引: 大致与numpy相同</p>
+</li>
+</ul>
+<ol>
+<li>data[data[‘three’] &gt; 5]</li>
+<li>loc, iloc: 使用列表进行行索引、列索引, loc使用字段, iloc使用数字.</li>
+</ol>
+<p>Python列表、iloc索引不包括尾location, loc索引包括尾location</p>
+<h3 id="算数运算"><a href="#算数运算" class="headerlink" title="算数运算"></a>算数运算</h3><ul>
+<li>Series: 运算对象对应索引都存在的进行运算, 否则设为NaN(default).</li>
+<li>DataFrame: 同时对行和列执行Series的Logic.</li>
+</ul>
+<blockquote>
+<p>算数中填充值: </p>
+</blockquote>
+<ol>
+<li>dataFrame1.add(dataFrame2, fill_value&#x3D;0): NaN填充0</li>
+<li>pandas中的无穷大: inf</li>
+</ol>
+<p><img src="/./pic/Pandas2-2.png"></p>
+<h4 id="DataFrame与Series之间的运算"><a href="#DataFrame与Series之间的运算" class="headerlink" title="DataFrame与Series之间的运算"></a>DataFrame与Series之间的运算</h4><blockquote>
+<p>广播机制: 使用Series的index匹配DataFrame的列(default, 与drop默认是行不同), 如果要匹配到行, 则需要指定asix&#x3D;’index’ </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: <span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: df = pd.DataFrame(np.arange(<span class="number">9.</span>).reshape(<span class="number">3</span>, <span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">4</span>]: se = df.loc[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">In [<span class="number">5</span>]: df</span><br><span class="line">Out[<span class="number">5</span>]:</span><br><span class="line">     <span class="number">0</span>    <span class="number">1</span>    <span class="number">2</span></span><br><span class="line"><span class="number">0</span>  <span class="number">0.0</span>  <span class="number">1.0</span>  <span class="number">2.0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">3.0</span>  <span class="number">4.0</span>  <span class="number">5.0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">6.0</span>  <span class="number">7.0</span>  <span class="number">8.0</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">6</span>]: se</span><br><span class="line">Out[<span class="number">6</span>]:</span><br><span class="line"><span class="number">0</span>    <span class="number">0.0</span></span><br><span class="line"><span class="number">1</span>    <span class="number">1.0</span></span><br><span class="line"><span class="number">2</span>    <span class="number">2.0</span></span><br><span class="line">Name: <span class="number">0</span>, dtype: float64</span><br><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: df - se</span><br><span class="line">Out[<span class="number">7</span>]:</span><br><span class="line">     <span class="number">0</span>    <span class="number">1</span>    <span class="number">2</span></span><br><span class="line"><span class="number">0</span>  <span class="number">0.0</span>  <span class="number">0.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">3.0</span>  <span class="number">3.0</span>  <span class="number">3.0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">6.0</span>  <span class="number">6.0</span>  <span class="number">6.0</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">8</span>]: df.sub(se, axis=<span class="string">&#x27;index&#x27;</span>)</span><br><span class="line">Out[<span class="number">8</span>]: </span><br><span class="line">     <span class="number">0</span>    <span class="number">1</span>    <span class="number">2</span></span><br><span class="line"><span class="number">0</span>  <span class="number">0.0</span>  <span class="number">1.0</span>  <span class="number">2.0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">2.0</span>  <span class="number">3.0</span>  <span class="number">4.0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">4.0</span>  <span class="number">5.0</span>  <span class="number">6.0</span></span><br></pre></td></tr></table></figure>
+
+<p>如果某个索引值在DataFrame的列或Series的索引中找不到，则参与运算的两个对象就会被重新索引以形成并集</p>
+<h2 id="函数及应用"><a href="#函数及应用" class="headerlink" title="函数及应用"></a>函数及应用</h2><blockquote>
+<p>NumPy的元素级数组方法也可用于操作pandas对象</p>
+</blockquote>
+<p><strong>自定义函数的应用, 使用<em>apply</em>, 默认用在行上</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="keyword">lambda</span> x: x.<span class="built_in">max</span>() - x.<span class="built_in">min</span>()</span><br><span class="line">frame.apply(f)</span><br><span class="line">frame.apply(f, axis=columns<span class="string">&#x27;)</span></span><br></pre></td></tr></table></figure>
+<p>元素级的函数也可以使用, 使用<em>map</em>方法</p>
+<h2 id="排序和排名"><a href="#排序和排名" class="headerlink" title="排序和排名"></a>排序和排名</h2><p>sort_index, sort_values, 可选axis, ascending</p>
+<p>针对DataFrame, 可以使用某种数据为标准进行排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: frame = pd.DataFrame(&#123;<span class="string">&#x27;b&#x27;</span>: [<span class="number">4</span>, <span class="number">7</span>, -<span class="number">3</span>, <span class="number">2</span>], <span class="string">&#x27;a&#x27;</span>: [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>]&#125;)</span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: frame</span><br><span class="line">Out[<span class="number">3</span>]:</span><br><span class="line">   b  a</span><br><span class="line"><span class="number">0</span>  <span class="number">4</span>  <span class="number">0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">7</span>  <span class="number">1</span></span><br><span class="line"><span class="number">2</span> -<span class="number">3</span>  <span class="number">0</span></span><br><span class="line"><span class="number">3</span>  <span class="number">2</span>  <span class="number">1</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">4</span>]: frame.sort_values(by=<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">Out[<span class="number">4</span>]:</span><br><span class="line">   b  a</span><br><span class="line"><span class="number">2</span> -<span class="number">3</span>  <span class="number">0</span></span><br><span class="line"><span class="number">3</span>  <span class="number">2</span>  <span class="number">1</span></span><br><span class="line"><span class="number">0</span>  <span class="number">4</span>  <span class="number">0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">7</span>  <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>rank: 默认从小到大排序, 默认使用average的逻辑</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">8</span>]: sea</span><br><span class="line">Out[<span class="number">8</span>]: <span class="comment"># order</span></span><br><span class="line"><span class="number">0</span>    <span class="number">0</span>  <span class="comment"># 1</span></span><br><span class="line"><span class="number">1</span>    <span class="number">1</span>  <span class="comment"># 3</span></span><br><span class="line"><span class="number">2</span>    <span class="number">0</span>  <span class="comment"># 2</span></span><br><span class="line"><span class="number">3</span>    <span class="number">1</span>  <span class="comment"># 4</span></span><br><span class="line">Name: a, dtype: int64</span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: sea.rank()</span><br><span class="line">Out[<span class="number">9</span>]:</span><br><span class="line"><span class="number">0</span>    <span class="number">1.5</span></span><br><span class="line"><span class="number">1</span>    <span class="number">3.5</span></span><br><span class="line"><span class="number">2</span>    <span class="number">1.5</span></span><br><span class="line"><span class="number">3</span>    <span class="number">3.5</span></span><br><span class="line">Name: a, dtype: float64</span><br></pre></td></tr></table></figure>
+
+<p>DataFrame可以指定rank的轴, 默认为行, axis&#x3D;1: 列</p>
+<p><img src="/./pic/Pandas2-3.png" alt="rank参量method的可选值"></p>
+<blockquote>
+<p>is_unique属性表示值是否唯一: obj.index.is_unique</p>
+</blockquote>
+<h2 id="汇总与计算描述统计"><a href="#汇总与计算描述统计" class="headerlink" title="汇总与计算描述统计"></a>汇总与计算描述统计</h2><blockquote>
+<p>有的用于从Series中提取单个值, 有的用来从DataFrame中提取Series.</p>
+</blockquote>
+<p><img src="/./pic/Pandas2-4.png" alt="汇总和统计函数"></p>
+<blockquote>
+<p>相关系数与协方差函数包: pandas-datareader<br>unique: set(value), value_counts: 出现频率, isin:(list): 判断是否在列表中</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://ZuowangDev.github.io">ZuowangDev</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zuowangdev.github.io/2025/02/19/Note/PythonTool/Pandas/Pandas_2/">https://zuowangdev.github.io/2025/02/19/Note/PythonTool/Pandas/Pandas_2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://ZuowangDev.github.io" target="_blank">ZuowangDev's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/avatar.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/02/19/Note/EDADesign/week1/" title="Introduction"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Introduction</div></div><div class="info-2"><div class="info-item-1"> Moore’s Law IC  metal pitch &amp; fin pitch CD &#x3D; k1 * lembda &#x2F; NA NA &#x3D; n * sin(alpha) Compiler: C&#x2F;C++ -&gt; Assembly .exeHardware Compiler: C, System C, Verilog -&gt; Circuit Chisel  </div></div></div></a><a class="pagination-related" href="/2025/02/23/Note/PythonTool/Pytorch/Pytorch_1/" title="Tensor"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Tensor</div></div><div class="info-2"><div class="info-item-1">Tensor Initialization Directly from data  12data = [[1, 2], [3, 4]]x_data = torch.tensor(data)   From a NumPy array  12np_array = np.array(data)x_np = torch.from_numpy(np_array)   From other tensor   ones_like rand_like   With random or constant valuestorch.rand torch.ones torch.zeros  Tensor Attributes tensor.shape tensor.dtype torch.float16&#x2F;32&#x2F;64 torch.int&#x2F;uint8 torch.int16&#x2F;32&#x2F;64 torch.bool torch.complex   tensor.device  Tensor Operations Select device  12if...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZuowangDev</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">21</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ZuowangDev" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:tianyixv@icloud.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E7%B4%A2%E5%BC%95"><span class="toc-number">1.1.</span> <span class="toc-text">重新索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97"><span class="toc-number">1.1.1.</span> <span class="toc-text">算数运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DataFrame%E4%B8%8ESeries%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">DataFrame与Series之间的运算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%8A%E5%BA%94%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">函数及应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E5%92%8C%E6%8E%92%E5%90%8D"><span class="toc-number">1.3.</span> <span class="toc-text">排序和排名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E6%80%BB%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1"><span class="toc-number">1.4.</span> <span class="toc-text">汇总与计算描述统计</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/05/Note/EDADesign/week3/" title="SAT">SAT</a><time datetime="2025-03-05T00:00:00.000Z" title="发表于 2025-03-05 08:00:00">2025-03-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/02/Note/SICP/Procedures/" title="Building Abstractions with Procedures">Building Abstractions with Procedures</a><time datetime="2025-03-01T16:00:00.000Z" title="发表于 2025-03-02 00:00:00">2025-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/26/Note/EDADesign/week2/" title="Bool Algebra">Bool Algebra</a><time datetime="2025-02-25T16:00:00.000Z" title="发表于 2025-02-26 00:00:00">2025-02-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/23/Note/PythonTool/Pytorch/Pytorch_1/" title="Tensor">Tensor</a><time datetime="2025-02-22T16:00:00.000Z" title="发表于 2025-02-23 00:00:00">2025-02-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/23/Note/PythonTool/Pytorch/Pytorch_2/" title="Autograd &amp; Use Tensor">Autograd &amp; Use Tensor</a><time datetime="2025-02-22T16:00:00.000Z" title="发表于 2025-02-23 00:00:00">2025-02-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By ZuowangDev</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.4</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

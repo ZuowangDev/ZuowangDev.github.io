@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Chapter 11: Associative Container | ZuowangDev's Blog</title><meta name="author" content="ZuowangDev"><meta name="copyright" content="ZuowangDev"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Associative Container 按照关键字来保存和访问。map 和 set。   map: 键值对 set: 集合，高效查询操作  标准库提供8个关联容器：1. set或map; 2. 要求不重复的关键字，或者允许重复; 3. 按顺序保存元素或无序保存 1[unordered_][multi][map|set]  使用关联容器multi_map 12345678910111213141">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chapter 11: Associative Container">
+<meta property="og:url" content="https://zuowangdev.github.io/2025/10/21/C++/C++Primer/AssociativeContainer/index.html">
+<meta property="og:site_name" content="ZuowangDev&#39;s Blog">
+<meta property="og:description" content="Associative Container 按照关键字来保存和访问。map 和 set。   map: 键值对 set: 集合，高效查询操作  标准库提供8个关联容器：1. set或map; 2. 要求不重复的关键字，或者允许重复; 3. 按顺序保存元素或无序保存 1[unordered_][multi][map|set]  使用关联容器multi_map 12345678910111213141">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ZuowangDev/BlogPicture/img/avatar.png">
+<meta property="article:published_time" content="2025-10-21T02:35:20.336Z">
+<meta property="article:modified_time" content="2025-10-21T02:35:20.336Z">
+<meta property="article:author" content="ZuowangDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ZuowangDev/BlogPicture/img/avatar.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Chapter 11: Associative Container",
+  "url": "https://zuowangdev.github.io/2025/10/21/C++/C++Primer/AssociativeContainer/",
+  "image": "https://cdn.jsdelivr.net/gh/ZuowangDev/BlogPicture/img/avatar.png",
+  "datePublished": "2025-10-21T02:35:20.336Z",
+  "dateModified": "2025-10-21T02:35:20.336Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "ZuowangDev",
+      "url": "https://zuowangdev.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zuowangdev.github.io/2025/10/21/C++/C++Primer/AssociativeContainer/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Chapter 11: Associative Container',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/font.css"><meta name="generator" content="Hexo 8.0.0"></head><body><div id="web_bg" style="background-image: url(https://cdn.jsdelivr.net/gh/ZuowangDev/BlogPicture/img/background.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://cdn.jsdelivr.net/gh/ZuowangDev/BlogPicture/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: transparent;"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ZuowangDev's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Chapter 11: Associative Container</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Chapter 11: Associative Container</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-21T02:35:20.336Z" title="发表于 2025-10-21 02:35:20">2025-10-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-10-21T02:35:20.336Z" title="更新于 2025-10-21 02:35:20">2025-10-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C-Primer/">C++ Primer</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Associative-Container"><a href="#Associative-Container" class="headerlink" title="Associative Container"></a>Associative Container</h1><blockquote>
+<p>按照关键字来保存和访问。map 和 set。</p>
+</blockquote>
+<ul>
+<li>map: 键值对</li>
+<li>set: 集合，高效查询操作</li>
+</ul>
+<p><strong>标准库提供8个关联容器</strong>：1. set或map; 2. 要求不重复的关键字，或者允许重复; 3. 按顺序保存元素或无序保存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[unordered_][multi][map|set]</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用关联容器"><a href="#使用关联容器" class="headerlink" title="使用关联容器"></a>使用关联容器</h2><p>multi_map</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 创建一个multimap，键为int类型，值为string类型</span></span><br><span class="line">    std::multimap&lt;<span class="type">int</span>, std::string&gt; mm;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 插入元素</span></span><br><span class="line">    mm.<span class="built_in">insert</span>(&#123;<span class="number">1</span>, <span class="string">&quot;apple&quot;</span>&#125;);</span><br><span class="line">    mm.<span class="built_in">insert</span>(&#123;<span class="number">2</span>, <span class="string">&quot;banana&quot;</span>&#125;);</span><br><span class="line">    mm.<span class="built_in">insert</span>(&#123;<span class="number">1</span>, <span class="string">&quot;apricot&quot;</span>&#125;);  <span class="comment">// 插入重复键</span></span><br><span class="line">    mm.<span class="built_in">insert</span>(&#123;<span class="number">3</span>, <span class="string">&quot;cherry&quot;</span>&#125;);</span><br><span class="line">    mm.<span class="built_in">insert</span>(&#123;<span class="number">2</span>, <span class="string">&quot;blueberry&quot;</span>&#125;); <span class="comment">// 插入重复键</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 遍历multimap</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;所有元素：&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span>&amp; pair : mm) &#123;</span><br><span class="line">        std::cout &lt;&lt; pair.first &lt;&lt; <span class="string">&quot;: &quot;</span> &lt;&lt; pair.second &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查找特定键的所有值</span></span><br><span class="line">    <span class="type">int</span> key = <span class="number">2</span>;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;\n键为 &quot;</span> &lt;&lt; key &lt;&lt; <span class="string">&quot; 的所有值：&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 使用equal_range查找特定键的范围</span></span><br><span class="line">    <span class="keyword">auto</span> range = mm.<span class="built_in">equal_range</span>(key);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> it = range.first; it != range.second; ++it) &#123;</span><br><span class="line">        std::cout &lt;&lt; it-&gt;second &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 计算特定键的出现次数</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;\n键为 &quot;</span> &lt;&lt; key &lt;&lt; <span class="string">&quot; 的元素数量：&quot;</span> </span><br><span class="line">              &lt;&lt; mm.<span class="built_in">count</span>(key) &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 删除特定键的所有元素</span></span><br><span class="line">    mm.<span class="built_in">erase</span>(key);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;\n删除键 &quot;</span> &lt;&lt; key &lt;&lt; <span class="string">&quot; 后剩余元素：&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span>&amp; pair : mm) &#123;</span><br><span class="line">        std::cout &lt;&lt; pair.first &lt;&lt; <span class="string">&quot;: &quot;</span> &lt;&lt; pair.second &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>pair&lt;T1, T2&gt; <em>name</em> &#x3D; {v1, v2}</p>
+<p>map &#x2F; multimap的key的数据类型：</p>
+<ol>
+<li>基本数据类型</li>
+<li>自定义类型：必须定义比较规则 &lt;, 自定义比较器（结构体）</li>
+</ol>
+<h2 id="关联容器操作"><a href="#关联容器操作" class="headerlink" title="关联容器操作"></a>关联容器操作</h2><ul>
+<li>key_type: 关键字类型</li>
+<li>mapped_type: 每个关键字关联的类型，只适用map</li>
+<li>value_type: for set, &#x3D;&#x3D; key_type; for map, pair&lt;const key_type, mapped_type&gt;</li>
+</ul>
+<p><strong>迭代器</strong>：解引用得到value_type；set的迭代器为const</p>
+<p>实际中，对一个关联容器使用算法，要么作为一个源序列，要么作为一个目的位置。</p>
+<h3 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h3><p>insert, emplace(args): 插入一个存在的元素无影响, 返回pair，包含迭代器指向关键字的元素，以及一个指示是否插入成功的bool。对于multiset, multimap，总会插入成功，返回迭代器。</p>
+<h3 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h3><p>erase(k): 删除关键字为k的元素</p>
+<p>erase(p): 删除迭代器p指定的元素，p必须指向c中一个真实元素，不能等于c.end()。</p>
+<p>erase(b, e): 删除迭代器对b和e所表示的范围中的元素，返回e</p>
+<h3 id="下标操作"><a href="#下标操作" class="headerlink" title="下标操作"></a>下标操作</h3><blockquote>
+<p>map和unordered_map容器提供了下标运算符和一个对应的at函数</p>
+</blockquote>
+<h3 id="访问元素"><a href="#访问元素" class="headerlink" title="访问元素"></a>访问元素</h3><blockquote>
+<p>find or count<br>对map使用find代替下标操作。如果下标运算符不在map中，会插入一个具有给定关键字的元素。</p>
+</blockquote>
+<h2 id="无序容器"><a href="#无序容器" class="headerlink" title="无序容器"></a>无序容器</h2><blockquote>
+<p>新标准定义了四个无序关联容器，不使用比较运算符组织元素，使用一个哈希函数和关键字类型的&#x3D;&#x3D;运算符。</p>
+</blockquote>
+<p>默认情况下，无序容器使用关键字类型的&#x3D;&#x3D;运算符来比较元素，还使用hash<key_type>类型的对象来生成每个元素的哈希值。内置类型，string和智能指针具有hash模版。自定义类需要定义hash函数和&#x3D;&#x3D;运算符的函数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unordered_set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;functional&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义类：表示学生信息</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::string name;  <span class="comment">// 姓名</span></span><br><span class="line">    <span class="type">int</span> id;            <span class="comment">// 学号（唯一标识）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="built_in">Student</span>(std::string n, <span class="type">int</span> i) : <span class="built_in">name</span>(n), <span class="built_in">id</span>(i) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取成员变量的方法</span></span><br><span class="line">    <span class="comment">// const表示函数不会修改类的任何成员变量，也不能调用非const的成员函数。</span></span><br><span class="line">    <span class="function">std::string <span class="title">get_name</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> name; &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">get_id</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> id; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 重载==运算符：用于判断两个Student对象是否相等</span></span><br><span class="line">    <span class="comment">// 这里规定：学号相同则认为两个学生是同一个人</span></span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span>==(<span class="type">const</span> Student&amp; other) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>-&gt;id == other.id;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 为Student类定义哈希函数</span></span><br><span class="line"><span class="comment">// 需要在std命名空间中特化hash模板</span></span><br><span class="line"><span class="keyword">namespace</span> std &#123;</span><br><span class="line">    <span class="keyword">template</span>&lt;&gt; <span class="keyword">struct</span> <span class="title class_">hash</span>&lt;Student&gt; &#123;</span><br><span class="line">        <span class="comment">// 哈希函数 operator()：计算Student对象的哈希值</span></span><br><span class="line">        <span class="function"><span class="type">size_t</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> Student&amp; s)</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 结合学号和姓名的哈希值（这里主要以学号为主）</span></span><br><span class="line">            <span class="type">size_t</span> id_hash = <span class="built_in">hash</span>&lt;<span class="type">int</span>&gt;()(s.<span class="built_in">get_id</span>());</span><br><span class="line">            <span class="type">size_t</span> name_hash = <span class="built_in">hash</span>&lt;string&gt;()(s.<span class="built_in">get_name</span>());</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 混合两个哈希值（简单的异或操作）</span></span><br><span class="line">            <span class="keyword">return</span> id_hash ^ (name_hash &lt;&lt; <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 使用unordered_set存储Student对象</span></span><br><span class="line">    std::unordered_set&lt;Student&gt; students;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 添加学生对象</span></span><br><span class="line">    students.<span class="built_in">insert</span>(<span class="built_in">Student</span>(<span class="string">&quot;Alice&quot;</span>, <span class="number">1001</span>));</span><br><span class="line">    students.<span class="built_in">insert</span>(<span class="built_in">Student</span>(<span class="string">&quot;Bob&quot;</span>, <span class="number">1002</span>));</span><br><span class="line">    students.<span class="built_in">insert</span>(<span class="built_in">Student</span>(<span class="string">&quot;Charlie&quot;</span>, <span class="number">1003</span>));</span><br><span class="line">    students.<span class="built_in">insert</span>(<span class="built_in">Student</span>(<span class="string">&quot;Alice&quot;</span>, <span class="number">1001</span>));  <span class="comment">// 学号相同，视为同一个对象，不会被重复插入</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 遍历输出所有学生</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;所有学生：&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span>&amp; s : students) &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;学号：&quot;</span> &lt;&lt; s.<span class="built_in">get_id</span>() &lt;&lt; <span class="string">&quot;，姓名：&quot;</span> &lt;&lt; s.<span class="built_in">get_name</span>() &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查找学生</span></span><br><span class="line">    <span class="function">Student <span class="title">target</span><span class="params">(<span class="string">&quot;David&quot;</span>, <span class="number">1002</span>)</span></span>;  <span class="comment">// 姓名不同但学号相同，会被认为是同一个人</span></span><br><span class="line">    <span class="keyword">auto</span> it = students.<span class="built_in">find</span>(target);</span><br><span class="line">    <span class="keyword">if</span> (it != students.<span class="built_in">end</span>()) &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;\n找到学生：学号=&quot;</span> &lt;&lt; it-&gt;<span class="built_in">get_id</span>() &lt;&lt; <span class="string">&quot;，姓名=&quot;</span> &lt;&lt; it-&gt;<span class="built_in">get_name</span>() &lt;&lt; std::endl;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;\n未找到学生&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://zuowangdev.github.io">ZuowangDev</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zuowangdev.github.io/2025/10/21/C++/C++Primer/AssociativeContainer/">https://zuowangdev.github.io/2025/10/21/C++/C++Primer/AssociativeContainer/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://zuowangdev.github.io" target="_blank">ZuowangDev's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/ZuowangDev/BlogPicture/img/avatar.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related  no-desc" href="/2025/10/21/C++/C++Primer/DynamicMemory/" title="Chapter 12: Dynamic Memory"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Chapter 12: Dynamic Memory</div></div></div></a><a class="pagination-related" href="/2025/10/21/C++/TheAlgorithms/data_tructures/" title="Data Structures"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Data Structures</div></div><div class="info-2"><div class="info-item-1">linked_list.cpp The linked list is a data structure used for holding a sequence of values, which can be added, removed and displayed.   namespace: 定义命名空间，防止变量混淆。 std::shared_ptr name; shared_ptr: 共享指针，支持多个指针指向同一个元素，当元素没有指针指向，则自动释放内存，核心是指针计数器。 explicit: 修饰单参数构造函数，防止隐式类型转换，不能使用”&#x3D;”进行构造。 std::make_shared(); make_shared: 性能更佳的返回shared_ptr。无法使用私有的构造函数，如果是私有的，必须手动使用new；不支持自定义删除器。 shared_ptr.reset(): 将指针重置为空状态，减小该指针所管理对象的引用计数，当引用计数变为0，释放所管理的内存对象。  node.hpp</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/ZuowangDev/BlogPicture/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZuowangDev</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ZuowangDev" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/tianyixv@icloud.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Associative-Container"><span class="toc-number">1.</span> <span class="toc-text">Associative Container</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8"><span class="toc-number">1.1.</span> <span class="toc-text">使用关联容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">关联容器操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0"><span class="toc-number">1.2.1.</span> <span class="toc-text">添加元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="toc-number">1.2.2.</span> <span class="toc-text">删除元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E6%A0%87%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.3.</span> <span class="toc-text">下标操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0"><span class="toc-number">1.2.4.</span> <span class="toc-text">访问元素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%BA%8F%E5%AE%B9%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">无序容器</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/10/21/C++/C++Primer/AssociativeContainer/" title="Chapter 11: Associative Container">Chapter 11: Associative Container</a><time datetime="2025-10-21T02:35:20.336Z" title="发表于 2025-10-21 02:35:20">2025-10-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/10/21/C++/C++Primer/DynamicMemory/" title="Chapter 12: Dynamic Memory">Chapter 12: Dynamic Memory</a><time datetime="2025-10-21T02:35:20.336Z" title="发表于 2025-10-21 02:35:20">2025-10-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/10/21/C++/C++Primer/Expression/" title="无标题">无标题</a><time datetime="2025-10-21T02:35:20.336Z" title="发表于 2025-10-21 02:35:20">2025-10-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/10/21/C++/C++Primer/Functions/" title="Chapter 6: Functions">Chapter 6: Functions</a><time datetime="2025-10-21T02:35:20.336Z" title="发表于 2025-10-21 02:35:20">2025-10-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/10/21/C++/C++Primer/GenericAlgorithm/" title="Chapter 10: Generic Algorithm">Chapter 10: Generic Algorithm</a><time datetime="2025-10-21T02:35:20.336Z" title="发表于 2025-10-21 02:35:20">2025-10-21</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By ZuowangDev</span></div><div class="footer_custom_text">Stay hungry & Stay foolish</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"></div></div></body></html>
